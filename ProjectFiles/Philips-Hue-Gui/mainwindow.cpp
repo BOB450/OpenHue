@@ -7,6 +7,11 @@
 using namespace std;
 using namespace hueplusplus;
 namespace hue = hueplusplus;
+using SystemHttpHandler = hueplusplus::LinHttpHandler;
+
+// Configure existing connections here, or leave empty for new connection
+const std::string macAddress = "";
+const std::string username = "";
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -15,19 +20,12 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
 
 
-
-    // Configure existing connections here, or leave empty for new connection
-    const std::string macAddress = "";
-    const std::string username = "";
-
-    // Connects to a bridge and returns it.
-
-
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
+
 }
 
 hue::Bridge connectToBridge()
@@ -56,7 +54,7 @@ hue::Bridge connectToBridge()
         finder.addUsername(macAddress, username);
     }
     auto it = std::find_if(
-        bridges.begin(), bridges.end(), [&](const auto& identification) { return identification.mac == macAddress; });
+        bridges.begin(), bridges.end(), [&](const auto & identification) { return identification.mac == macAddress; });
     if (it == bridges.end())
     {
         std::cout << "Given bridge not found\n";
