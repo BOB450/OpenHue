@@ -4,6 +4,9 @@
 #include <algorithm>
 #include <iostream>
 #include <include/hueplusplus/LinHttpHandler.h>
+#include <include/hueplusplus/Light.h>
+#include <include/hueplusplus/BaseDevice.h>
+#include <thread>
 using namespace std;
 using namespace hueplusplus;
 namespace hue = hueplusplus;
@@ -21,10 +24,52 @@ MainWindow::MainWindow(QWidget *parent)
 
 
 }
+hue::Bridge connectToBridge();//decalre function so that it is defined
+
+void lightsOff(hue::Bridge& hue)
+{
+    std::vector<hue::Light> lights = hue.lights();
+
+    // Save current on state of the lights
+    std::map<int, bool> onMap;
+    for (hue::Light& l : lights)
+    {
+        onMap.emplace(l.getId(), l.isOn());
+        l.off();
+    }
+
+    // This would be preferrable, but does not work because it also resets the brightness of all lights
+    // Group 0 contains all lights, turn all off with a transition of 1 second
+    // hue.groups().get(0).setOn(false, 10);
+    // -------------------------------------
+
+    std::cout << "Turned off all lights\n";
+
+    std::this_thread::sleep_for(std::chrono::seconds(20));
+
+    // Restore the original state of the lights
+    for (hue::Light & l : lights)
+    {
+        if (onMap[l.getId()])
+        {
+            l.on();
+        }
+    }
+
+    std::cout << "Turned lights back on\n";
+}
 
 MainWindow::~MainWindow()
 {
     delete ui;
+    try
+    {
+        hue::Bridge hue = connectToBridge();
+
+        std::cout << "Connected to bridge. IP: " << hue.getBridgeIP() << ", username: " << hue.getUsername() << '\n';
+    }
+    catch (...)
+    { }
 
 }
 
