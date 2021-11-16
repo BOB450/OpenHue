@@ -11,8 +11,22 @@
 #include <vector>
 #include <algorithm>
 #include <iostream>
+#include <hueplusplus/BridgeConfig.h>
+
+#ifdef _MSC_VER
+#include <hueplusplus/WinHttpHandler.h>
+
+using SystemHttpHandler = hueplusplus::WinHttpHandler;
+
+#else
+#include <hueplusplus/LinHttpHandler.h>
+
 using SystemHttpHandler = hueplusplus::LinHttpHandler;
+
+#endif
+
 namespace hue = hueplusplus;
+using namespace std;
 // Configure existing connections here, or leave empty for new connection
 const std::string macAddress = "";
 const std::string username = "";
