@@ -3,6 +3,10 @@
 #include <QApplication>
 #include <hueplusplus/Bridge.h>
 #include <hueplusplus/LinHttpHandler.h>
+#include <hueplusplus/BaseDevice.h>
+#include <hueplusplus/IHttpHandler.h>
+#include <hueplusplus/BaseHttpHandler.h>
+#include <hueplusplus/LinHttpHandler.h>
 #include <string>
 #include <vector>
 #include <algorithm>
