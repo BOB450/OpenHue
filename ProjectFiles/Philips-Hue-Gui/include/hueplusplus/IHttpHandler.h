@@ -29,7 +29,7 @@
 #include <string>
 #include <vector>
 
-#include "json/json.hpp"
+#include <include/json/json.hpp>
 
 namespace hueplusplus
 {

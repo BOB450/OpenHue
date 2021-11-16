@@ -47,7 +47,7 @@
 #include "SensorList.h"
 #include "Utils.h"
 
-#include "json/json.hpp"
+#include <include/json/json.hpp>
 
 //! \brief Namespace for the hueplusplus library
 namespace hueplusplus

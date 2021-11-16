@@ -23,7 +23,7 @@
 #ifndef INCLUDE_HUEPLUSPLUS_UTILS_H
 #define INCLUDE_HUEPLUSPLUS_UTILS_H
 
-#include "json/json.hpp"
+#include <include/json/json.hpp>
 
 namespace hueplusplus
 {
