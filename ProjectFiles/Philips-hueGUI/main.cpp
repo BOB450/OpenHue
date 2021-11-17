@@ -12,26 +12,13 @@
 #include <algorithm>
 #include <iostream>
 #include <hueplusplus/BridgeConfig.h>
+#include <QPushButton>
+#include <QMessageBox>
 
-#ifdef _MSC_VER
-#include <hueplusplus/WinHttpHandler.h>
-
-using SystemHttpHandler = hueplusplus::WinHttpHandler;
-
-#else
-#include <hueplusplus/LinHttpHandler.h>
-
-using SystemHttpHandler = hueplusplus::LinHttpHandler;
-
-#endif
-
-namespace hue = hueplusplus;
 using namespace std;
-// Configure existing connections here, or leave empty for new connection
-const std::string macAddress = "";
-const std::string username = "";
 
 
+/*
 // Connects to a bridge and returns it.
 hue::Bridge connectToBridge()
 {
@@ -67,7 +54,7 @@ hue::Bridge connectToBridge()
     }
     return finder.getBridge(*it);
 }
-
+*/
 
 int main(int argc, char *argv[])
 {
@@ -76,15 +63,5 @@ int main(int argc, char *argv[])
     w.show();
     return a.exec();
 
-    try
-    {
-        hue::Bridge hue = connectToBridge();
 
-        std::cout << "Connected to bridge. IP: " << hue.getBridgeIP() << ", username: " << hue.getUsername() << '\n';
-    }
-    catch (...)
-    { }
-
-    std::cout << "Press enter to exit\n";
-    std::cin.get();
 }
