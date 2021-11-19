@@ -122,7 +122,7 @@ CMakeFiles/testlights.dir/testlights.cpp.o: ../testlights.cpp \
   /usr/include/asm-generic/errno.h \
   /usr/include/asm-generic/errno-base.h \
   /usr/include/bits/types/error_t.h \
-  /usr/local/include/hueplusplus/Bridge.h \
+  /home/rowan/hueplusplus/include/hueplusplus/Bridge.h \
   /usr/include/c++/11.1.0/map \
   /usr/include/c++/11.1.0/bits/stl_tree.h \
   /usr/include/c++/11.1.0/bits/allocator.h \
@@ -192,8 +192,8 @@ CMakeFiles/testlights.dir/testlights.cpp.o: ../testlights.cpp \
   /usr/include/c++/11.1.0/bits/stl_vector.h \
   /usr/include/c++/11.1.0/bits/stl_bvector.h \
   /usr/include/c++/11.1.0/bits/vector.tcc \
-  /usr/local/include/hueplusplus/APICache.h \
-  /usr/local/include/hueplusplus/HueCommandAPI.h \
+  /home/rowan/hueplusplus/include/hueplusplus/APICache.h \
+  /home/rowan/hueplusplus/include/hueplusplus/HueCommandAPI.h \
   /usr/include/c++/11.1.0/atomic \
   /usr/include/c++/11.1.0/mutex \
   /usr/include/c++/11.1.0/system_error \
@@ -201,8 +201,8 @@ CMakeFiles/testlights.dir/testlights.cpp.o: ../testlights.cpp \
   /usr/include/c++/11.1.0/stdexcept \
   /usr/include/c++/11.1.0/bits/std_mutex.h \
   /usr/include/c++/11.1.0/bits/unique_lock.h \
-  /usr/local/include/hueplusplus/HueException.h \
-  /usr/local/include/json/json.hpp \
+  /home/rowan/hueplusplus/include/hueplusplus/HueException.h \
+  /home/rowan/hueplusplus/include/json/json.hpp \
   /usr/include/c++/11.1.0/algorithm \
   /usr/include/c++/11.1.0/bits/stl_algo.h \
   /usr/include/c++/11.1.0/bits/algorithmfwd.h \
@@ -269,68 +269,62 @@ CMakeFiles/testlights.dir/testlights.cpp.o: ../testlights.cpp \
   /usr/include/c++/11.1.0/ostream \
   /usr/include/c++/11.1.0/bits/ostream.tcc \
   /usr/include/c++/11.1.0/bits/istream.tcc \
-  /usr/local/include/hueplusplus/IHttpHandler.h \
+  /home/rowan/hueplusplus/include/hueplusplus/IHttpHandler.h \
   /usr/include/c++/11.1.0/iostream \
-  /usr/local/include/hueplusplus/BridgeConfig.h \
-  /usr/local/include/hueplusplus/TimePattern.h \
-  /usr/local/include/hueplusplus/BrightnessStrategy.h \
-  /usr/local/include/hueplusplus/ColorHueStrategy.h \
-  /usr/local/include/hueplusplus/ColorUnits.h \
-  /usr/local/include/hueplusplus/ColorTemperatureStrategy.h \
-  /usr/local/include/hueplusplus/Group.h \
-  /usr/local/include/hueplusplus/Action.h \
-  /usr/local/include/hueplusplus/StateTransaction.h \
-  /usr/local/include/hueplusplus/HueDeviceTypes.h \
-  /usr/local/include/hueplusplus/Light.h \
-  /usr/local/include/hueplusplus/BaseDevice.h \
-  /usr/local/include/hueplusplus/ResourceList.h \
-  /usr/local/include/hueplusplus/NewDeviceList.h \
-  /usr/local/include/hueplusplus/Utils.h \
-  /usr/local/include/hueplusplus/Rule.h \
-  /usr/local/include/hueplusplus/Condition.h \
-  /usr/local/include/hueplusplus/Scene.h \
-  /usr/local/include/hueplusplus/Schedule.h \
-  /usr/local/include/hueplusplus/Sensor.h \
-  /usr/local/include/hueplusplus/SensorList.h \
-  /usr/local/include/hueplusplus/LinHttpHandler.h \
-  /usr/local/include/hueplusplus/BaseHttpHandler.h
+  /home/rowan/hueplusplus/include/hueplusplus/BridgeConfig.h \
+  /home/rowan/hueplusplus/include/hueplusplus/TimePattern.h \
+  /home/rowan/hueplusplus/include/hueplusplus/BrightnessStrategy.h \
+  /home/rowan/hueplusplus/include/hueplusplus/ColorHueStrategy.h \
+  /home/rowan/hueplusplus/include/hueplusplus/ColorUnits.h \
+  /home/rowan/hueplusplus/include/hueplusplus/ColorTemperatureStrategy.h \
+  /home/rowan/hueplusplus/include/hueplusplus/Group.h \
+  /home/rowan/hueplusplus/include/hueplusplus/Action.h \
+  /home/rowan/hueplusplus/include/hueplusplus/StateTransaction.h \
+  /home/rowan/hueplusplus/include/hueplusplus/HueDeviceTypes.h \
+  /home/rowan/hueplusplus/include/hueplusplus/Light.h \
+  /home/rowan/hueplusplus/include/hueplusplus/BaseDevice.h \
+  /home/rowan/hueplusplus/include/hueplusplus/ResourceList.h \
+  /home/rowan/hueplusplus/include/hueplusplus/NewDeviceList.h \
+  /home/rowan/hueplusplus/include/hueplusplus/Utils.h \
+  /home/rowan/hueplusplus/include/hueplusplus/Rule.h \
+  /home/rowan/hueplusplus/include/hueplusplus/Condition.h \
+  /home/rowan/hueplusplus/include/hueplusplus/Scene.h \
+  /home/rowan/hueplusplus/include/hueplusplus/Schedule.h \
+  /home/rowan/hueplusplus/include/hueplusplus/Sensor.h \
+  /home/rowan/hueplusplus/include/hueplusplus/SensorList.h \
+  /home/rowan/hueplusplus/include/hueplusplus/LinHttpHandler.h \
+  /home/rowan/hueplusplus/include/hueplusplus/BaseHttpHandler.h
 
 
-/usr/local/include/hueplusplus/BaseHttpHandler.h:
+/home/rowan/hueplusplus/include/hueplusplus/BaseHttpHandler.h:
 
-/usr/local/include/hueplusplus/LinHttpHandler.h:
+/home/rowan/hueplusplus/include/hueplusplus/SensorList.h:
 
-/usr/local/include/hueplusplus/Sensor.h:
+/home/rowan/hueplusplus/include/hueplusplus/Scene.h:
 
-/usr/local/include/hueplusplus/Utils.h:
+/home/rowan/hueplusplus/include/hueplusplus/Utils.h:
 
-/usr/local/include/hueplusplus/NewDeviceList.h:
+/home/rowan/hueplusplus/include/hueplusplus/NewDeviceList.h:
 
-/usr/local/include/hueplusplus/BaseDevice.h:
+/home/rowan/hueplusplus/include/hueplusplus/BaseDevice.h:
 
-/usr/local/include/hueplusplus/StateTransaction.h:
+/home/rowan/hueplusplus/include/hueplusplus/Light.h:
 
-/usr/local/include/hueplusplus/Action.h:
+/home/rowan/hueplusplus/include/hueplusplus/HueDeviceTypes.h:
 
-/usr/local/include/hueplusplus/Group.h:
+/home/rowan/hueplusplus/include/hueplusplus/Group.h:
 
-/usr/local/include/hueplusplus/ColorUnits.h:
+/home/rowan/hueplusplus/include/hueplusplus/ColorTemperatureStrategy.h:
 
-/usr/local/include/hueplusplus/ColorHueStrategy.h:
+/home/rowan/hueplusplus/include/hueplusplus/ColorUnits.h:
 
-/usr/local/include/hueplusplus/BrightnessStrategy.h:
-
-/usr/local/include/hueplusplus/TimePattern.h:
-
-/usr/local/include/hueplusplus/IHttpHandler.h:
+/home/rowan/hueplusplus/include/hueplusplus/BridgeConfig.h:
 
 /usr/include/c++/11.1.0/ostream:
 
 /usr/include/c++/11.1.0/bits/basic_ios.tcc:
 
 /usr/include/c++/11.1.0/x86_64-pc-linux-gnu/bits/ctype_inline.h:
-
-/usr/local/include/hueplusplus/Rule.h:
 
 /usr/include/c++/11.1.0/x86_64-pc-linux-gnu/bits/ctype_base.h:
 
@@ -346,13 +340,9 @@ CMakeFiles/testlights.dir/testlights.cpp.o: ../testlights.cpp \
 
 /usr/include/c++/11.1.0/initializer_list:
 
-/usr/local/include/hueplusplus/Scene.h:
-
 /usr/include/bits/timex.h:
 
 /usr/include/c++/11.1.0/cstdlib:
-
-/usr/local/include/hueplusplus/Schedule.h:
 
 /usr/include/c++/11.1.0/bits/parse_numbers.h:
 
@@ -363,6 +353,8 @@ CMakeFiles/testlights.dir/testlights.cpp.o: ../testlights.cpp \
 /usr/include/c++/11.1.0/bits/std_function.h:
 
 /usr/include/c++/11.1.0/bits/streambuf.tcc:
+
+/home/rowan/hueplusplus/include/hueplusplus/HueException.h:
 
 /usr/include/bits/types/error_t.h:
 
@@ -404,6 +396,8 @@ CMakeFiles/testlights.dir/testlights.cpp.o: ../testlights.cpp \
 
 /usr/include/time.h:
 
+/usr/include/c++/11.1.0/map:
+
 /usr/include/bits/types/struct_sched_param.h:
 
 /usr/include/c++/11.1.0/cerrno:
@@ -425,6 +419,8 @@ CMakeFiles/testlights.dir/testlights.cpp.o: ../testlights.cpp \
 /usr/include/bits/thread-shared-types.h:
 
 /usr/include/c++/11.1.0/bits/gslice_array.h:
+
+/home/rowan/hueplusplus/include/hueplusplus/BrightnessStrategy.h:
 
 /usr/include/c++/11.1.0/cstdint:
 
@@ -504,6 +500,8 @@ CMakeFiles/testlights.dir/testlights.cpp.o: ../testlights.cpp \
 
 /usr/include/bits/stdlib-float.h:
 
+/home/rowan/hueplusplus/include/hueplusplus/ColorHueStrategy.h:
+
 /usr/include/c++/11.1.0/bits/exception_defines.h:
 
 /usr/include/c++/11.1.0/bits/memoryfwd.h:
@@ -523,6 +521,8 @@ CMakeFiles/testlights.dir/testlights.cpp.o: ../testlights.cpp \
 /usr/include/wchar.h:
 
 /usr/include/c++/11.1.0/thread:
+
+/home/rowan/hueplusplus/include/hueplusplus/StateTransaction.h:
 
 /usr/include/c++/11.1.0/bits/move.h:
 
@@ -556,13 +556,13 @@ CMakeFiles/testlights.dir/testlights.cpp.o: ../testlights.cpp \
 
 /usr/include/stdio.h:
 
-/usr/local/include/hueplusplus/HueException.h:
-
 /usr/include/c++/11.1.0/bits/postypes.h:
 
-/usr/local/include/hueplusplus/Light.h:
+/home/rowan/hueplusplus/include/hueplusplus/ResourceList.h:
 
 /usr/include/c++/11.1.0/ext/alloc_traits.h:
+
+/home/rowan/hueplusplus/include/hueplusplus/Condition.h:
 
 /usr/include/c++/11.1.0/bits/refwrap.h:
 
@@ -578,9 +578,11 @@ CMakeFiles/testlights.dir/testlights.cpp.o: ../testlights.cpp \
 
 /usr/include/c++/11.1.0/bits/uses_allocator.h:
 
-/usr/local/include/hueplusplus/ResourceList.h:
+/home/rowan/hueplusplus/include/hueplusplus/IHttpHandler.h:
 
 /usr/include/c++/11.1.0/bits/stl_construct.h:
+
+/home/rowan/hueplusplus/include/hueplusplus/Sensor.h:
 
 /usr/include/bits/long-double.h:
 
@@ -598,10 +600,6 @@ CMakeFiles/testlights.dir/testlights.cpp.o: ../testlights.cpp \
 
 /usr/include/bits/floatn-common.h:
 
-/usr/local/include/hueplusplus/Bridge.h:
-
-/usr/local/include/hueplusplus/BridgeConfig.h:
-
 /usr/include/c++/11.1.0/bits/locale_facets.tcc:
 
 /usr/include/bits/types/mbstate_t.h:
@@ -615,8 +613,6 @@ CMakeFiles/testlights.dir/testlights.cpp.o: ../testlights.cpp \
 /usr/include/bits/timesize.h:
 
 /usr/include/c++/11.1.0/bits/erase_if.h:
-
-/usr/include/c++/11.1.0/bits/nested_exception.h:
 
 /usr/include/bits/types/locale_t.h:
 
@@ -644,21 +640,21 @@ CMakeFiles/testlights.dir/testlights.cpp.o: ../testlights.cpp \
 
 /usr/include/c++/11.1.0/bits/stl_pair.h:
 
-/usr/local/include/hueplusplus/SensorList.h:
-
 /usr/include/c++/11.1.0/debug/assertions.h:
 
 /usr/include/c++/11.1.0/bits/functexcept.h:
 
-/usr/local/include/hueplusplus/HueDeviceTypes.h:
-
 /usr/include/c++/11.1.0/bits/stl_algobase.h:
+
+/home/rowan/hueplusplus/include/hueplusplus/Bridge.h:
 
 /usr/include/c++/11.1.0/ext/type_traits.h:
 
 /usr/include/bits/struct_mutex.h:
 
 /usr/include/bits/mathcalls-narrow.h:
+
+/home/rowan/hueplusplus/include/hueplusplus/Schedule.h:
 
 /usr/include/c++/11.1.0/streambuf:
 
@@ -676,8 +672,6 @@ CMakeFiles/testlights.dir/testlights.cpp.o: ../testlights.cpp \
 
 /usr/include/c++/11.1.0/cstdio:
 
-/usr/include/c++/11.1.0/bits/streambuf_iterator.h:
-
 /usr/include/c++/11.1.0/bits/stl_uninitialized.h:
 
 /usr/include/c++/11.1.0/bits/stl_raw_storage_iter.h:
@@ -685,6 +679,10 @@ CMakeFiles/testlights.dir/testlights.cpp.o: ../testlights.cpp \
 /usr/include/c++/11.1.0/bits/allocated_ptr.h:
 
 /usr/include/c++/11.1.0/bits/align.h:
+
+/usr/include/c++/11.1.0/bits/streambuf_iterator.h:
+
+/home/rowan/hueplusplus/include/json/json.hpp:
 
 /usr/include/bits/stdint-intn.h:
 
@@ -705,8 +703,6 @@ CMakeFiles/testlights.dir/testlights.cpp.o: ../testlights.cpp \
 /usr/include/c++/11.1.0/string:
 
 /usr/include/bits/iscanonical.h:
-
-/usr/local/include/json/json.hpp:
 
 /usr/include/c++/11.1.0/bits/char_traits.h:
 
@@ -734,6 +730,8 @@ CMakeFiles/testlights.dir/testlights.cpp.o: ../testlights.cpp \
 
 /usr/include/c++/11.1.0/bits/basic_string.tcc:
 
+/home/rowan/hueplusplus/include/hueplusplus/Rule.h:
+
 /usr/include/c++/11.1.0/stdexcept:
 
 /usr/include/bits/flt-eval-method.h:
@@ -750,11 +748,11 @@ CMakeFiles/testlights.dir/testlights.cpp.o: ../testlights.cpp \
 
 /usr/include/endian.h:
 
-/usr/local/include/hueplusplus/Condition.h:
-
 /usr/include/c++/11.1.0/bits/shared_ptr_atomic.h:
 
 /usr/include/bits/byteswap.h:
+
+/usr/include/bits/uintn-identity.h:
 
 /usr/include/c++/11.1.0/vector:
 
@@ -778,6 +776,8 @@ CMakeFiles/testlights.dir/testlights.cpp.o: ../testlights.cpp \
 
 /usr/include/bits/types/__fpos64_t.h:
 
+/home/rowan/hueplusplus/include/hueplusplus/TimePattern.h:
+
 /usr/include/c++/11.1.0/bits/std_mutex.h:
 
 /usr/include/bits/types/struct_FILE.h:
@@ -785,6 +785,8 @@ CMakeFiles/testlights.dir/testlights.cpp.o: ../testlights.cpp \
 /usr/include/bits/types/cookie_io_functions_t.h:
 
 /usr/include/c++/11.1.0/bits/charconv.h:
+
+/home/rowan/hueplusplus/include/hueplusplus/LinHttpHandler.h:
 
 /usr/include/c++/11.1.0/bits/stl_iterator_base_funcs.h:
 
@@ -796,13 +798,11 @@ CMakeFiles/testlights.dir/testlights.cpp.o: ../testlights.cpp \
 
 /usr/include/c++/11.1.0/bits/vector.tcc:
 
-/usr/include/c++/11.1.0/map:
+/usr/include/c++/11.1.0/bits/nested_exception.h:
 
-/usr/local/include/hueplusplus/APICache.h:
+/home/rowan/hueplusplus/include/hueplusplus/APICache.h:
 
-/usr/include/bits/uintn-identity.h:
-
-/usr/local/include/hueplusplus/HueCommandAPI.h:
+/home/rowan/hueplusplus/include/hueplusplus/HueCommandAPI.h:
 
 /usr/include/c++/11.1.0/atomic:
 
@@ -817,8 +817,6 @@ CMakeFiles/testlights.dir/testlights.cpp.o: ../testlights.cpp \
 /usr/include/bits/pthreadtypes-arch.h:
 
 /usr/include/c++/11.1.0/bits/uniform_int_dist.h:
-
-/usr/local/include/hueplusplus/ColorTemperatureStrategy.h:
 
 /usr/include/c++/11.1.0/cassert:
 
@@ -863,6 +861,8 @@ CMakeFiles/testlights.dir/testlights.cpp.o: ../testlights.cpp \
 /usr/include/c++/11.1.0/x86_64-pc-linux-gnu/bits/c++locale.h:
 
 /usr/include/string.h:
+
+/home/rowan/hueplusplus/include/hueplusplus/Action.h:
 
 /usr/include/asm-generic/errno-base.h:
 

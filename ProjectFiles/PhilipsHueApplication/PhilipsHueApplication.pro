@@ -14,6 +14,10 @@ SOURCES += \
 
 HEADERS += \
     mainwindow.h
+    hueplusplus
+    hueplusplus/Bridge.h
+    hueplusplus/BaseDevice.h
+    hueplusplus/IHttpHandler.h
 
 FORMS += \
     mainwindow.ui
