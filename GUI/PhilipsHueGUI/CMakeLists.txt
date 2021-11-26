@@ -21,6 +21,7 @@ set(PROJECT_SOURCES
         mainwindow.ui
 )
 
+
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     qt_add_executable(PhilipsHueGUI
         MANUAL_FINALIZATION
@@ -44,7 +45,7 @@ else()
     endif()
 endif()
 
-target_link_libraries(PhilipsHueGUI PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
+target_link_libraries(PhilipsHueGUI PRIVATE Qt${QT_VERSION_MAJOR}::Widgets hueplusplusstatic)
 
 set_target_properties(PhilipsHueGUI PROPERTIES
     MACOSX_BUNDLE_GUI_IDENTIFIER my.example.com
