@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/getroom.dir/getroom.cpp.o -o getroom  -lhueplusplusstatic 

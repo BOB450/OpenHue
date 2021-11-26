@@ -18,3 +18,9 @@ add_executable(usercontroll usercontroll.cpp)
 set_property(TARGET usercontroll PROPERTY CXX_STANDARD 14)
 set_property(TARGET usercontroll PROPERTY CXX_EXTENSIONS OFF)
 target_link_libraries(usercontroll hueplusplusstatic)
+
+add_executable(getroom getroom.cpp)
+
+set_property(TARGET getroom PROPERTY CXX_STANDARD 14)
+set_property(TARGET getroom PROPERTY CXX_EXTENSIONS OFF)
+target_link_libraries(getroom hueplusplusstatic)
