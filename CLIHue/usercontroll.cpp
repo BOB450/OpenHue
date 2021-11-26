@@ -61,7 +61,7 @@ hue::Bridge connectToBridge()
 
 // Turns off the lights on the bridge for 20 seconds. 
 // Only turns the lights back on that were on before.
-void lightsOff(hue::Bridge& hue, int lightnum)
+void lightsOff(hue::Bridge& hue, int lightnum, hue::RGB c)
 {
     std::vector<hue::Light> lights = hue.lights().getAll();
 
@@ -72,6 +72,7 @@ void lightsOff(hue::Bridge& hue, int lightnum)
     else
     {
         lights[lightnum].on();
+        lights[lightnum].setColorRGB(c);
     }
 
 
@@ -83,15 +84,22 @@ void lightsOff(hue::Bridge& hue, int lightnum)
 int main(int argc, char** argv)
 {
     int i;
+    int r,g,b;
     try
     {
         hue::Bridge hue = connectToBridge();
+        
 
         std::cout << "Connected to bridge. IP: " << hue.getBridgeIP() << ", username: " << hue.getUsername() << '\n';
         
         std::cout << "what light would you want to toggle :";
         std::cin >> i;
-        lightsOff(hue,i);
+        std::cout << "enter the color of the light ex. r:13 g:160 b:255";
+        std::cin >> r;
+        std::cin >> g;
+        std::cin >> b;
+        hue::RGB color = {r,g,b};
+        lightsOff(hue,i,color);
     }
     catch (...)
     { }
