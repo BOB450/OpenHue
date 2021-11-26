@@ -3,6 +3,7 @@
 #include <hueplusplus/Bridge.h>
 #include <hueplusplus/BaseDevice.h>
 #include <hueplusplus/Light.h>
+#include <hueplusplus/Group.h>
 
 #ifdef _MSC_VER
 #include <hueplusplus/WinHttpHandler.h>
@@ -62,10 +63,13 @@ hue::Bridge connectToBridge()
 
 std::string getroom(hue::Bridge& hue, int lightnum)
 {
-    std::vector<hue::Light> lights = hue.lights().getAll();
+    std::vector<hue::Light> lights = hue.lights().getAll(); //gets all lights and adds them to array
+    hue::Light light1 = lights[lightnum];//sets the light i to a varible
     std::string room = lights[lightnum].getProductname();
+    std::string asd = lights[lightnum].getType();
+    int brightness = light1.getBrightness();//uses the light1 instaead of useing lights[lightsnum]
 
-    return room;
+    return room  +"  "+ asd +"  " + std::to_string(brightness);
 }
 
 
@@ -88,7 +92,7 @@ int main(int argc, char** argv)
     catch (...)
     { }
 
-    std::cout << "Press enter to exit\n";
+    //std::cout << "Press enter to exit\n";
     std::cin.get();
 
     return 0;
