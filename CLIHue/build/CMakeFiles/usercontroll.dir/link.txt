@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/usercontroll.dir/usercontroll.cpp.o -o usercontroll  -lhueplusplusstatic 

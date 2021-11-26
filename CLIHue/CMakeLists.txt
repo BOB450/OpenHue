@@ -12,3 +12,9 @@ add_executable(ControllLights ControllLights.cpp)
 set_property(TARGET ControllLights PROPERTY CXX_STANDARD 14)
 set_property(TARGET ControllLights PROPERTY CXX_EXTENSIONS OFF)
 target_link_libraries(ControllLights hueplusplusstatic)
+
+add_executable(usercontroll usercontroll.cpp)
+
+set_property(TARGET usercontroll PROPERTY CXX_STANDARD 14)
+set_property(TARGET usercontroll PROPERTY CXX_EXTENSIONS OFF)
+target_link_libraries(usercontroll hueplusplusstatic)
