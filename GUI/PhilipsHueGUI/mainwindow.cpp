@@ -63,12 +63,18 @@ hue::Bridge connectToBridge()
     if (bridges.empty())
     {
         //std::cout << "Found no bridges\n";
+        QMessageBox msgBox;
+        msgBox.setText("no bridges found");
+        msgBox.exec();
         throw std::runtime_error("no bridges found");
     }
 
     if (macAddress.empty())
     {
         //std::cout << "No bridge given, connecting to first one.\n";
+        QMessageBox msgBox;
+        msgBox.setText("No bridge given, connecting to first one");
+        msgBox.exec();
         return finder.getBridge(bridges.front());
     }
     if (!username.empty())
@@ -79,6 +85,9 @@ hue::Bridge connectToBridge()
         bridges.begin(), bridges.end(), [&](const auto& identification) { return identification.mac == macAddress; });
     if (it == bridges.end())
     {
+        QMessageBox msgBox;
+        msgBox.setText("Given bridge not found");
+        msgBox.exec();
        // std::cout << "Given bridge not found\n";
         //throw std::runtime_error("bridge not found");
     }
