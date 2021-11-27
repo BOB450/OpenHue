@@ -244,10 +244,24 @@ void MainWindow::on_horizontalSlider_rangeChanged(int min, int max)
 void MainWindow::on_horizontalSlider_valueChanged(int value)
 {
     int ipos = ui->horizontalSlider->sliderPosition();
+
    // QString pos = QString::number(ipos);
    // QMessageBox msgBox;
 
     //msgBox.setText(pos);
     //msgBox.exec();
+    QString text = ui->listWidget->currentItem()->text();
+     std::vector<hue::Light> allLights = getLight(bridge);
+     int Lsize =  allLights.size();
+     for(int i = 0; i < Lsize; i++)
+     {
+         QString qlight = QString::fromStdString(allLights[i].getName());
+         if(qlight == text)
+         {
+
+
+            allLights[i].setBrightness(ipos);
+         }
+     }
 }
 
