@@ -205,14 +205,17 @@ void MainWindow::on_pushButton_5_clicked() //change color of selected light
                  int r = color.red();
                  int g = color.green();
                  int b = color.blue();
-                 QString rq = QString::number(r);
+                /* QString rq = QString::number(r);
                  QString gq = QString::number(g);
                  QString bq = QString::number(b);
                  QMessageBox msgBox;
 
                  msgBox.setText(rq +" "+ gq +" "+ bq);
                  msgBox.exec();
-                 //allLights[i].setColorRGB(color.rgb());
+                 */
+
+                 hue::RGB huecolor = {r,g,b};
+                 allLights[i].setColorRGB(huecolor);
              }
              else
              {
