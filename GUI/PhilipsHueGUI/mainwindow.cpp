@@ -98,6 +98,6 @@ hue::Bridge connectToBridge()
 
 void MainWindow::on_pushButton_clicked()
 {
-    connectToBridge();
+    hue::Bridge hue = connectToBridge();
 }
 
