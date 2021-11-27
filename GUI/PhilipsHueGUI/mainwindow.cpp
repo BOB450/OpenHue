@@ -24,24 +24,11 @@ using SystemHttpHandler = hueplusplus::LinHttpHandler;
 
 namespace hue = hueplusplus;
 
-
-MainWindow::MainWindow(QWidget *parent)
-    : QMainWindow(parent)
-    , ui(new Ui::MainWindow)
-{
-    ui->setupUi(this);
-
-}
-
-MainWindow::~MainWindow()
-{
-    delete ui;
-}
-
-
 // Configure existing connections here, or leave empty for new connection
 const std::string macAddress = "ecb5fa0f4bae";
 const std::string username = "oxSTGUKhgR07uNvaHjNSB-z-gJcweovHiN8ibQ01";
+
+
 
 // Connects to a bridge and returns it.
 hue::Bridge connectToBridge()
@@ -95,9 +82,50 @@ hue::Bridge connectToBridge()
 }
 
 
+MainWindow::MainWindow(QWidget *parent)
+    : QMainWindow(parent)
+    , ui(new Ui::MainWindow)
+{
+    ui->setupUi(this);
+   hue::Bridge hue = connectToBridge();
+}
+
+MainWindow::~MainWindow()
+{
+    delete ui;
+}
+
+
+void lightsTogle(hue::Bridge& hue, int lightnum)
+{
+    std::vector<hue::Light> lights = hue.lights().getAll();
+
+    if(lights[lightnum].isOn())
+    {
+        std::cout << "Turning light " << lightnum << " off";
+        lights[lightnum].off();
+    }
+    else
+    {
+        std::cout << "Turning light " << lightnum << " on";
+        lights[lightnum].on();
+
+    }
+
+
+    std::cout << "Turned lights back on\n";
+}
+
 
 void MainWindow::on_pushButton_clicked()
 {
     hue::Bridge hue = connectToBridge();
+}
+
+
+void MainWindow::on_pushButton_2_clicked()
+{
+    hue::Bridge hue = connectToBridge();
+    lightsTogle(hue,3);
 }
 
