@@ -230,18 +230,18 @@ void MainWindow::on_pushButton_5_clicked() //change color of selected light
 }
 
 
-void MainWindow::on_horizontalSlider_rangeChanged(int min, int max)
+void MainWindow::on_horizontalSlider_rangeChanged(int min, int max) //not in use
 {
-    int ipos = ui->horizontalSlider->sliderPosition();
-    QString pos = QString::number(ipos);
-    QMessageBox msgBox;
+  //  int ipos = ui->horizontalSlider->sliderPosition();
+   // QString pos = QString::number(ipos);
+   // QMessageBox msgBox;
 
-    msgBox.setText(pos);
-    msgBox.exec();
+   // msgBox.setText(pos);
+   // msgBox.exec();
 }
 
 
-void MainWindow::on_horizontalSlider_valueChanged(int value)
+void MainWindow::on_horizontalSlider_valueChanged(int value) //gets called evrytim the slider changes not when the user stops sliding so it is not fluid
 {
     int ipos = ui->horizontalSlider->sliderPosition();
 
