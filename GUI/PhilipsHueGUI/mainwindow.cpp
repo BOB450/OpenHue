@@ -243,6 +243,33 @@ void MainWindow::on_horizontalSlider_rangeChanged(int min, int max) //not in use
 
 void MainWindow::on_horizontalSlider_valueChanged(int value) //gets called evrytim the slider changes not when the user stops sliding so it is not fluid
 {
+    /*
+    int ipos = ui->horizontalSlider->sliderPosition();
+
+   // QString pos = QString::number(ipos);
+   // QMessageBox msgBox;
+
+    //msgBox.setText(pos);
+    //msgBox.exec();
+    QString text = ui->listWidget->currentItem()->text();
+     std::vector<hue::Light> allLights = getLight(bridge);
+     int Lsize =  allLights.size();
+     for(int i = 0; i < Lsize; i++)
+     {
+         QString qlight = QString::fromStdString(allLights[i].getName());
+         if(qlight == text)
+         {
+
+
+            allLights[i].setBrightness(ipos);
+         }
+     }
+     */
+}
+
+
+void MainWindow::on_horizontalSlider_sliderReleased()
+{
     int ipos = ui->horizontalSlider->sliderPosition();
 
    // QString pos = QString::number(ipos);
