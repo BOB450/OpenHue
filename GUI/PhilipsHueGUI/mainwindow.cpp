@@ -5,6 +5,8 @@
 #include <QMessageBox>
 #include <QLineEdit>
 #include <thread>
+#include <QListWidget>
+#include <QListWidgetItem>
 
 #include <hueplusplus/Bridge.h>
 #include <hueplusplus/BaseDevice.h>
@@ -102,6 +104,7 @@ void lightsTogle(hue::Bridge& hue, int lightnum)
 {
     std::vector<hue::Light> lights = hue.lights().getAll();
 
+
     if(lights[lightnum].isOn())
     {
         std::cout << "Turning light " << lightnum << " off";
@@ -118,6 +121,13 @@ void lightsTogle(hue::Bridge& hue, int lightnum)
     std::cout << "Turned lights back on\n";
 }
 
+std::vector<hue::Light> getLight(hue::Bridge& hue)
+{
+    std::vector<hue::Light> lights = hue.lights().getAll();
+    return lights;
+
+}
+
 
 void MainWindow::on_pushButton_clicked()
 {
@@ -128,5 +138,30 @@ void MainWindow::on_pushButton_clicked()
 void MainWindow::on_pushButton_2_clicked()
 {
     lightsTogle(bridge,3);
+}
+
+
+void MainWindow::on_pushButton_3_clicked()
+{
+    std::vector<hue::Light> allLights = getLight(bridge);
+    int Lsize =  allLights.size();
+ //   QMessageBox msgBox;
+   //  QString qlight = QString::fromStdString(allLights[1].getName());
+   // msgBox.setText(qlight);
+   // msgBox.exec();
+
+    for(int i = 0; i < Lsize; i++)
+    {
+        QString qlight = QString::fromStdString(allLights[i].getName());
+
+        ui->listWidget->addItem(qlight);
+    }
+
+}
+
+
+void MainWindow::on_pushButton_4_clicked()
+{
+
 }
 
