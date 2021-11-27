@@ -28,6 +28,8 @@ namespace hue = hueplusplus;
 const std::string macAddress = "ecb5fa0f4bae";
 const std::string username = "oxSTGUKhgR07uNvaHjNSB-z-gJcweovHiN8ibQ01";
 
+auto handler = std::make_shared<hueplusplus::LinHttpHandler>();
+hueplusplus::Bridge bridge("192.168.0.3", 80, "oxSTGUKhgR07uNvaHjNSB-z-gJcweovHiN8ibQ01", handler);
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -96,8 +98,6 @@ hue::Bridge connectToBridge()
 
 
 
-hue::Bridge hueB = connectToBridge();
-
 void lightsTogle(hue::Bridge& hue, int lightnum)
 {
     std::vector<hue::Light> lights = hue.lights().getAll();
@@ -121,13 +121,12 @@ void lightsTogle(hue::Bridge& hue, int lightnum)
 
 void MainWindow::on_pushButton_clicked()
 {
-hue::Bridge hueB = connectToBridge();
+    hue::Bridge hueB = connectToBridge();
 }
 
 
 void MainWindow::on_pushButton_2_clicked()
 {
-
-    lightsTogle(hueB,3);
+    lightsTogle(bridge,3);
 }
 
