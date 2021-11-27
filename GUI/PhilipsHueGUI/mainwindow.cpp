@@ -200,11 +200,17 @@ void MainWindow::on_pushButton_5_clicked() //change color of selected light
              QColor color = QColorDialog::getColor(Qt::white,this,"chose color");
              if(color.isValid())
              {
-                 int g = color.rgba();
-                 QString rgbq = QString::number(g);
+
+
+                 int r = color.red();
+                 int g = color.green();
+                 int b = color.blue();
+                 QString rq = QString::number(r);
+                 QString gq = QString::number(g);
+                 QString bq = QString::number(b);
                  QMessageBox msgBox;
 
-                 msgBox.setText(rgbq);
+                 msgBox.setText(rq +" "+ gq +" "+ bq);
                  msgBox.exec();
                  //allLights[i].setColorRGB(color.rgb());
              }
