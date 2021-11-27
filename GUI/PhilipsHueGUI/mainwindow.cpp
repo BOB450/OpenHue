@@ -214,7 +214,7 @@ void MainWindow::on_pushButton_5_clicked() //change color of selected light
                  msgBox.exec();
                  */
 
-                 hue::RGB huecolor = {r,g,b};
+                 hue::RGB huecolor = {r,g,b}; //wierd error not important
                  allLights[i].setColorRGB(huecolor);
              }
              else
@@ -227,5 +227,27 @@ void MainWindow::on_pushButton_5_clicked() //change color of selected light
 
          }
      }
+}
+
+
+void MainWindow::on_horizontalSlider_rangeChanged(int min, int max)
+{
+    int ipos = ui->horizontalSlider->sliderPosition();
+    QString pos = QString::number(ipos);
+    QMessageBox msgBox;
+
+    msgBox.setText(pos);
+    msgBox.exec();
+}
+
+
+void MainWindow::on_horizontalSlider_valueChanged(int value)
+{
+    int ipos = ui->horizontalSlider->sliderPosition();
+   // QString pos = QString::number(ipos);
+   // QMessageBox msgBox;
+
+    //msgBox.setText(pos);
+    //msgBox.exec();
 }
 
