@@ -29,6 +29,19 @@ const std::string macAddress = "ecb5fa0f4bae";
 const std::string username = "oxSTGUKhgR07uNvaHjNSB-z-gJcweovHiN8ibQ01";
 
 
+MainWindow::MainWindow(QWidget *parent)
+    : QMainWindow(parent)
+    , ui(new Ui::MainWindow)
+{
+    ui->setupUi(this);
+
+}
+
+MainWindow::~MainWindow()
+{
+    delete ui;
+}
+
 
 // Connects to a bridge and returns it.
 hue::Bridge connectToBridge()
@@ -82,19 +95,8 @@ hue::Bridge connectToBridge()
 }
 
 
-MainWindow::MainWindow(QWidget *parent)
-    : QMainWindow(parent)
-    , ui(new Ui::MainWindow)
-{
-    ui->setupUi(this);
-   hue::Bridge hue = connectToBridge();
-}
 
-MainWindow::~MainWindow()
-{
-    delete ui;
-}
-
+hue::Bridge hueB = connectToBridge();
 
 void lightsTogle(hue::Bridge& hue, int lightnum)
 {
@@ -119,13 +121,13 @@ void lightsTogle(hue::Bridge& hue, int lightnum)
 
 void MainWindow::on_pushButton_clicked()
 {
-    hue::Bridge hue = connectToBridge();
+hue::Bridge hueB = connectToBridge();
 }
 
 
 void MainWindow::on_pushButton_2_clicked()
 {
-    hue::Bridge hue = connectToBridge();
-    lightsTogle(hue,3);
+
+    lightsTogle(hueB,3);
 }
 
