@@ -162,6 +162,24 @@ void MainWindow::on_pushButton_3_clicked()
 
 void MainWindow::on_pushButton_4_clicked()
 {
+   QString text = ui->listWidget->currentItem()->text();
+    std::vector<hue::Light> allLights = getLight(bridge);
+    int Lsize =  allLights.size();
+    for(int i = 0; i < Lsize; i++)
+    {
+        QString qlight = QString::fromStdString(allLights[i].getName());
 
+        if(qlight == text)
+        {
+            if(allLights[i].isOn())
+            {
+                allLights[i].off();
+            }
+            else
+            {
+                allLights[i].on();
+            }
+        }
+    }
 }
 
