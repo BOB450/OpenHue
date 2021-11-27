@@ -7,6 +7,8 @@
 #include <thread>
 #include <QListWidget>
 #include <QListWidgetItem>
+#include <QColorDialog>
+#include <QColor>
 
 #include <hueplusplus/Bridge.h>
 #include <hueplusplus/BaseDevice.h>
@@ -181,5 +183,40 @@ void MainWindow::on_pushButton_4_clicked()
             }
         }
     }
+}
+
+
+void MainWindow::on_pushButton_5_clicked() //change color of selected light
+{
+    QString text = ui->listWidget->currentItem()->text();
+     std::vector<hue::Light> allLights = getLight(bridge);
+     int Lsize =  allLights.size();
+     for(int i = 0; i < Lsize; i++)
+     {
+         QString qlight = QString::fromStdString(allLights[i].getName());
+
+         if(qlight == text)
+         {
+             QColor color = QColorDialog::getColor(Qt::white,this,"chose color");
+             if(color.isValid())
+             {
+                 int g = color.rgba();
+                 QString rgbq = QString::number(g);
+                 QMessageBox msgBox;
+
+                 msgBox.setText(rgbq);
+                 msgBox.exec();
+                 //allLights[i].setColorRGB(color.rgb());
+             }
+             else
+             {
+                    QMessageBox msgBox;
+
+                    msgBox.setText("Chose a valid color");
+                    msgBox.exec();
+             }
+
+         }
+     }
 }
 
