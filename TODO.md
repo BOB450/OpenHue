@@ -17,3 +17,6 @@
 - Add sene support will detect senes and will allow to switch between them and will be able to make new senes
 
 - add room supports turn lightts on and off as a whole room etc
+
+ecb5fa0f4bae
+oxSTGUKhgR07uNvaHjNSB-z-gJcweovHiN8ibQ01

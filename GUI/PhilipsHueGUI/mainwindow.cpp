@@ -32,7 +32,7 @@ namespace hue = hueplusplus;
 const std::string macAddress = "ecb5fa0f4bae";
 const std::string username = "oxSTGUKhgR07uNvaHjNSB-z-gJcweovHiN8ibQ01";
 
-auto handler = std::make_shared<hueplusplus::LinHttpHandler>();
+auto handler = std::make_shared<hueplusplus::LinHttpHandler>();//linhttphandler is only for linux
 hueplusplus::Bridge bridge("192.168.0.3", 80, "oxSTGUKhgR07uNvaHjNSB-z-gJcweovHiN8ibQ01", handler);
 
 MainWindow::MainWindow(QWidget *parent)
@@ -142,7 +142,7 @@ void MainWindow::on_pushButton_2_clicked()
     lightsTogle(bridge,3);
 }
 
-
+// Adds lights to the list wigit by looping though all the lights and adding each by there name.
 void MainWindow::on_pushButton_3_clicked()
 {
     std::vector<hue::Light> allLights = getLight(bridge);
@@ -161,7 +161,8 @@ void MainWindow::on_pushButton_3_clicked()
 
 }
 
-
+// Togles selected light by getting selected list item then looping through all lights and checking
+// if the names match if they do then check if light if so then turn on if not then turn off.
 void MainWindow::on_pushButton_4_clicked()
 {
    QString text = ui->listWidget->currentItem()->text();
