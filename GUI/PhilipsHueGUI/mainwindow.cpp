@@ -29,9 +29,10 @@ using SystemHttpHandler = hueplusplus::LinHttpHandler;
 namespace hue = hueplusplus;
 
 // Configure existing connections here, or leave empty for new connection
-const std::string macAddress = "ecb5fa0f4bae";
-const std::string username = "oxSTGUKhgR07uNvaHjNSB-z-gJcweovHiN8ibQ01";
+const std::string macAddress = "";
+const std::string username = "";
 
+// pre made connection will not be used for final product
 auto handler = std::make_shared<hueplusplus::LinHttpHandler>();//linhttphandler is only for linux
 hueplusplus::Bridge bridge("192.168.0.3", 80, "oxSTGUKhgR07uNvaHjNSB-z-gJcweovHiN8ibQ01", handler);
 
@@ -52,52 +53,29 @@ MainWindow::~MainWindow()
 // Connects to a bridge and returns it.
 hue::Bridge connectToBridge()
 {
-    hue::BridgeFinder finder(std::make_shared<SystemHttpHandler>());
-
-    std::vector<hue::BridgeFinder::BridgeIdentification> bridges = finder.findBridges();
-
-    for (const auto& bridge : bridges)
-    {
-        //std::cout << "Bridge: " << bridge.mac << " at " << bridge.ip << '\n';
-        std::string bip = bridge.ip;
-        QString qbip = QString::fromStdString(bip);
-
-        QMessageBox msgBox;
-        msgBox.setText(qbip);
-        msgBox.exec();
-    }
+    // For windows use std::make_shared<hueplusplus::WinHttpHandler>();
+    auto handler = std::make_shared<hueplusplus::LinHttpHandler>();
+    hueplusplus::BridgeFinder finder(handler);
+    std::vector<hueplusplus::BridgeFinder::BridgeIdentification> bridges = finder.findBridges();
     if (bridges.empty())
     {
-        //std::cout << "Found no bridges\n";
-        QMessageBox msgBox;
-        msgBox.setText("no bridges found");
-        msgBox.exec();
-        throw std::runtime_error("no bridges found");
-    }
+        //std::cerr << "No bridges found\n";
+          QMessageBox msgBox;
 
-    if (macAddress.empty())
-    {
-        //std::cout << "No bridge given, connecting to first one.\n";
-        QMessageBox msgBox;
-        msgBox.setText("No bridge given, connecting to first one");
-        msgBox.exec();
-        return finder.getBridge(bridges.front());
+          msgBox.setText("No bridges found");
+          msgBox.exec();
+
     }
-    if (!username.empty())
+    else
     {
-        finder.addUsername(macAddress, username);
+         hueplusplus::Bridge bridgeF = finder.getBridge(bridges[0]);
+         std::string BFip = bridgeF.getBridgeIP();
+         int BFport = bridgeF.getBridgePort();
+         std::string BFportS = std::to_string(BFport);
+         std::string BFkey = bridgeF.getClientKey();
+         std::string BFusername = bridgeF.getUsername();
+         return bridgeF;
     }
-    auto it = std::find_if(
-        bridges.begin(), bridges.end(), [&](const auto& identification) { return identification.mac == macAddress; });
-    if (it == bridges.end())
-    {
-        QMessageBox msgBox;
-        msgBox.setText("Given bridge not found");
-        msgBox.exec();
-       // std::cout << "Given bridge not found\n";
-        //throw std::runtime_error("bridge not found");
-    }
-    return finder.getBridge(*it);
 }
 
 
@@ -122,7 +100,7 @@ void lightsTogle(hue::Bridge& hue, int lightnum)
 
     std::cout << "Turned lights back on\n";
 }
-
+//gets all lights and adds to array
 std::vector<hue::Light> getLight(hue::Bridge& hue)
 {
     std::vector<hue::Light> lights = hue.lights().getAll();
@@ -130,7 +108,7 @@ std::vector<hue::Light> getLight(hue::Bridge& hue)
 
 }
 
-
+//called when the conect ot bridge button is pressed and then it sets hub eqal to connectToBridge()
 void MainWindow::on_pushButton_clicked()
 {
     hue::Bridge hueB = connectToBridge();
