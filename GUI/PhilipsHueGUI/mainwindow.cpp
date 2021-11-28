@@ -295,7 +295,7 @@ void MainWindow::on_horizontalSlider_sliderReleased()
 
 void MainWindow::on_listWidget_itemPressed(QListWidgetItem *item)
 {
-    ui->listWidget->currentItem()->text();
+
 }
 
 

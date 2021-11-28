@@ -10,6 +10,8 @@
 
 - Stop program from crashing when the connection is flaky (trying to change a bulbs color,brightness etc..)
 
+- Make it so that when you click on a light in the list it shows the color of the light.
+
 ## Far Future
 
 - Add sene support will detect senes and will allow to switch between them and will be able to make new senes
