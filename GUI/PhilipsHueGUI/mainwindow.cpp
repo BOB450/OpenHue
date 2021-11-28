@@ -389,7 +389,7 @@ void MainWindow::on_horizontalSlider_2_sliderReleased()
      }
 }
 
-// When you change a item
+// When you change a item using arrow keys or sutch it will now update the sliders.
 void MainWindow::on_listWidget_currentItemChanged(QListWidgetItem *current, QListWidgetItem *previous)
 {
     QString text = ui->listWidget->currentItem()->text();
