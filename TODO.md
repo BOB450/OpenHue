@@ -22,5 +22,7 @@
 
 - add room supports turn lights on and off as a whole room etc
 
+- Make it so that when the user first opens the app it searches for a hue bridge then tells them to go push the button like hutro then saves the bridge connection from then on out and will pull form save at app open.
+
 ecb5fa0f4bae
 oxSTGUKhgR07uNvaHjNSB-z-gJcweovHiN8ibQ01
