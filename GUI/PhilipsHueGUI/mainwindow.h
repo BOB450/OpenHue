@@ -44,6 +44,8 @@ private slots:
 
     void on_horizontalSlider_2_sliderReleased();
 
+    void on_listWidget_currentItemChanged(QListWidgetItem *current, QListWidgetItem *previous);
+
 private:
     Ui::MainWindow *ui;
 };

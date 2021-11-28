@@ -389,3 +389,24 @@ void MainWindow::on_horizontalSlider_2_sliderReleased()
      }
 }
 
+// When you change a item
+void MainWindow::on_listWidget_currentItemChanged(QListWidgetItem *current, QListWidgetItem *previous)
+{
+    QString text = ui->listWidget->currentItem()->text();
+     std::vector<hue::Light> allLights = getLight(bridge);
+     int Lsize =  allLights.size();
+     for(int i = 0; i < Lsize; i++)
+     {
+         QString qlight = QString::fromStdString(allLights[i].getName());
+         if(qlight == text)
+         {
+
+
+            int bri = allLights[i].getBrightness(); // get brightness from light
+            ui->horizontalSlider->setValue(bri); // set position of slider to that of the selected light
+            int Ctemp = allLights[i].getColorTemperature(); // get color temp from light
+            ui->horizontalSlider_2->setValue(Ctemp);
+         }
+     }
+}
+
