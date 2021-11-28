@@ -68,10 +68,11 @@ hue::Bridge connectToBridge()
     }
     else
     {
+        //QMessageBox msgBox2;
+        //msgBox2.setText("Go push the button on the hue bridge you have 30 seconds");
+        //msgBox2.exec();
          hueplusplus::Bridge bridgeF = finder.getBridge(bridges[0]);// user needts to [ush bitton on bridge now to athenticate
-         QMessageBox msgBox2;
-         msgBox2.setText("Go push the button on the hue bridge you have 30 seconds");
-         msgBox2.exec();
+
 
          std::string BFip = bridgeF.getBridgeIP();
          int BFport = bridgeF.getBridgePort();
