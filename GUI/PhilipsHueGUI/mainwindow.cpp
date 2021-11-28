@@ -29,8 +29,10 @@ using SystemHttpHandler = hueplusplus::LinHttpHandler;
 namespace hue = hueplusplus;
 
 // Configure existing connections here, or leave empty for new connection
-const std::string macAddress = "";
-const std::string username = "";
+ std::string macAddress = "";
+ std::string username = "";
+ std::string ipAddress = "";
+ int port;
 
 // pre made connection will not be used for final product
 auto handler = std::make_shared<hueplusplus::LinHttpHandler>();//linhttphandler is only for linux
@@ -71,7 +73,7 @@ hue::Bridge connectToBridge()
         //QMessageBox msgBox2;
         //msgBox2.setText("Go push the button on the hue bridge you have 30 seconds");
         //msgBox2.exec();
-         hueplusplus::Bridge bridgeF = finder.getBridge(bridges[0]);// user needts to [ush bitton on bridge now to athenticate
+         hueplusplus::Bridge bridgeF = finder.getBridge(bridges[0]);// user needts to push bitton on bridge now to athenticate
 
 
          std::string BFip = bridgeF.getBridgeIP();

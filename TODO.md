@@ -19,6 +19,8 @@
 
 - Add sene support will detect senes and will allow to switch between them and will be able to make new senes 
 
+- Add to 3rd party apps section on philips hue reddit (need 10 karma)
+
 - add room supports turn lights on and off as a whole room etc
 
 - Make it so that when the user first opens the app it searches for a hue bridge then tells them to go push the button like hutro then saves the bridge connection from then on out and will pull form save at app open.
