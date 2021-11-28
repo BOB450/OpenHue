@@ -198,6 +198,7 @@ void MainWindow::on_pushButton_5_clicked() //change color of selected light
 
          if(qlight == text)
          {
+             if(allLights[i].hasColorControl()){
              QColor color = QColorDialog::getColor(Qt::white,this,"chose color");
              if(color.isValid())
              {
@@ -224,6 +225,14 @@ void MainWindow::on_pushButton_5_clicked() //change color of selected light
 
                     msgBox.setText("Chose a valid color");
                     msgBox.exec();
+             }
+             }
+             else
+             {
+                 QMessageBox msgBox;
+
+                 msgBox.setText("This light dose not support color");
+                 msgBox.exec();
              }
 
          }
