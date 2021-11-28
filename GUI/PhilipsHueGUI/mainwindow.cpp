@@ -292,3 +292,15 @@ void MainWindow::on_horizontalSlider_sliderReleased()
      }
 }
 
+
+void MainWindow::on_listWidget_itemPressed(QListWidgetItem *item)
+{
+    ui->listWidget->currentItem()->text();
+}
+
+
+void MainWindow::on_listWidget_itemClicked(QListWidgetItem *item)
+{
+
+}
+

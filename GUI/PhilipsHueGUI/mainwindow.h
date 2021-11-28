@@ -2,6 +2,8 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QListWidget>
+#include <QListWidgetItem>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -31,6 +33,10 @@ private slots:
     void on_horizontalSlider_valueChanged(int value);
 
     void on_horizontalSlider_sliderReleased();
+
+    void on_listWidget_itemPressed(QListWidgetItem *item);
+
+    void on_listWidget_itemClicked(QListWidgetItem *item);
 
 private:
     Ui::MainWindow *ui;
