@@ -1,10 +1,9 @@
 # TODO list
 
-## Doing
-
-- Add color warmth slider.
 
 ## Near future
+
+- DONE-- Add color warmth slider.
 
 - DONE -- Make it so that when the user selects a light it changes the brightness slider to the brightness of the light.
 
