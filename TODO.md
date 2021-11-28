@@ -19,7 +19,7 @@
 
 - Add sene support will detect senes and will allow to switch between them and will be able to make new senes 
 
-- Add to 3rd party apps section on philips hue reddit (need 10 karma)
+- Add to 3rd party apps section on philips hue reddit (need 10 karma) https://www.reddit.com/r/Hue/wiki/apps
 
 - add room supports turn lights on and off as a whole room etc
 
