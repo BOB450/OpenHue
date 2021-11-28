@@ -323,6 +323,8 @@ void MainWindow::on_listWidget_itemClicked(QListWidgetItem *item)
 
             int bri = allLights[i].getBrightness(); // get brightness from light
             ui->horizontalSlider->setValue(bri); // set position of slider to that of the selected light
+            int Ctemp = allLights[i].getColorTemperature(); // get color temp from light
+            ui->horizontalSlider_2->setValue(Ctemp);
          }
      }
 }
