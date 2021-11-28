@@ -69,11 +69,16 @@ hue::Bridge connectToBridge()
     else
     {
          hueplusplus::Bridge bridgeF = finder.getBridge(bridges[0]);
+
          std::string BFip = bridgeF.getBridgeIP();
          int BFport = bridgeF.getBridgePort();
          std::string BFportS = std::to_string(BFport);
          std::string BFkey = bridgeF.getClientKey();
          std::string BFusername = bridgeF.getUsername();
+           QMessageBox msgBox;
+
+           msgBox.setText(QString::fromStdString("ip: " + BFip + "   Port: " + BFportS + "    key: " + BFkey + "    username: " + BFusername));
+           msgBox.exec();
          return bridgeF;
     }
 }
