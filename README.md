@@ -5,4 +5,4 @@ Open source mit license. Currently in super early version but will be providing 
 
 ## How to Build (on linux)
 
-### If you want to build your self from source first have cmake installed and the gcc complier and clone project then cd into builds and run cmake .. then run make.
+### If you want to build your self from source first have cmake installed and the gcc complier and clone project then cd into builds and run cmake .. then run make
