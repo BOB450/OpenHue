@@ -299,7 +299,7 @@ void MainWindow::on_listWidget_itemPressed(QListWidgetItem *item)
 
 }
 
-
+//When a light is clicked set the britness of the light eqal to the slider
 void MainWindow::on_listWidget_itemClicked(QListWidgetItem *item)
 {
     QString text = ui->listWidget->currentItem()->text();
@@ -324,7 +324,7 @@ void MainWindow::on_listWidget_itemSelectionChanged()
 
 }
 
-
+//When a light is clicked set the britness of the light eqal to the slider
 void MainWindow::on_listWidget_itemActivated(QListWidgetItem *item)
 {
     QString text = ui->listWidget->currentItem()->text();
