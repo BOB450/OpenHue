@@ -50,7 +50,7 @@ MainWindow::~MainWindow()
 }
 
 
-// Connects to a bridge and returns it.
+// Connects to a bridge and returns it user needs to push button for this.
 hue::Bridge connectToBridge()
 {
     // For windows use std::make_shared<hueplusplus::WinHttpHandler>();
@@ -68,13 +68,17 @@ hue::Bridge connectToBridge()
     }
     else
     {
-         hueplusplus::Bridge bridgeF = finder.getBridge(bridges[0]);
+         hueplusplus::Bridge bridgeF = finder.getBridge(bridges[0]);// user needts to [ush bitton on bridge now to athenticate
+         QMessageBox msgBox2;
+         msgBox2.setText("Go push the button on the hue bridge you have 30 seconds");
+         msgBox2.exec();
 
          std::string BFip = bridgeF.getBridgeIP();
          int BFport = bridgeF.getBridgePort();
          std::string BFportS = std::to_string(BFport);
          std::string BFkey = bridgeF.getClientKey();
          std::string BFusername = bridgeF.getUsername();
+
            QMessageBox msgBox;
 
            msgBox.setText(QString::fromStdString("ip: " + BFip + "   Port: " + BFportS + "    key: " + BFkey + "    username: " + BFusername));
