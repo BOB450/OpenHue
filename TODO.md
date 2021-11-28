@@ -2,6 +2,8 @@
 
 ## Doing
 
+- Add color warmth slider.
+
 ## Near future
 
 - DONE -- Make it so that when the user selects a light it changes the brightness slider to the brightness of the light.
@@ -11,6 +13,8 @@
 - Stop program from crashing when the connection is flaky (trying to change a bulbs color,brightness etc..)
 
 - Make it so that when you click on a light in the list it shows the color of the light.
+
+- Add tooltips to all buttons and sliders
 
 ## Far Future
 

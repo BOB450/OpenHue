@@ -352,3 +352,36 @@ void MainWindow::on_listWidget_itemActivated(QListWidgetItem *item)
      }
 }
 
+//slider for warmth of light
+void MainWindow::on_horizontalSlider_2_sliderReleased()
+{
+    int ipos = ui->horizontalSlider_2->sliderPosition();
+
+   // QString pos = QString::number(ipos);
+   // QMessageBox msgBox;
+
+    //msgBox.setText(pos);
+    //msgBox.exec();
+    QString text = ui->listWidget->currentItem()->text();
+     std::vector<hue::Light> allLights = getLight(bridge);
+     int Lsize =  allLights.size();
+     for(int i = 0; i < Lsize; i++)
+     {
+         QString qlight = QString::fromStdString(allLights[i].getName());
+         if(qlight == text)
+         {
+             if(allLights[i].hasTemperatureControl())
+             {
+            // int z = allLights[i].getColorTemperature();
+             //QString tempt = QString::number(z);
+              //QMessageBox msgBox;
+
+              //msgBox.setText(tempt);
+              //msgBox.exec();
+
+            allLights[i].setColorTemperature(ipos);
+         }
+         }
+     }
+}
+
