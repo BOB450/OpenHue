@@ -303,9 +303,19 @@ void MainWindow::on_horizontalSlider_sliderReleased()
          QString qlight = QString::fromStdString(allLights[i].getName());
          if(qlight == text)
          {
-
+            if(allLights[i].hasBrightnessControl())
+            {
 
             allLights[i].setBrightness(ipos);
+            }
+            else
+            {
+
+                 QMessageBox msgBox;
+
+                 msgBox.setText("this light dose not have brightness support.");
+                 msgBox.exec();
+            }
          }
      }
 }
@@ -392,7 +402,15 @@ void MainWindow::on_horizontalSlider_2_sliderReleased()
               //msgBox.exec();
 
             allLights[i].setColorTemperature(ipos);
-         }
+            }
+             else
+             {
+
+                  QMessageBox msgBox;
+
+                  msgBox.setText("This light dose not have tempreture controll");
+                  msgBox.exec();
+             }
          }
      }
 }
