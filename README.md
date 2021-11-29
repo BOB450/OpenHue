@@ -1,7 +1,7 @@
 # Philips-Hue-Desktop-Gui
 
 A cross platform application to control your Philips hue lights
-Open source mit license. Currently in super early version but will be providing binary's for linux and windows soon.
+Open source gpl 3.0 license. Currently in super early version but will be providing binary's for linux and windows soon.
 
 ## How to Build (on linux)
 
