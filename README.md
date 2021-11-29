@@ -1,4 +1,4 @@
-# Philips-Hue-Desktop-Gui
+# OpenHue
 
 A cross platform application to control your Philips hue compatable lights.
 licenced under the gpl 3.0 license. Currently in super early version but will be providing binary's for linux and windows soon.
