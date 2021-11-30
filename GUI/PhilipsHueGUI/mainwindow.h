@@ -22,6 +22,11 @@
 #include <QMainWindow>
 #include <QListWidget>
 #include <QListWidgetItem>
+#include <hueplusplus/BaseDevice.h>
+#include <hueplusplus/BaseHttpHandler.h>
+#include <hueplusplus/Bridge.h>
+#include <QtConcurrent/QtConcurrent>
+#include <QFuture>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
