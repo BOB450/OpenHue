@@ -1,7 +1,7 @@
 # OpenHue
 
-A cross platform application to control your Philips hue compatable lights.
-licenced under the gpl 3.0 license. Currently in super early version but will be providing binary's for linux and windows soon.
+A cross platform application to control your Philips hue compatible lights.
+licensed under the gpl 3.0 license. Currently in super early version but will be providing binary's for linux and windows soon.
 
 ## Current Features
 
@@ -17,7 +17,7 @@ licenced under the gpl 3.0 license. Currently in super early version but will be
 
 ## How to Build (on linux)
 
-Will have insctructions soon.
+Will have instructions soon.
 
 ## Copyright
 
