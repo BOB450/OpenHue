@@ -98,6 +98,8 @@ void checkConnection()//checks on startup if there is a pre esablished connectio
         username = connectionVal.value("bridgeUsername").toString();
         ipAddress = connectionVal.value("bridgeIP").toString();
 
+       // hueplusplus::Bridge bridge(ipAddress.toStdString(), port, username.toStdString(), handler);
+
         QMessageBox msgBox2;
 
         msgBox2.setText(username + "  " + ipAddress);
@@ -213,6 +215,7 @@ void MainWindow::on_pushButton_2_clicked()
 // Adds lights to the list wigit by looping though all the lights and adding each by there name.
 void MainWindow::on_pushButton_3_clicked()
 {
+    hueplusplus::Bridge bridge(ipAddress.toStdString(), port, username.toStdString(), handler);
     std::vector<hue::Light> allLights = getLight(bridge);
     int Lsize =  allLights.size();
  //   QMessageBox msgBox;
