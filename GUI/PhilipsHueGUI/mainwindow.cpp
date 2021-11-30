@@ -209,6 +209,8 @@ void MainWindow::on_pushButton_clicked()
 
 void MainWindow::on_pushButton_2_clicked()
 {
+    hueplusplus::Bridge bridge(ipAddress.toStdString(), port, username.toStdString(), handler);
+
     lightsTogle(bridge,3);
 }
 
@@ -236,6 +238,8 @@ void MainWindow::on_pushButton_3_clicked()
 // if the names match if they do then check if light if so then turn on if not then turn off.
 void MainWindow::on_pushButton_4_clicked()
 {
+    hueplusplus::Bridge bridge(ipAddress.toStdString(), port, username.toStdString(), handler);
+
    QString text = ui->listWidget->currentItem()->text();
     std::vector<hue::Light> allLights = getLight(bridge);
     int Lsize =  allLights.size();
@@ -260,6 +264,8 @@ void MainWindow::on_pushButton_4_clicked()
 
 void MainWindow::on_pushButton_5_clicked() //change color of selected light
 {
+    hueplusplus::Bridge bridge(ipAddress.toStdString(), port, username.toStdString(), handler);
+
     QString text = ui->listWidget->currentItem()->text();
      std::vector<hue::Light> allLights = getLight(bridge);
      int Lsize =  allLights.size();
@@ -351,6 +357,8 @@ void MainWindow::on_horizontalSlider_valueChanged(int value) //gets called evryt
 
 void MainWindow::on_horizontalSlider_sliderReleased()
 {
+    hueplusplus::Bridge bridge(ipAddress.toStdString(), port, username.toStdString(), handler);
+
     int ipos = ui->horizontalSlider->sliderPosition();
 
    // QString pos = QString::number(ipos);
@@ -392,6 +400,9 @@ void MainWindow::on_listWidget_itemPressed(QListWidgetItem *item)
 //When a light is clicked set the britness of the light eqal to the slider
 void MainWindow::on_listWidget_itemClicked(QListWidgetItem *item)
 {
+    hueplusplus::Bridge bridge(ipAddress.toStdString(), port, username.toStdString(), handler);
+
+
     QString text = ui->listWidget->currentItem()->text();
      std::vector<hue::Light> allLights = getLight(bridge);
      int Lsize =  allLights.size();
@@ -419,6 +430,8 @@ void MainWindow::on_listWidget_itemSelectionChanged()
 //When a light is clicked set the britness of the light eqal to the slider
 void MainWindow::on_listWidget_itemActivated(QListWidgetItem *item)
 {
+    hueplusplus::Bridge bridge(ipAddress.toStdString(), port, username.toStdString(), handler);
+
     QString text = ui->listWidget->currentItem()->text();
      std::vector<hue::Light> allLights = getLight(bridge);
      int Lsize =  allLights.size();
@@ -440,6 +453,8 @@ void MainWindow::on_listWidget_itemActivated(QListWidgetItem *item)
 //slider for warmth of light
 void MainWindow::on_horizontalSlider_2_sliderReleased()
 {
+    hueplusplus::Bridge bridge(ipAddress.toStdString(), port, username.toStdString(), handler);
+
     int ipos = ui->horizontalSlider_2->sliderPosition();
 
    // QString pos = QString::number(ipos);
@@ -481,6 +496,8 @@ void MainWindow::on_horizontalSlider_2_sliderReleased()
 // When you change a item using arrow keys or sutch it will now update the sliders.
 void MainWindow::on_listWidget_currentItemChanged(QListWidgetItem *current, QListWidgetItem *previous)
 {
+    hueplusplus::Bridge bridge(ipAddress.toStdString(), port, username.toStdString(), handler);
+
     QString text = ui->listWidget->currentItem()->text();
      std::vector<hue::Light> allLights = getLight(bridge);
      int Lsize =  allLights.size();
