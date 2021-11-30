@@ -63,8 +63,14 @@ hueplusplus::Bridge bridge(ipAddress.toStdString(), port, username.toStdString()
 void checkConnection()//checks on startup if there is a pre esablished connection and if not then make one.
 {
     QSettings connectionVal("OpenHue","BOB450");
+
     if(connectionVal.value("bridgeIP").isNull())
     {
+        QMessageBox msgBox;
+
+        msgBox.setText("authrnticating");
+        msgBox.exec();
+
         hue::Bridge B = connectToBridge();
 
 
@@ -81,11 +87,21 @@ void checkConnection()//checks on startup if there is a pre esablished connectio
         ipAddress = connectionVal.value("bridgeIP").toString();
 
     }
-    else
+    if(connectionVal.value("bridgeIP").isNull() == false)
     {
+        QMessageBox msgBox;
+
+        msgBox.setText("grabing from disk");
+        msgBox.exec();
+
         port = connectionVal.value("bridgePort").toInt();
         username = connectionVal.value("bridgeUsername").toString();
         ipAddress = connectionVal.value("bridgeIP").toString();
+
+        QMessageBox msgBox2;
+
+        msgBox2.setText(username + "  " + ipAddress);
+        msgBox2.exec();
         //get values from connecttionValue and set to varibles to pas into line 59
     }
 
@@ -185,7 +201,7 @@ std::vector<hue::Light> getLight(hue::Bridge& hue)
 //called when the conect ot bridge button is pressed and then it sets hub eqal to connectToBridge()
 void MainWindow::on_pushButton_clicked()
 {
-    hue::Bridge hueB = connectToBridge();
+    checkConnection();
 }
 
 
