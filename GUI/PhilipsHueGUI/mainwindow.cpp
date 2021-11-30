@@ -27,6 +27,7 @@
 #include <QListWidgetItem>
 #include <QColorDialog>
 #include <QColor>
+#include <QSettings>
 
 #include <hueplusplus/Bridge.h>
 #include <hueplusplus/BaseDevice.h>
@@ -46,27 +47,68 @@ using SystemHttpHandler = hueplusplus::LinHttpHandler;
 
 namespace hue = hueplusplus;
 
+hue::Bridge connectToBridge();
+
 // Configure existing connections here, or leave empty for new connection
- std::string macAddress = "";
- std::string username = "";
- std::string ipAddress = "";
  int port;
+ QString username = "";
+ QString ipAddress = "";
 
 // pre made connection will not be used for final product
 auto handler = std::make_shared<hueplusplus::LinHttpHandler>();//linhttphandler is only for linux
-hueplusplus::Bridge bridge("192.168.0.3", 80, "oxSTGUKhgR07uNvaHjNSB-z-gJcweovHiN8ibQ01", handler);
+hueplusplus::Bridge bridge(ipAddress.toStdString(), port, username.toStdString(), handler);
+
+void checkConnection()//checks on startup if there is a pre esablished connection and if not then make one.
+{
+    QSettings connectionVal("OpenHue","BOB450");
+    if(connectionVal.value("bridgeIP").isNull())
+    {
+        hue::Bridge B = connectToBridge();
+
+
+        QVariant QBridgeIP = QString::fromStdString(B.getBridgeIP());
+        connectionVal.setValue("bridgeIP", QBridgeIP);
+        int port = B.getBridgePort();
+        connectionVal.setValue("bridgePort", port);
+        QVariant QBridgeUsername = QString::fromStdString(B.getUsername());
+        connectionVal.setValue("bridgeUsername", QBridgeUsername);
+
+        //get values from connecttionValue and set to varibles to pas into line 59
+        port = connectionVal.value("bridgePort").toInt();
+        username = connectionVal.value("bridgeUsername").toString();
+        ipAddress = connectionVal.value("bridgeIP").toString();
+
+    }
+    else
+    {
+        port = connectionVal.value("bridgePort").toInt();
+        username = connectionVal.value("bridgeUsername").toString();
+        ipAddress = connectionVal.value("bridgeIP").toString();
+        //get values from connecttionValue and set to varibles to pas into line 59
+    }
+
+    //settings.setValue("editor/wrapMargin", 68);
+
+}
+
+
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
+
     ui->setupUi(this);
+    //checkConnection();
+    //runs after the application has fully started up.
 
 }
 
+
 MainWindow::~MainWindow()
 {
-    delete ui;
+    delete ui;// runs when program exits.
+
 }
 
 
