@@ -15,6 +15,16 @@ licensed under the gpl 3.0 license. Currently in super early version but will be
 
 - Change lights color temperature.
 
+## Branches
+
+### Main
+
+Were the stable ready to use code exits.(if building frm source use this branch)
+
+### Dev
+
+Were the not yet completed features live might not compile. fev is merged with main after a feature is mature enough.
+
 ## How to Build (on linux)
 
 Will have instructions soon.
