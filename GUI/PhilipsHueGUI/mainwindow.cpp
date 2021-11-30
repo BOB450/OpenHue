@@ -62,9 +62,9 @@ hueplusplus::Bridge bridge(ipAddress.toStdString(), port, username.toStdString()
 
 void checkConnection()//checks on startup if there is a pre esablished connection and if not then make one.
 {
-    QSettings connectionVal("OpenHue","BOB450");
+    QSettings connectionVal("OpenHue","BOB450"); //gets or makes a settings file
 
-    if(connectionVal.value("bridgeIP").isNull())
+    if(connectionVal.value("bridgeIP").isNull())//if a bridge has not been saved to settings
     {
         QMessageBox msgBox;
 
@@ -73,7 +73,7 @@ void checkConnection()//checks on startup if there is a pre esablished connectio
 
         hue::Bridge B = connectToBridge();
 
-
+        //sets all nessasary to disk
         QVariant QBridgeIP = QString::fromStdString(B.getBridgeIP());
         connectionVal.setValue("bridgeIP", QBridgeIP);
         int port = B.getBridgePort();
@@ -87,7 +87,7 @@ void checkConnection()//checks on startup if there is a pre esablished connectio
         ipAddress = connectionVal.value("bridgeIP").toString();
 
     }
-    if(connectionVal.value("bridgeIP").isNull() == false)
+    if(connectionVal.value("bridgeIP").isNull() == false)//if there is no saved
     {
         QMessageBox msgBox;
 
