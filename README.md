@@ -31,7 +31,8 @@ Will have instructions soon.
 
 ## Contribute
 
-If you want to contribute to the project submitting bugs via github issues is always helpful. If you want to aid in development go to the CONTRIBUTING.md
+If you want to contribute to the project submitting bugs via github issues is always helpful. If you want to aid in development go to the [CONTRIBUTING.md](CONTRIBUTING.md)
+
 
 ## Copyright
 
