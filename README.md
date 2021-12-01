@@ -11,7 +11,7 @@ licensed under the gpl 3.0 license. Currently in super early version but will be
 
 - Turn on and off lights
 
-- Change lights color if the selected light supports it. Allows selecting from every possible hexadecimal color value. Also has a eye dropper to pull any color from your screen. you can save theses custom colors.
+- Change lights color if the selected light supports it. Allows selecting from every possible hexadecimal color value. Also has a eye dropper to pull any color from your screen. You can save theses custom colors for future use.
 
 - Change lights brightness
 
