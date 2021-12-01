@@ -68,7 +68,7 @@ void checkConnection()//checks on startup if there is a pre esablished connectio
     {
         QMessageBox msgBox;
 
-        msgBox.setText("authrnticating");
+        msgBox.setText("click ok then go and push the button on your hue bridge you have 35 seconds");
         msgBox.exec();
 
         hue::Bridge B = connectToBridge();
@@ -87,7 +87,7 @@ void checkConnection()//checks on startup if there is a pre esablished connectio
         ipAddress = connectionVal.value("bridgeIP").toString();
 
     }
-    if(connectionVal.value("bridgeIP").isNull() == false)//if there is no saved
+    if(connectionVal.value("bridgeIP").isNull() == false)//if there is a bridge connection saved
     {
         QMessageBox msgBox;
 
@@ -119,8 +119,8 @@ MainWindow::MainWindow(QWidget *parent)
 {
 
     ui->setupUi(this);
-    //checkConnection();
-    //runs after the application has fully started up.
+    checkConnection(); //runs after the application has started up.
+
 
 }
 
