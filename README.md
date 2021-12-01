@@ -29,6 +29,10 @@ Were the not yet completed features live might not compile. fev is merged with m
 
 Will have instructions soon.
 
+## Contribute
+
+If you want to contribute to the project submitting bugs via github issues is always helpful. If you want to aid in development go to the CONTRIBUTING.md
+
 ## Copyright
 
 Copyright (c) 2021 BOB450. See LICENSE for further details.
