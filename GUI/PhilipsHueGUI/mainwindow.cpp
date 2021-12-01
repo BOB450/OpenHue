@@ -119,8 +119,8 @@ MainWindow::MainWindow(QWidget *parent)
 {
 
     ui->setupUi(this);
-    //checkConnection();
-    //runs after the application has fully started up.
+    checkConnection(); //runs after the application has started up.
+
 
 }
 
