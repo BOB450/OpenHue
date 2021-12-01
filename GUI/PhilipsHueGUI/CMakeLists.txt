@@ -11,8 +11,8 @@ set(CMAKE_AUTORCC ON)
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-find_package(QT NAMES Qt6 Qt5 COMPONENTS Widgets REQUIRED)
-find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Widgets REQUIRED)
+find_package(QT NAMES Qt6 Qt5 COMPONENTS Widgets Concurrent REQUIRED)
+find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Concurrent Widgets REQUIRED)
 
 set(PROJECT_SOURCES
         main.cpp
@@ -45,7 +45,7 @@ else()
     endif()
 endif()
 
-target_link_libraries(PhilipsHueGUI PRIVATE Qt${QT_VERSION_MAJOR}::Widgets hueplusplusstatic)
+target_link_libraries(PhilipsHueGUI PRIVATE Qt${QT_VERSION_MAJOR}::Widgets Qt${QT_VERSION_MAJOR}::Concurrent hueplusplusstatic)
 
 set_target_properties(PhilipsHueGUI PROPERTIES
     MACOSX_BUNDLE_GUI_IDENTIFIER my.example.com
