@@ -1,11 +1,5 @@
 # Contributing to OpenHue
 
-![GitHub](https://img.shields.io/github/license/BOB450/OpenHue?logoColor=blue)
-
-![GitHub issues](https://img.shields.io/github/issues/BOB450/OpenHue)
-
-![GitHub last commit](https://img.shields.io/github/last-commit/BOB450/OpenHue)
-
 We love your input! We want to make contributing to this project as easy and transparent as possible, whether it's:
 
 - Reporting a bug
