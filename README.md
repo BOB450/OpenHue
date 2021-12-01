@@ -1,4 +1,4 @@
-# OpenHue
+# 💡OpenHue💡
 
 ![GitHub](https://img.shields.io/github/license/BOB450/OpenHue?logoColor=blue)  ![GitHub issues](https://img.shields.io/github/issues/BOB450/OpenHue)  ![GitHub last commit](https://img.shields.io/github/last-commit/BOB450/OpenHue)
 
