@@ -81,6 +81,8 @@ private slots:
 
     void on_actionRoom_Group_triggered();
 
+    void on_actionRefresh_Rooms_Groups_triggered();
+
 private:
     Ui::MainWindow *ui;
 };

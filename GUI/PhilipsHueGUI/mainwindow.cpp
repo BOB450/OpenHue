@@ -243,6 +243,8 @@ void MainWindow::on_pushButton_5_clicked() //change color of selected light
 {
     hueplusplus::Bridge bridge(ipAddress.toStdString(), port, username.toStdString(), handler);
 
+    if(RoomView == false){
+
     QString text = ui->listWidget->currentItem()->text();
      std::vector<hue::Light> allLights = getLight(bridge);
      int Lsize =  allLights.size();
@@ -291,6 +293,57 @@ void MainWindow::on_pushButton_5_clicked() //change color of selected light
 
          }
      }
+    }
+    else
+    {
+        //std::vector<hue::Bridge::GroupList> groups = bridge.groups().get();
+        std::vector<hue::Group> groups = bridge.groups().getAll();
+        int Lsize =  groups.size();
+      //  QMessageBox msgBox;
+      //   QString qlight = QString::fromStdString(groups[1].getName());
+       // msgBox.setText(qlight);
+       // msgBox.exec();
+
+       QString textg = ui->listWidget->currentItem()->text();
+
+        for(int i = 0; i < Lsize; i++)
+        {
+            QString qroom = QString::fromStdString(groups[i].getName());
+            if(qroom == textg)
+            {
+                QColor colorg = QColorDialog::getColor(Qt::white,this,"chose color");
+                if(colorg.isValid())
+                {
+
+
+                    int r = colorg.red();
+                    int g = colorg.green();
+                    int b = colorg.blue();
+                   /* QString rq = QString::number(r);
+                    QString gq = QString::number(g);
+                    QString bq = QString::number(b);
+                    QMessageBox msgBox;
+
+                    msgBox.setText(rq +" "+ gq +" "+ bq);
+                    msgBox.exec();
+                    */
+
+                    hue::RGB huecolor1 = {r,g,b}; //wierd error not important
+
+                    groups[i].setColor(huecolor1.toXY());
+                }
+                else
+                {
+                       QMessageBox msgBox;
+
+                       msgBox.setText("Chose a valid color");
+                       msgBox.exec();
+                }
+            }
+
+
+        }
+    }
 }
 
 
@@ -419,7 +472,7 @@ void MainWindow::on_listWidget_itemSelectionChanged()
 
 }
 
-//When a light is clicked set the britness of the light eqal to the slider
+//When a light is double cliked or enter is pressed set the britness of the light eqal to the slider
 void MainWindow::on_listWidget_itemActivated(QListWidgetItem *item)
 {
     hueplusplus::Bridge bridge(ipAddress.toStdString(), port, username.toStdString(), handler);
@@ -645,7 +698,7 @@ void MainWindow::on_actionRoom_Group_triggered()
 }
 
 
-void MainWindow::on_actionRefresh_Rooms_Groups_triggered()
+void MainWindow::on_actionRefresh_Rooms_Groups_triggered()//refresh group in menu bar
 {
     on_actionRoom_Group_triggered();
 }
