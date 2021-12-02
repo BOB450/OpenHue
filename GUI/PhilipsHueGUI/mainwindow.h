@@ -80,6 +80,10 @@ private slots:
 
     void on_pushButton_2_clicked();
 
+    void on_actionLights_triggered();
+
+    void on_actionRoom_Group_triggered();
+
 private:
     Ui::MainWindow *ui;
 };

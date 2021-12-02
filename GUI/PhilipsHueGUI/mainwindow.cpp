@@ -59,6 +59,8 @@ hue::Bridge connectToBridge();
  bool cleared = false;
  bool hascleared = false;
 
+ bool RoomView = false;
+
 
 // pre made connection will not be used for final product
 auto handler = std::make_shared<hueplusplus::LinHttpHandler>();//linhttphandler is only for linux
@@ -548,6 +550,7 @@ void MainWindow::on_actionRefresh_lights_triggered()// Adds lights to the list w
 
 {
     cleared = true;
+    RoomView = false;
 
     hueplusplus::Bridge bridge(ipAddress.toStdString(), port, username.toStdString(), handler);
     std::vector<hue::Light> allLights = getLight(bridge);
@@ -597,6 +600,7 @@ void MainWindow::on_actionSource_Code_triggered()
 
 void MainWindow::on_pushButton_clicked()
 {
+    RoomView = true;
     cleared = true;//to stop proam from crashing
     hueplusplus::Bridge bridge(ipAddress.toStdString(), port, username.toStdString(), handler);
     //std::vector<hue::Bridge::GroupList> groups = bridge.groups().get();
@@ -623,5 +627,46 @@ void MainWindow::on_pushButton_clicked()
 void MainWindow::on_pushButton_2_clicked()
 {
     on_actionRefresh_lights_triggered();// Adds light to list hense switch back to light view
+}
+
+
+void turnOffRoom()
+{
+
+}
+
+void ChangeRoomColor()
+{
+
+}
+
+void MainWindow::on_actionLights_triggered()
+{
+    on_actionRefresh_lights_triggered();// Adds light to list hense switch back to light view
+}
+
+
+void MainWindow::on_actionRoom_Group_triggered()
+{
+    RoomView = true;
+    cleared = true;//to stop proam from crashing
+    hueplusplus::Bridge bridge(ipAddress.toStdString(), port, username.toStdString(), handler);
+    //std::vector<hue::Bridge::GroupList> groups = bridge.groups().get();
+    std::vector<hue::Group> groups = bridge.groups().getAll();
+    int Lsize =  groups.size();
+  //  QMessageBox msgBox;
+  //   QString qlight = QString::fromStdString(groups[1].getName());
+   // msgBox.setText(qlight);
+   // msgBox.exec();
+
+    ui->listWidget->clear();
+
+    for(int i = 0; i < Lsize; i++)
+    {
+        QString qroom = QString::fromStdString(groups[i].getName());
+
+        ui->listWidget->addItem(qroom);
+    }
+    //std::string i = bridge.groups().getAll();
 }
 
