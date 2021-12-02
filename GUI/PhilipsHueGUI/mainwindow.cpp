@@ -597,6 +597,7 @@ void MainWindow::on_actionSource_Code_triggered()
 
 void MainWindow::on_pushButton_clicked()
 {
+    cleared = true;
     hueplusplus::Bridge bridge(ipAddress.toStdString(), port, username.toStdString(), handler);
     //std::vector<hue::Bridge::GroupList> groups = bridge.groups().get();
     std::vector<hue::Group> groups = bridge.groups().getAll();
@@ -616,5 +617,11 @@ void MainWindow::on_pushButton_clicked()
     }
     //std::string i = bridge.groups().getAll();
 
+}
+
+
+void MainWindow::on_pushButton_2_clicked()
+{
+    on_actionRefresh_lights_triggered();
 }
 
