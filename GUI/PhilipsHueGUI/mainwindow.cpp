@@ -500,7 +500,7 @@ void MainWindow::on_horizontalSlider_2_sliderReleased()
 
 // When you change a item using arrow keys or sutch it will now update the sliders.
 void MainWindow::on_listWidget_currentItemChanged(QListWidgetItem *current, QListWidgetItem *previous)
-{   if(cleared == false)
+{   if(cleared == false)//if lights have been cleared do not run becuase it will cuase crash
     {
     hueplusplus::Bridge bridge(ipAddress.toStdString(), port, username.toStdString(), handler);
 
@@ -597,7 +597,7 @@ void MainWindow::on_actionSource_Code_triggered()
 
 void MainWindow::on_pushButton_clicked()
 {
-    cleared = true;
+    cleared = true;//to stop proam from crashing
     hueplusplus::Bridge bridge(ipAddress.toStdString(), port, username.toStdString(), handler);
     //std::vector<hue::Bridge::GroupList> groups = bridge.groups().get();
     std::vector<hue::Group> groups = bridge.groups().getAll();
@@ -622,6 +622,6 @@ void MainWindow::on_pushButton_clicked()
 
 void MainWindow::on_pushButton_2_clicked()
 {
-    on_actionRefresh_lights_triggered();
+    on_actionRefresh_lights_triggered();// Adds light to list hense switch back to light view
 }
 
