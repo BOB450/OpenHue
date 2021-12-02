@@ -21,14 +21,14 @@
     <item row="4" column="0">
      <widget class="QPushButton" name="pushButton_5">
       <property name="text">
-       <string>Change Light color</string>
+       <string>Change Light(s) color</string>
       </property>
      </widget>
     </item>
     <item row="5" column="0">
      <widget class="QPushButton" name="pushButton_4">
       <property name="text">
-       <string>Togle selected light</string>
+       <string>Togle Light(s)</string>
       </property>
      </widget>
     </item>
