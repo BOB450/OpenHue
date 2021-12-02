@@ -122,7 +122,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     ui->setupUi(this);
     checkConnection(); //runs after the application has started up.
-    on_pushButton_3_clicked();
+    on_actionRefresh_lights_triggered();
 
 
 }
@@ -203,12 +203,6 @@ std::vector<hue::Light> getLight(hue::Bridge& hue)
 
 }
 
-//called when the conect ot bridge button is pressed and then it sets hub eqal to connectToBridge()
-void MainWindow::on_pushButton_clicked()
-{
-    checkConnection();
-}
-
 
 void MainWindow::on_pushButton_2_clicked()
 {
@@ -218,30 +212,7 @@ void MainWindow::on_pushButton_2_clicked()
 }
 
 // Adds lights to the list wigit by looping though all the lights and adding each by there name.
-void MainWindow::on_pushButton_3_clicked()
-{
 
-    hueplusplus::Bridge bridge(ipAddress.toStdString(), port, username.toStdString(), handler);
-    std::vector<hue::Light> allLights = getLight(bridge);
-    int Lsize =  allLights.size();
- //   QMessageBox msgBox;
-   //  QString qlight = QString::fromStdString(allLights[1].getName());
-   // msgBox.setText(qlight);
-   // msgBox.exec();
-
-    if(t == true)
-    {
-        ui->listWidget->clear();
-    }
-    for(int i = 0; i < Lsize; i++)
-    {
-        QString qlight = QString::fromStdString(allLights[i].getName());
-
-        ui->listWidget->addItem(qlight);
-    }
-    t = true;
-
-}
 
 // Togles selected light by getting selected list item then looping through all lights and checking
 // if the names match if they do then check if light if so then turn on if not then turn off.
@@ -420,7 +391,22 @@ void MainWindow::on_listWidget_itemClicked(QListWidgetItem *item)
          QString qlight = QString::fromStdString(allLights[i].getName());
          if(qlight == text)
          {
-
+             if(!allLights[i].hasTemperatureControl())
+             {
+                 ui->horizontalSlider_2->hide();
+             }
+             else
+             {
+                 ui->horizontalSlider_2->setHidden(false);
+             }
+             if(!allLights[i].hasBrightnessControl())
+             {
+                 ui->horizontalSlider->hide();
+             }
+             else
+             {
+                 ui->horizontalSlider->setHidden(false);
+             }
 
             int bri = allLights[i].getBrightness(); // get brightness from light
             ui->horizontalSlider->setValue(bri); // set position of slider to that of the selected light
@@ -449,7 +435,22 @@ void MainWindow::on_listWidget_itemActivated(QListWidgetItem *item)
          QString qlight = QString::fromStdString(allLights[i].getName());
          if(qlight == text)
          {
-
+             if(!allLights[i].hasTemperatureControl())
+             {
+                 ui->horizontalSlider_2->hide();
+             }
+             else
+             {
+                 ui->horizontalSlider_2->setHidden(false);
+             }
+             if(!allLights[i].hasBrightnessControl())
+             {
+                 ui->horizontalSlider->hide();
+             }
+             else
+             {
+                 ui->horizontalSlider->setHidden(false);
+             }
 
             int bri = allLights[i].getBrightness(); // get brightness from light
             ui->horizontalSlider->setValue(bri); // set position of slider to that of the selected light
@@ -515,7 +516,22 @@ void MainWindow::on_listWidget_currentItemChanged(QListWidgetItem *current, QLis
          QString qlight = QString::fromStdString(allLights[i].getName());
          if(qlight == text)
          {
-
+            if(!allLights[i].hasTemperatureControl())
+            {
+                ui->horizontalSlider_2->hide();
+            }
+            else
+            {
+                ui->horizontalSlider_2->setHidden(false);
+            }
+            if(!allLights[i].hasBrightnessControl())
+            {
+                ui->horizontalSlider->hide();
+            }
+            else
+            {
+                ui->horizontalSlider->setHidden(false);
+            }
 
             int bri = allLights[i].getBrightness(); // get brightness from light
             ui->horizontalSlider->setValue(bri); // set position of slider to that of the selected light
@@ -523,5 +539,57 @@ void MainWindow::on_listWidget_currentItemChanged(QListWidgetItem *current, QLis
             ui->horizontalSlider_2->setValue(Ctemp);
          }
      }
+}
+
+
+void MainWindow::on_actionRefresh_lights_triggered()// Adds lights to the list wigit by looping though all the lights and adding each by there name.
+
+{
+
+    hueplusplus::Bridge bridge(ipAddress.toStdString(), port, username.toStdString(), handler);
+    std::vector<hue::Light> allLights = getLight(bridge);
+    int Lsize =  allLights.size();
+ //   QMessageBox msgBox;
+   //  QString qlight = QString::fromStdString(allLights[1].getName());
+   // msgBox.setText(qlight);
+   // msgBox.exec();
+
+    if(t == true)
+    {
+        ui->listWidget->clear();
+    }
+    for(int i = 0; i < Lsize; i++)
+    {
+        QString qlight = QString::fromStdString(allLights[i].getName());
+
+        ui->listWidget->addItem(qlight);
+    }
+    t = true;
+
+}
+
+
+void MainWindow::on_actionRefresh_Bridge_Connection_triggered()//menu bar calls funtion to reconnect to bridge
+{
+    checkConnection();
+}
+
+
+void MainWindow::on_actionCredits_triggered()
+{
+       QMessageBox msgBox;
+
+       msgBox.setText("Main Devloper: BOB450 using blank hue library");
+       msgBox.exec();
+}
+
+
+void MainWindow::on_actionSource_Code_triggered()
+{
+    QMessageBox msgBox;
+
+
+    msgBox.setText("Source code: <a href='https://github.com/BOB450/OpenHue'>Github</a>");
+    msgBox.exec();
 }
 

@@ -40,43 +40,15 @@
       </property>
      </widget>
     </item>
-    <item row="6" column="0">
+    <item row="5" column="0">
      <widget class="QPushButton" name="pushButton_4">
       <property name="text">
        <string>Togle selected light</string>
       </property>
      </widget>
     </item>
-    <item row="8" column="0">
-     <widget class="QPushButton" name="pushButton_3">
-      <property name="text">
-       <string>Add lights to list</string>
-      </property>
-     </widget>
-    </item>
     <item row="1" column="0">
      <widget class="QListWidget" name="listWidget"/>
-    </item>
-    <item row="4" column="0">
-     <widget class="QPushButton" name="pushButton_2">
-      <property name="text">
-       <string>Togle light</string>
-      </property>
-     </widget>
-    </item>
-    <item row="5" column="0">
-     <widget class="QPushButton" name="pushButton_5">
-      <property name="text">
-       <string>Change Light color</string>
-      </property>
-     </widget>
-    </item>
-    <item row="7" column="0">
-     <widget class="QPushButton" name="pushButton">
-      <property name="text">
-       <string>Connect to bridge</string>
-      </property>
-     </widget>
     </item>
     <item row="2" column="0">
      <widget class="QSlider" name="horizontalSlider">
@@ -91,9 +63,62 @@
       </property>
      </widget>
     </item>
+    <item row="4" column="0">
+     <widget class="QPushButton" name="pushButton_5">
+      <property name="text">
+       <string>Change Light color</string>
+      </property>
+     </widget>
+    </item>
    </layout>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>495</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuActions">
+    <property name="title">
+     <string>Actions</string>
+    </property>
+    <addaction name="actionRefresh_lights"/>
+    <addaction name="actionRefresh_Bridge_Connection"/>
+   </widget>
+   <widget class="QMenu" name="menuAbout">
+    <property name="title">
+     <string>About</string>
+    </property>
+    <addaction name="actionSource_Code"/>
+    <addaction name="actionCredits"/>
+   </widget>
+   <addaction name="menuActions"/>
+   <addaction name="menuAbout"/>
+  </widget>
+  <action name="actionSource_Code">
+   <property name="text">
+    <string>Source Code</string>
+   </property>
+  </action>
+  <action name="actionCredits">
+   <property name="text">
+    <string>Credits</string>
+   </property>
+  </action>
+  <action name="actionRefresh_lights">
+   <property name="text">
+    <string>Refresh lights</string>
+   </property>
+  </action>
+  <action name="actionRefresh_Bridge_Connection">
+   <property name="text">
+    <string>Refresh Bridge Connection</string>
+   </property>
+  </action>
  </widget>
  <resources/>
  <connections/>

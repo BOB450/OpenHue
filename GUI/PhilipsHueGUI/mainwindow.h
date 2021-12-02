@@ -41,11 +41,10 @@ public:
     ~MainWindow();
 
 private slots:
-    void on_pushButton_clicked();
+
 
     void on_pushButton_2_clicked();
 
-    void on_pushButton_3_clicked();
 
     void on_pushButton_4_clicked();
 
@@ -68,6 +67,14 @@ private slots:
     void on_horizontalSlider_2_sliderReleased();
 
     void on_listWidget_currentItemChanged(QListWidgetItem *current, QListWidgetItem *previous);
+
+    void on_actionRefresh_lights_triggered();
+
+    void on_actionRefresh_Bridge_Connection_triggered();
+
+    void on_actionCredits_triggered();
+
+    void on_actionSource_Code_triggered();
 
 private:
     Ui::MainWindow *ui;
