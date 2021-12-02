@@ -64,6 +64,19 @@
       </property>
      </widget>
     </item>
+    <item row="2" column="0">
+     <widget class="QSlider" name="horizontalSlider">
+      <property name="toolTip">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Brightness slider&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+      <property name="maximum">
+       <number>255</number>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+     </widget>
+    </item>
     <item row="5" column="0">
      <widget class="QPushButton" name="pushButton_5">
       <property name="text">
@@ -78,22 +91,49 @@
       </property>
      </widget>
     </item>
-    <item row="2" column="0">
-     <widget class="QSlider" name="horizontalSlider">
-      <property name="toolTip">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Brightness slider&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-      </property>
-      <property name="maximum">
-       <number>255</number>
-      </property>
-      <property name="orientation">
-       <enum>Qt::Horizontal</enum>
-      </property>
-     </widget>
-    </item>
    </layout>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>495</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuActions">
+    <property name="title">
+     <string>Actions</string>
+    </property>
+    <addaction name="actionRefresh_lights"/>
+   </widget>
+   <widget class="QMenu" name="menuAbout">
+    <property name="title">
+     <string>About</string>
+    </property>
+    <addaction name="actionSource_Code"/>
+    <addaction name="actionCredits"/>
+   </widget>
+   <addaction name="menuActions"/>
+   <addaction name="menuAbout"/>
+  </widget>
+  <action name="actionSource_Code">
+   <property name="text">
+    <string>Source Code</string>
+   </property>
+  </action>
+  <action name="actionCredits">
+   <property name="text">
+    <string>Credits</string>
+   </property>
+  </action>
+  <action name="actionRefresh_lights">
+   <property name="text">
+    <string>Refresh lights</string>
+   </property>
+  </action>
  </widget>
  <resources/>
  <connections/>

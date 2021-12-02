@@ -218,30 +218,7 @@ void MainWindow::on_pushButton_2_clicked()
 }
 
 // Adds lights to the list wigit by looping though all the lights and adding each by there name.
-void MainWindow::on_pushButton_3_clicked()
-{
 
-    hueplusplus::Bridge bridge(ipAddress.toStdString(), port, username.toStdString(), handler);
-    std::vector<hue::Light> allLights = getLight(bridge);
-    int Lsize =  allLights.size();
- //   QMessageBox msgBox;
-   //  QString qlight = QString::fromStdString(allLights[1].getName());
-   // msgBox.setText(qlight);
-   // msgBox.exec();
-
-    if(t == true)
-    {
-        ui->listWidget->clear();
-    }
-    for(int i = 0; i < Lsize; i++)
-    {
-        QString qlight = QString::fromStdString(allLights[i].getName());
-
-        ui->listWidget->addItem(qlight);
-    }
-    t = true;
-
-}
 
 // Togles selected light by getting selected list item then looping through all lights and checking
 // if the names match if they do then check if light if so then turn on if not then turn off.
@@ -523,5 +500,32 @@ void MainWindow::on_listWidget_currentItemChanged(QListWidgetItem *current, QLis
             ui->horizontalSlider_2->setValue(Ctemp);
          }
      }
+}
+
+
+void MainWindow::on_actionRefresh_lights_triggered()// Adds lights to the list wigit by looping though all the lights and adding each by there name.
+
+{
+
+    hueplusplus::Bridge bridge(ipAddress.toStdString(), port, username.toStdString(), handler);
+    std::vector<hue::Light> allLights = getLight(bridge);
+    int Lsize =  allLights.size();
+ //   QMessageBox msgBox;
+   //  QString qlight = QString::fromStdString(allLights[1].getName());
+   // msgBox.setText(qlight);
+   // msgBox.exec();
+
+    if(t == true)
+    {
+        ui->listWidget->clear();
+    }
+    for(int i = 0; i < Lsize; i++)
+    {
+        QString qlight = QString::fromStdString(allLights[i].getName());
+
+        ui->listWidget->addItem(qlight);
+    }
+    t = true;
+
 }
 
