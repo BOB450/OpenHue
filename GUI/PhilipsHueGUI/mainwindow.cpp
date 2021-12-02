@@ -391,7 +391,22 @@ void MainWindow::on_listWidget_itemClicked(QListWidgetItem *item)
          QString qlight = QString::fromStdString(allLights[i].getName());
          if(qlight == text)
          {
-
+             if(!allLights[i].hasTemperatureControl())
+             {
+                 ui->horizontalSlider_2->hide();
+             }
+             else
+             {
+                 ui->horizontalSlider_2->setHidden(false);
+             }
+             if(!allLights[i].hasBrightnessControl())
+             {
+                 ui->horizontalSlider->hide();
+             }
+             else
+             {
+                 ui->horizontalSlider->setHidden(false);
+             }
 
             int bri = allLights[i].getBrightness(); // get brightness from light
             ui->horizontalSlider->setValue(bri); // set position of slider to that of the selected light
@@ -420,7 +435,22 @@ void MainWindow::on_listWidget_itemActivated(QListWidgetItem *item)
          QString qlight = QString::fromStdString(allLights[i].getName());
          if(qlight == text)
          {
-
+             if(!allLights[i].hasTemperatureControl())
+             {
+                 ui->horizontalSlider_2->hide();
+             }
+             else
+             {
+                 ui->horizontalSlider_2->setHidden(false);
+             }
+             if(!allLights[i].hasBrightnessControl())
+             {
+                 ui->horizontalSlider->hide();
+             }
+             else
+             {
+                 ui->horizontalSlider->setHidden(false);
+             }
 
             int bri = allLights[i].getBrightness(); // get brightness from light
             ui->horizontalSlider->setValue(bri); // set position of slider to that of the selected light
@@ -486,7 +516,22 @@ void MainWindow::on_listWidget_currentItemChanged(QListWidgetItem *current, QLis
          QString qlight = QString::fromStdString(allLights[i].getName());
          if(qlight == text)
          {
-
+            if(!allLights[i].hasTemperatureControl())
+            {
+                ui->horizontalSlider_2->hide();
+            }
+            else
+            {
+                ui->horizontalSlider_2->setHidden(false);
+            }
+            if(!allLights[i].hasBrightnessControl())
+            {
+                ui->horizontalSlider->hide();
+            }
+            else
+            {
+                ui->horizontalSlider->setHidden(false);
+            }
 
             int bri = allLights[i].getBrightness(); // get brightness from light
             ui->horizontalSlider->setValue(bri); // set position of slider to that of the selected light
