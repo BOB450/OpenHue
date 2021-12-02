@@ -87,6 +87,7 @@
      <string>Actions</string>
     </property>
     <addaction name="actionRefresh_lights"/>
+    <addaction name="actionRefresh_Rooms_Groups"/>
     <addaction name="actionRefresh_Bridge_Connection"/>
    </widget>
    <widget class="QMenu" name="menuAbout">
@@ -135,6 +136,11 @@
   <action name="actionLights">
    <property name="text">
     <string>Lights</string>
+   </property>
+  </action>
+  <action name="actionRefresh_Rooms_Groups">
+   <property name="text">
+    <string>Refresh Rooms / Groups</string>
    </property>
   </action>
  </widget>

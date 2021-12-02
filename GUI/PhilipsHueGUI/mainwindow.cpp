@@ -644,3 +644,9 @@ void MainWindow::on_actionRoom_Group_triggered()
     //std::string i = bridge.groups().getAll();
 }
 
+
+void MainWindow::on_actionRefresh_Rooms_Groups_triggered()
+{
+    on_actionRoom_Group_triggered();
+}
+
