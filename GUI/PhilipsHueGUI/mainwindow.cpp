@@ -56,6 +56,8 @@ hue::Bridge connectToBridge();
  QString username = "";
  QString ipAddress = "";
 
+ bool t = false;
+
 // pre made connection will not be used for final product
 auto handler = std::make_shared<hueplusplus::LinHttpHandler>();//linhttphandler is only for linux
 hueplusplus::Bridge bridge(ipAddress.toStdString(), port, username.toStdString(), handler);
@@ -120,6 +122,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     ui->setupUi(this);
     checkConnection(); //runs after the application has started up.
+    on_pushButton_3_clicked();
 
 
 }
@@ -217,6 +220,7 @@ void MainWindow::on_pushButton_2_clicked()
 // Adds lights to the list wigit by looping though all the lights and adding each by there name.
 void MainWindow::on_pushButton_3_clicked()
 {
+
     hueplusplus::Bridge bridge(ipAddress.toStdString(), port, username.toStdString(), handler);
     std::vector<hue::Light> allLights = getLight(bridge);
     int Lsize =  allLights.size();
@@ -225,12 +229,17 @@ void MainWindow::on_pushButton_3_clicked()
    // msgBox.setText(qlight);
    // msgBox.exec();
 
+    if(t == true)
+    {
+        ui->listWidget->clear();
+    }
     for(int i = 0; i < Lsize; i++)
     {
         QString qlight = QString::fromStdString(allLights[i].getName());
 
         ui->listWidget->addItem(qlight);
     }
+    t = true;
 
 }
 
