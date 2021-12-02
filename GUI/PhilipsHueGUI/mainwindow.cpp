@@ -413,7 +413,7 @@ void MainWindow::on_horizontalSlider_sliderReleased()
     hueplusplus::Bridge bridge(ipAddress.toStdString(), port, username.toStdString(), handler);
 
     int ipos = ui->horizontalSlider->sliderPosition();
-
+    if(RoomView == false){
    // QString pos = QString::number(ipos);
    // QMessageBox msgBox;
 
@@ -442,6 +442,24 @@ void MainWindow::on_horizontalSlider_sliderReleased()
             }
          }
      }
+    }
+    else
+    {
+        QString text2 = ui->listWidget->currentItem()->text();
+        std::vector<hue::Group> groups = bridge.groups().getAll();
+        int Lsize =  groups.size();
+         for(int i = 0; i < Lsize; i++)
+         {
+             QString qlight = QString::fromStdString(groups[i].getName());
+             if(qlight == text2)
+             {
+
+
+                groups[i].setBrightness(ipos);
+
+             }
+         }
+    }
 }
 
 
