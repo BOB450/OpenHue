@@ -20,6 +20,9 @@
    <layout class="QGridLayout" name="gridLayout">
     <item row="4" column="0">
      <widget class="QPushButton" name="pushButton_5">
+      <property name="toolTip">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Change the lights color.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
       <property name="text">
        <string>Change Light(s) color</string>
       </property>
@@ -27,6 +30,9 @@
     </item>
     <item row="5" column="0">
      <widget class="QPushButton" name="pushButton_4">
+      <property name="toolTip">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Turn on or off lights&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
       <property name="text">
        <string>Togle Light(s)</string>
       </property>
@@ -46,7 +52,11 @@
      </widget>
     </item>
     <item row="1" column="0">
-     <widget class="QListWidget" name="listWidget"/>
+     <widget class="QListWidget" name="listWidget">
+      <property name="spacing">
+       <number>3</number>
+      </property>
+     </widget>
     </item>
     <item row="3" column="0">
      <widget class="QSlider" name="horizontalSlider_2">
@@ -96,6 +106,7 @@
     </property>
     <addaction name="actionSource_Code"/>
     <addaction name="actionCredits"/>
+    <addaction name="actionHelp"/>
    </widget>
    <widget class="QMenu" name="menuView">
     <property name="title">
@@ -105,8 +116,8 @@
     <addaction name="actionLights"/>
    </widget>
    <addaction name="menuActions"/>
-   <addaction name="menuAbout"/>
    <addaction name="menuView"/>
+   <addaction name="menuAbout"/>
   </widget>
   <action name="actionSource_Code">
    <property name="text">
@@ -141,6 +152,11 @@
   <action name="actionRefresh_Rooms_Groups">
    <property name="text">
     <string>Refresh Rooms / Groups</string>
+   </property>
+  </action>
+  <action name="actionHelp">
+   <property name="text">
+    <string>Help</string>
    </property>
   </action>
  </widget>
