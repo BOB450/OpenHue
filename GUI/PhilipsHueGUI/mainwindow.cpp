@@ -95,10 +95,6 @@ void checkConnection()//checks on startup if there is a pre esablished connectio
     }
     if(connectionVal.value("bridgeIP").isNull() == false)//if there is a bridge connection saved
     {
-        QMessageBox msgBox;
-
-        msgBox.setText("grabing from disk");
-        msgBox.exec();
 
         port = connectionVal.value("bridgePort").toInt();
         username = connectionVal.value("bridgeUsername").toString();
@@ -108,7 +104,7 @@ void checkConnection()//checks on startup if there is a pre esablished connectio
 
         QMessageBox msgBox2;
 
-        msgBox2.setText(username + "  " + ipAddress);
+        msgBox2.setText("Bridge info: " + username + "  " + ipAddress);
         msgBox2.exec();
         //get values from connecttionValue and set to varibles to pas into line 59
     }
