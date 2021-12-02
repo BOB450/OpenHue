@@ -102,6 +102,7 @@
     </property>
     <addaction name="actionSource_Code"/>
     <addaction name="actionCredits"/>
+    <addaction name="actionHelp"/>
    </widget>
    <widget class="QMenu" name="menuView">
     <property name="title">
@@ -111,8 +112,8 @@
     <addaction name="actionLights"/>
    </widget>
    <addaction name="menuActions"/>
-   <addaction name="menuAbout"/>
    <addaction name="menuView"/>
+   <addaction name="menuAbout"/>
   </widget>
   <action name="actionSource_Code">
    <property name="text">
@@ -147,6 +148,11 @@
   <action name="actionRefresh_Rooms_Groups">
    <property name="text">
     <string>Refresh Rooms / Groups</string>
+   </property>
+  </action>
+  <action name="actionHelp">
+   <property name="text">
+    <string>Help</string>
    </property>
   </action>
  </widget>
