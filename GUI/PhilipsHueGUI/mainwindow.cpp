@@ -657,15 +657,6 @@ void MainWindow::on_actionSource_Code_triggered()
 
 
 
-void turnOffRoom()
-{
-
-}
-
-void ChangeRoomColor()
-{
-
-}
 
 void MainWindow::on_actionLights_triggered()
 {
