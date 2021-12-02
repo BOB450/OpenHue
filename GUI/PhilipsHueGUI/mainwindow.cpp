@@ -578,7 +578,9 @@ void MainWindow::on_horizontalSlider_2_sliderReleased()
 
 // When you change a item using arrow keys or sutch it will now update the sliders.
 void MainWindow::on_listWidget_currentItemChanged(QListWidgetItem *current, QListWidgetItem *previous)
-{   if(cleared == false)//if lights have been cleared do not run becuase it will cuase crash
+{
+    if(RoomView){ui->horizontalSlider->setHidden(false); ui->horizontalSlider_2->setHidden(false);}
+    if(cleared == false)//if lights have been cleared do not run becuase it will cuase crash
     {
     hueplusplus::Bridge bridge(ipAddress.toStdString(), port, username.toStdString(), handler);
 
