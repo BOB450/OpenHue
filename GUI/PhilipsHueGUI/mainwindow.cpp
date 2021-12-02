@@ -529,3 +529,9 @@ void MainWindow::on_actionRefresh_lights_triggered()// Adds lights to the list w
 
 }
 
+
+void MainWindow::on_actionRefresh_Bridge_Connection_triggered()//menu bar calls funtion to reconnect to bridge
+{
+    checkConnection();
+}
+

@@ -70,6 +70,8 @@ private slots:
 
     void on_actionRefresh_lights_triggered();
 
+    void on_actionRefresh_Bridge_Connection_triggered();
+
 private:
     Ui::MainWindow *ui;
 };
