@@ -18,6 +18,36 @@
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout">
+    <item row="4" column="0">
+     <widget class="QPushButton" name="pushButton_5">
+      <property name="text">
+       <string>Change Light(s) color</string>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="0">
+     <widget class="QPushButton" name="pushButton_4">
+      <property name="text">
+       <string>Togle Light(s)</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="0">
+     <widget class="QSlider" name="horizontalSlider">
+      <property name="toolTip">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Brightness slider&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+      <property name="maximum">
+       <number>255</number>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="0">
+     <widget class="QListWidget" name="listWidget"/>
+    </item>
     <item row="3" column="0">
      <widget class="QSlider" name="horizontalSlider_2">
       <property name="toolTip">
@@ -40,36 +70,6 @@
       </property>
      </widget>
     </item>
-    <item row="5" column="0">
-     <widget class="QPushButton" name="pushButton_4">
-      <property name="text">
-       <string>Togle selected light</string>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="0">
-     <widget class="QListWidget" name="listWidget"/>
-    </item>
-    <item row="2" column="0">
-     <widget class="QSlider" name="horizontalSlider">
-      <property name="toolTip">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Brightness slider&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-      </property>
-      <property name="maximum">
-       <number>255</number>
-      </property>
-      <property name="orientation">
-       <enum>Qt::Horizontal</enum>
-      </property>
-     </widget>
-    </item>
-    <item row="4" column="0">
-     <widget class="QPushButton" name="pushButton_5">
-      <property name="text">
-       <string>Change Light color</string>
-      </property>
-     </widget>
-    </item>
    </layout>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
@@ -87,6 +87,7 @@
      <string>Actions</string>
     </property>
     <addaction name="actionRefresh_lights"/>
+    <addaction name="actionRefresh_Rooms_Groups"/>
     <addaction name="actionRefresh_Bridge_Connection"/>
    </widget>
    <widget class="QMenu" name="menuAbout">
@@ -96,8 +97,16 @@
     <addaction name="actionSource_Code"/>
     <addaction name="actionCredits"/>
    </widget>
+   <widget class="QMenu" name="menuView">
+    <property name="title">
+     <string>View</string>
+    </property>
+    <addaction name="actionRoom_Group"/>
+    <addaction name="actionLights"/>
+   </widget>
    <addaction name="menuActions"/>
    <addaction name="menuAbout"/>
+   <addaction name="menuView"/>
   </widget>
   <action name="actionSource_Code">
    <property name="text">
@@ -117,6 +126,21 @@
   <action name="actionRefresh_Bridge_Connection">
    <property name="text">
     <string>Refresh Bridge Connection</string>
+   </property>
+  </action>
+  <action name="actionRoom_Group">
+   <property name="text">
+    <string>Room / Group</string>
+   </property>
+  </action>
+  <action name="actionLights">
+   <property name="text">
+    <string>Lights</string>
+   </property>
+  </action>
+  <action name="actionRefresh_Rooms_Groups">
+   <property name="text">
+    <string>Refresh Rooms / Groups</string>
    </property>
   </action>
  </widget>

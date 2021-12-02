@@ -56,7 +56,11 @@ hue::Bridge connectToBridge();
  QString username = "";
  QString ipAddress = "";
 
- bool t = false;
+ bool cleared = false;
+ bool hascleared = false;
+
+ bool RoomView = false;
+
 
 // pre made connection will not be used for final product
 auto handler = std::make_shared<hueplusplus::LinHttpHandler>();//linhttphandler is only for linux
@@ -204,13 +208,6 @@ std::vector<hue::Light> getLight(hue::Bridge& hue)
 }
 
 
-void MainWindow::on_pushButton_2_clicked()
-{
-    hueplusplus::Bridge bridge(ipAddress.toStdString(), port, username.toStdString(), handler);
-
-    lightsTogle(bridge,3);
-}
-
 // Adds lights to the list wigit by looping though all the lights and adding each by there name.
 
 
@@ -219,7 +216,7 @@ void MainWindow::on_pushButton_2_clicked()
 void MainWindow::on_pushButton_4_clicked()
 {
     hueplusplus::Bridge bridge(ipAddress.toStdString(), port, username.toStdString(), handler);
-
+    if(RoomView == false){
    QString text = ui->listWidget->currentItem()->text();
     std::vector<hue::Light> allLights = getLight(bridge);
     int Lsize =  allLights.size();
@@ -239,12 +236,37 @@ void MainWindow::on_pushButton_4_clicked()
             }
         }
     }
+    }
+    else
+    {
+        QString text1 = ui->listWidget->currentItem()->text();
+        std::vector<hue::Group> groups = bridge.groups().getAll();
+        int Lsize =  groups.size();
+         for(int i = 0; i < Lsize; i++)
+         {
+             QString qroom = QString::fromStdString(groups[i].getName());
+
+             if(qroom == text1)
+             {
+                 if(groups[i].getAllOn())
+                 {
+                     groups[i].setOn(false);
+                 }
+                 else
+                 {
+                     groups[i].setOn(true);
+                 }
+             }
+         }
+    }
 }
 
 
 void MainWindow::on_pushButton_5_clicked() //change color of selected light
 {
     hueplusplus::Bridge bridge(ipAddress.toStdString(), port, username.toStdString(), handler);
+
+    if(RoomView == false){
 
     QString text = ui->listWidget->currentItem()->text();
      std::vector<hue::Light> allLights = getLight(bridge);
@@ -294,6 +316,57 @@ void MainWindow::on_pushButton_5_clicked() //change color of selected light
 
          }
      }
+    }
+    else
+    {
+        //std::vector<hue::Bridge::GroupList> groups = bridge.groups().get();
+        std::vector<hue::Group> groups = bridge.groups().getAll();
+        int Lsize =  groups.size();
+      //  QMessageBox msgBox;
+      //   QString qlight = QString::fromStdString(groups[1].getName());
+       // msgBox.setText(qlight);
+       // msgBox.exec();
+
+       QString textg = ui->listWidget->currentItem()->text();
+
+        for(int i = 0; i < Lsize; i++)
+        {
+            QString qroom = QString::fromStdString(groups[i].getName());
+            if(qroom == textg)
+            {
+                QColor colorg = QColorDialog::getColor(Qt::white,this,"chose color");
+                if(colorg.isValid())
+                {
+
+
+                    int r = colorg.red();
+                    int g = colorg.green();
+                    int b = colorg.blue();
+                   /* QString rq = QString::number(r);
+                    QString gq = QString::number(g);
+                    QString bq = QString::number(b);
+                    QMessageBox msgBox;
+
+                    msgBox.setText(rq +" "+ gq +" "+ bq);
+                    msgBox.exec();
+                    */
+
+                    hue::RGB huecolor1 = {r,g,b}; //wierd error not important
+
+                    groups[i].setColor(huecolor1.toXY());
+                }
+                else
+                {
+                       QMessageBox msgBox;
+
+                       msgBox.setText("Chose a valid color");
+                       msgBox.exec();
+                }
+            }
+
+
+        }
+    }
 }
 
 
@@ -340,7 +413,7 @@ void MainWindow::on_horizontalSlider_sliderReleased()
     hueplusplus::Bridge bridge(ipAddress.toStdString(), port, username.toStdString(), handler);
 
     int ipos = ui->horizontalSlider->sliderPosition();
-
+    if(RoomView == false){
    // QString pos = QString::number(ipos);
    // QMessageBox msgBox;
 
@@ -369,6 +442,24 @@ void MainWindow::on_horizontalSlider_sliderReleased()
             }
          }
      }
+    }
+    else
+    {
+        QString text2 = ui->listWidget->currentItem()->text();
+        std::vector<hue::Group> groups = bridge.groups().getAll();
+        int Lsize =  groups.size();
+         for(int i = 0; i < Lsize; i++)
+         {
+             QString qlight = QString::fromStdString(groups[i].getName());
+             if(qlight == text2)
+             {
+
+
+                groups[i].setBrightness(ipos);
+
+             }
+         }
+    }
 }
 
 
@@ -422,7 +513,7 @@ void MainWindow::on_listWidget_itemSelectionChanged()
 
 }
 
-//When a light is clicked set the britness of the light eqal to the slider
+//When a light is double cliked or enter is pressed set the britness of the light eqal to the slider
 void MainWindow::on_listWidget_itemActivated(QListWidgetItem *item)
 {
     hueplusplus::Bridge bridge(ipAddress.toStdString(), port, username.toStdString(), handler);
@@ -506,6 +597,9 @@ void MainWindow::on_horizontalSlider_2_sliderReleased()
 // When you change a item using arrow keys or sutch it will now update the sliders.
 void MainWindow::on_listWidget_currentItemChanged(QListWidgetItem *current, QListWidgetItem *previous)
 {
+    if(RoomView){ui->horizontalSlider->setHidden(false); ui->horizontalSlider_2->setHidden(false);}
+    if(cleared == false)//if lights have been cleared do not run becuase it will cuase crash
+    {
     hueplusplus::Bridge bridge(ipAddress.toStdString(), port, username.toStdString(), handler);
 
     QString text = ui->listWidget->currentItem()->text();
@@ -539,12 +633,20 @@ void MainWindow::on_listWidget_currentItemChanged(QListWidgetItem *current, QLis
             ui->horizontalSlider_2->setValue(Ctemp);
          }
      }
+    }
+    else
+    {
+        hascleared = true;
+        cleared = false;
+    }
 }
 
 
 void MainWindow::on_actionRefresh_lights_triggered()// Adds lights to the list wigit by looping though all the lights and adding each by there name.
 
 {
+    cleared = true;
+    RoomView = false;
 
     hueplusplus::Bridge bridge(ipAddress.toStdString(), port, username.toStdString(), handler);
     std::vector<hue::Light> allLights = getLight(bridge);
@@ -554,17 +656,15 @@ void MainWindow::on_actionRefresh_lights_triggered()// Adds lights to the list w
    // msgBox.setText(qlight);
    // msgBox.exec();
 
-    if(t == true)
-    {
         ui->listWidget->clear();
-    }
+
     for(int i = 0; i < Lsize; i++)
     {
         QString qlight = QString::fromStdString(allLights[i].getName());
 
         ui->listWidget->addItem(qlight);
     }
-    t = true;
+
 
 }
 
@@ -591,5 +691,49 @@ void MainWindow::on_actionSource_Code_triggered()
 
     msgBox.setText("Source code: <a href='https://github.com/BOB450/OpenHue'>Github</a>");
     msgBox.exec();
+}
+
+
+
+
+
+
+
+
+
+void MainWindow::on_actionLights_triggered()
+{
+    on_actionRefresh_lights_triggered();// Adds light to list hense switch back to light view
+}
+
+
+void MainWindow::on_actionRoom_Group_triggered()
+{
+    RoomView = true;
+    cleared = true;//to stop proam from crashing
+    hueplusplus::Bridge bridge(ipAddress.toStdString(), port, username.toStdString(), handler);
+    //std::vector<hue::Bridge::GroupList> groups = bridge.groups().get();
+    std::vector<hue::Group> groups = bridge.groups().getAll();
+    int Lsize =  groups.size();
+  //  QMessageBox msgBox;
+  //   QString qlight = QString::fromStdString(groups[1].getName());
+   // msgBox.setText(qlight);
+   // msgBox.exec();
+
+    ui->listWidget->clear();
+
+    for(int i = 0; i < Lsize; i++)
+    {
+        QString qroom = QString::fromStdString(groups[i].getName());
+
+        ui->listWidget->addItem(qroom);
+    }
+    //std::string i = bridge.groups().getAll();
+}
+
+
+void MainWindow::on_actionRefresh_Rooms_Groups_triggered()//refresh group in menu bar
+{
+    on_actionRoom_Group_triggered();
 }
 
