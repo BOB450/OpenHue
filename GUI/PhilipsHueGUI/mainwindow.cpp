@@ -203,12 +203,6 @@ std::vector<hue::Light> getLight(hue::Bridge& hue)
 
 }
 
-//called when the conect ot bridge button is pressed and then it sets hub eqal to connectToBridge()
-void MainWindow::on_pushButton_clicked()
-{
-    checkConnection();
-}
-
 
 void MainWindow::on_pushButton_2_clicked()
 {
@@ -533,5 +527,24 @@ void MainWindow::on_actionRefresh_lights_triggered()// Adds lights to the list w
 void MainWindow::on_actionRefresh_Bridge_Connection_triggered()//menu bar calls funtion to reconnect to bridge
 {
     checkConnection();
+}
+
+
+void MainWindow::on_actionCredits_triggered()
+{
+       QMessageBox msgBox;
+
+       msgBox.setText("Main Devloper: BOB450 using blank hue library");
+       msgBox.exec();
+}
+
+
+void MainWindow::on_actionSource_Code_triggered()
+{
+    QMessageBox msgBox;
+
+
+    msgBox.setText("Source code: <a href='https://github.com/BOB450/OpenHue'>Github</a>");
+    msgBox.exec();
 }
 
