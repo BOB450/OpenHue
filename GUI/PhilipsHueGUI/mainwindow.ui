@@ -48,13 +48,6 @@
     <item row="1" column="0">
      <widget class="QListWidget" name="listWidget"/>
     </item>
-    <item row="6" column="0">
-     <widget class="QPushButton" name="pushButton">
-      <property name="text">
-       <string>Room View</string>
-      </property>
-     </widget>
-    </item>
     <item row="3" column="0">
      <widget class="QSlider" name="horizontalSlider_2">
       <property name="toolTip">
@@ -74,13 +67,6 @@
       </property>
       <property name="orientation">
        <enum>Qt::Horizontal</enum>
-      </property>
-     </widget>
-    </item>
-    <item row="7" column="0">
-     <widget class="QPushButton" name="pushButton_2">
-      <property name="text">
-       <string>Individual Light View</string>
       </property>
      </widget>
     </item>

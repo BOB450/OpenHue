@@ -76,9 +76,6 @@ private slots:
 
     void on_actionSource_Code_triggered();
 
-    void on_pushButton_clicked();//used
-
-    void on_pushButton_2_clicked();
 
     void on_actionLights_triggered();
 

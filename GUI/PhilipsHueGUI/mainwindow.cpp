@@ -598,36 +598,10 @@ void MainWindow::on_actionSource_Code_triggered()
 }
 
 
-void MainWindow::on_pushButton_clicked()
-{
-    RoomView = true;
-    cleared = true;//to stop proam from crashing
-    hueplusplus::Bridge bridge(ipAddress.toStdString(), port, username.toStdString(), handler);
-    //std::vector<hue::Bridge::GroupList> groups = bridge.groups().get();
-    std::vector<hue::Group> groups = bridge.groups().getAll();
-    int Lsize =  groups.size();
-  //  QMessageBox msgBox;
-  //   QString qlight = QString::fromStdString(groups[1].getName());
-   // msgBox.setText(qlight);
-   // msgBox.exec();
-
-    ui->listWidget->clear();
-
-    for(int i = 0; i < Lsize; i++)
-    {
-        QString qroom = QString::fromStdString(groups[i].getName());
-
-        ui->listWidget->addItem(qroom);
-    }
-    //std::string i = bridge.groups().getAll();
-
-}
 
 
-void MainWindow::on_pushButton_2_clicked()
-{
-    on_actionRefresh_lights_triggered();// Adds light to list hense switch back to light view
-}
+
+
 
 
 void turnOffRoom()
