@@ -56,8 +56,9 @@ hue::Bridge connectToBridge();
  QString username = "";
  QString ipAddress = "";
 
- bool t = false;
- bool j = false;
+ bool cleared = false;
+ bool hascleared = false;
+
 
 // pre made connection will not be used for final product
 auto handler = std::make_shared<hueplusplus::LinHttpHandler>();//linhttphandler is only for linux
@@ -204,13 +205,6 @@ std::vector<hue::Light> getLight(hue::Bridge& hue)
 
 }
 
-
-void MainWindow::on_pushButton_2_clicked()
-{
-    hueplusplus::Bridge bridge(ipAddress.toStdString(), port, username.toStdString(), handler);
-
-    lightsTogle(bridge,3);
-}
 
 // Adds lights to the list wigit by looping though all the lights and adding each by there name.
 
@@ -506,7 +500,8 @@ void MainWindow::on_horizontalSlider_2_sliderReleased()
 
 // When you change a item using arrow keys or sutch it will now update the sliders.
 void MainWindow::on_listWidget_currentItemChanged(QListWidgetItem *current, QListWidgetItem *previous)
-{
+{   if(cleared == false)
+    {
     hueplusplus::Bridge bridge(ipAddress.toStdString(), port, username.toStdString(), handler);
 
     QString text = ui->listWidget->currentItem()->text();
@@ -540,12 +535,19 @@ void MainWindow::on_listWidget_currentItemChanged(QListWidgetItem *current, QLis
             ui->horizontalSlider_2->setValue(Ctemp);
          }
      }
+    }
+    else
+    {
+        hascleared = true;
+        cleared = false;
+    }
 }
 
 
 void MainWindow::on_actionRefresh_lights_triggered()// Adds lights to the list wigit by looping though all the lights and adding each by there name.
 
 {
+    cleared = true;
 
     hueplusplus::Bridge bridge(ipAddress.toStdString(), port, username.toStdString(), handler);
     std::vector<hue::Light> allLights = getLight(bridge);
@@ -555,17 +557,15 @@ void MainWindow::on_actionRefresh_lights_triggered()// Adds lights to the list w
    // msgBox.setText(qlight);
    // msgBox.exec();
 
-    if(t == true)
-    {
         ui->listWidget->clear();
-    }
+
     for(int i = 0; i < Lsize; i++)
     {
         QString qlight = QString::fromStdString(allLights[i].getName());
 
         ui->listWidget->addItem(qlight);
     }
-    t = true;
+
 
 }
 

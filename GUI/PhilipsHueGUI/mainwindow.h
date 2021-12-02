@@ -43,12 +43,12 @@ public:
 private slots:
 
 
-    void on_pushButton_2_clicked();
+    //void on_pushButton_2_clicked();
 
 
-    void on_pushButton_4_clicked();
+    void on_pushButton_4_clicked();//used
 
-    void on_pushButton_5_clicked();
+    void on_pushButton_5_clicked();//used
 
     void on_horizontalSlider_rangeChanged(int min, int max);
 
@@ -76,7 +76,7 @@ private slots:
 
     void on_actionSource_Code_triggered();
 
-    void on_pushButton_clicked();
+    void on_pushButton_clicked();//used
 
 private:
     Ui::MainWindow *ui;
