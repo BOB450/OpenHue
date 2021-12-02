@@ -216,7 +216,7 @@ std::vector<hue::Light> getLight(hue::Bridge& hue)
 void MainWindow::on_pushButton_4_clicked()
 {
     hueplusplus::Bridge bridge(ipAddress.toStdString(), port, username.toStdString(), handler);
-
+    if(RoomView == false){
    QString text = ui->listWidget->currentItem()->text();
     std::vector<hue::Light> allLights = getLight(bridge);
     int Lsize =  allLights.size();
@@ -235,6 +235,29 @@ void MainWindow::on_pushButton_4_clicked()
                 allLights[i].on();
             }
         }
+    }
+    }
+    else
+    {
+        QString text1 = ui->listWidget->currentItem()->text();
+        std::vector<hue::Group> groups = bridge.groups().getAll();
+        int Lsize =  groups.size();
+         for(int i = 0; i < Lsize; i++)
+         {
+             QString qroom = QString::fromStdString(groups[i].getName());
+
+             if(qroom == text1)
+             {
+                 if(groups[i].getAllOn())
+                 {
+                     groups[i].setOn(false);
+                 }
+                 else
+                 {
+                     groups[i].setOn(true);
+                 }
+             }
+         }
     }
 }
 
