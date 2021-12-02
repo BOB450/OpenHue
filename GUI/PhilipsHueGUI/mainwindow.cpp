@@ -122,7 +122,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     ui->setupUi(this);
     checkConnection(); //runs after the application has started up.
-    on_pushButton_3_clicked();
+    on_actionRefresh_lights_triggered();
 
 
 }

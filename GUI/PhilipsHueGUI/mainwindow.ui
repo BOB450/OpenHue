@@ -40,29 +40,15 @@
       </property>
      </widget>
     </item>
-    <item row="6" column="0">
+    <item row="5" column="0">
      <widget class="QPushButton" name="pushButton_4">
       <property name="text">
        <string>Togle selected light</string>
       </property>
      </widget>
     </item>
-    <item row="8" column="0">
-     <widget class="QPushButton" name="pushButton_3">
-      <property name="text">
-       <string>Add lights to list</string>
-      </property>
-     </widget>
-    </item>
     <item row="1" column="0">
      <widget class="QListWidget" name="listWidget"/>
-    </item>
-    <item row="4" column="0">
-     <widget class="QPushButton" name="pushButton_2">
-      <property name="text">
-       <string>Togle light</string>
-      </property>
-     </widget>
     </item>
     <item row="2" column="0">
      <widget class="QSlider" name="horizontalSlider">
@@ -77,14 +63,14 @@
       </property>
      </widget>
     </item>
-    <item row="5" column="0">
+    <item row="4" column="0">
      <widget class="QPushButton" name="pushButton_5">
       <property name="text">
        <string>Change Light color</string>
       </property>
      </widget>
     </item>
-    <item row="7" column="0">
+    <item row="6" column="0">
      <widget class="QPushButton" name="pushButton">
       <property name="text">
        <string>Connect to bridge</string>
@@ -108,6 +94,7 @@
      <string>Actions</string>
     </property>
     <addaction name="actionRefresh_lights"/>
+    <addaction name="actionRefresh_Bridge_Connection"/>
    </widget>
    <widget class="QMenu" name="menuAbout">
     <property name="title">
@@ -132,6 +119,11 @@
   <action name="actionRefresh_lights">
    <property name="text">
     <string>Refresh lights</string>
+   </property>
+  </action>
+  <action name="actionRefresh_Bridge_Connection">
+   <property name="text">
+    <string>Refresh Bridge Connection</string>
    </property>
   </action>
  </widget>
