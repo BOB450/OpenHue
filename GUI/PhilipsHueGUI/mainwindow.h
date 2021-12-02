@@ -76,6 +76,8 @@ private slots:
 
     void on_actionSource_Code_triggered();
 
+    void on_pushButton_clicked();
+
 private:
     Ui::MainWindow *ui;
 };

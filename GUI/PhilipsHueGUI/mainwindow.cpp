@@ -57,6 +57,7 @@ hue::Bridge connectToBridge();
  QString ipAddress = "";
 
  bool t = false;
+ bool j = false;
 
 // pre made connection will not be used for final product
 auto handler = std::make_shared<hueplusplus::LinHttpHandler>();//linhttphandler is only for linux
@@ -591,5 +592,29 @@ void MainWindow::on_actionSource_Code_triggered()
 
     msgBox.setText("Source code: <a href='https://github.com/BOB450/OpenHue'>Github</a>");
     msgBox.exec();
+}
+
+
+void MainWindow::on_pushButton_clicked()
+{
+    hueplusplus::Bridge bridge(ipAddress.toStdString(), port, username.toStdString(), handler);
+    //std::vector<hue::Bridge::GroupList> groups = bridge.groups().get();
+    std::vector<hue::Group> groups = bridge.groups().getAll();
+    int Lsize =  groups.size();
+  //  QMessageBox msgBox;
+  //   QString qlight = QString::fromStdString(groups[1].getName());
+   // msgBox.setText(qlight);
+   // msgBox.exec();
+
+    ui->listWidget->clear();
+
+    for(int i = 0; i < Lsize; i++)
+    {
+        QString qroom = QString::fromStdString(groups[i].getName());
+
+        ui->listWidget->addItem(qroom);
+    }
+    //std::string i = bridge.groups().getAll();
+
 }
 
