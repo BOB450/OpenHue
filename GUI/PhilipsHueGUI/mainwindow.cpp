@@ -95,10 +95,6 @@ void checkConnection()//checks on startup if there is a pre esablished connectio
     }
     if(connectionVal.value("bridgeIP").isNull() == false)//if there is a bridge connection saved
     {
-        QMessageBox msgBox;
-
-        msgBox.setText("grabing from disk");
-        msgBox.exec();
 
         port = connectionVal.value("bridgePort").toInt();
         username = connectionVal.value("bridgeUsername").toString();
@@ -108,7 +104,7 @@ void checkConnection()//checks on startup if there is a pre esablished connectio
 
         QMessageBox msgBox2;
 
-        msgBox2.setText(username + "  " + ipAddress);
+        msgBox2.setText("Bridge info: " + username + "  " + ipAddress);
         msgBox2.exec();
         //get values from connecttionValue and set to varibles to pas into line 59
     }
@@ -557,7 +553,7 @@ void MainWindow::on_horizontalSlider_2_sliderReleased()
     hueplusplus::Bridge bridge(ipAddress.toStdString(), port, username.toStdString(), handler);
 
     int ipos = ui->horizontalSlider_2->sliderPosition();
-
+    if(RoomView == false){
    // QString pos = QString::number(ipos);
    // QMessageBox msgBox;
 
@@ -592,6 +588,23 @@ void MainWindow::on_horizontalSlider_2_sliderReleased()
              }
          }
      }
+    }
+    else
+    {
+        QString text2 = ui->listWidget->currentItem()->text();
+        std::vector<hue::Group> groups = bridge.groups().getAll();
+        int Lsize =  groups.size();
+         for(int i = 0; i < Lsize; i++)
+         {
+             QString qlight = QString::fromStdString(groups[i].getName());
+             if(qlight == text2)
+             {
+
+                groups[i].setColorTemperature(ipos);
+
+             }
+         }
+    }
 }
 
 // When you change a item using arrow keys or sutch it will now update the sliders.
