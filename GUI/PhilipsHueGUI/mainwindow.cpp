@@ -771,7 +771,7 @@ void MainWindow::on_actionBridge_Info_triggered()
 {
     QMessageBox msgBox2;
 
-    msgBox2.setText("Bridge info:   " + username + "Bridge ip:   " + ipAddress + "Port:  " + QString::fromStdString(std::to_string(port)));
+    msgBox2.setText("Bridge info:   " + username + "   Bridge ip:   " + ipAddress + "   Port:  " + QString::fromStdString(std::to_string(port)));
     msgBox2.exec();
 }
 
