@@ -83,6 +83,8 @@ private slots:
 
     void on_actionRefresh_Rooms_Groups_triggered();
 
+    void on_actionBridge_Info_triggered();
+
 private:
     Ui::MainWindow *ui;
 };
