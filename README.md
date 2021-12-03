@@ -5,6 +5,10 @@
 A cross platform application to control your Philips hue compatible lights.
 licensed under the gpl 3.0 license. Currently in super early version but will be providing binary's for linux and windows soon.
 
+![OpenHue1](imgs/OpenHue3.png)![OpenHue1](imgs/OpenHue4.png)![OpenHue1](imgs/color_selection.png)
+
+
+
 ## Current Features
 
 - Connect to bridge

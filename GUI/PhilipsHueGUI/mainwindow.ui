@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>PhilipsHue</string>
+   <string>OpenHue</string>
   </property>
   <property name="autoFillBackground">
    <bool>false</bool>
