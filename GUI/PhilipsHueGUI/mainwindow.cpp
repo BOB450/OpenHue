@@ -407,7 +407,7 @@ void MainWindow::on_horizontalSlider_valueChanged(int value) //gets called evryt
 void MainWindow::on_horizontalSlider_sliderReleased()
 {
     hueplusplus::Bridge bridge(ipAddress.toStdString(), port, username.toStdString(), handler);
-
+    if(!ui->listWidget->selectedItems().empty()){//check if a light is selected if not then dont do anything fixes crash.
     int ipos = ui->horizontalSlider->sliderPosition();
     if(RoomView == false){
    // QString pos = QString::number(ipos);
@@ -455,6 +455,14 @@ void MainWindow::on_horizontalSlider_sliderReleased()
 
              }
          }
+    }
+    }
+    else
+    {
+        QMessageBox msgBox;
+
+        msgBox.setText("Select a light/Room");
+        msgBox.exec();
     }
 }
 
@@ -551,7 +559,7 @@ void MainWindow::on_listWidget_itemActivated(QListWidgetItem *item)
 void MainWindow::on_horizontalSlider_2_sliderReleased()
 {
     hueplusplus::Bridge bridge(ipAddress.toStdString(), port, username.toStdString(), handler);
-
+    if(!ui->listWidget->selectedItems().empty()){
     int ipos = ui->horizontalSlider_2->sliderPosition();
     if(RoomView == false){
    // QString pos = QString::number(ipos);
@@ -604,6 +612,14 @@ void MainWindow::on_horizontalSlider_2_sliderReleased()
 
              }
          }
+    }
+    }
+    else
+    {
+        QMessageBox msgBox;
+
+        msgBox.setText("Select a light/Room");
+        msgBox.exec();
     }
 }
 
