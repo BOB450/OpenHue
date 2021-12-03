@@ -34,7 +34,7 @@
        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Turn on or off lights&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
       <property name="text">
-       <string>Togle Light(s)</string>
+       <string>Toggle Light(s)</string>
       </property>
      </widget>
     </item>
