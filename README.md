@@ -7,8 +7,6 @@ licensed under the gpl 3.0 license. Currently in super early version but will be
 
 ![OpenHue1](imgs/OpenHue3.png)![OpenHue1](imgs/OpenHue4.png)![OpenHue1](imgs/color_selection.png)
 
-
-
 ## Current Features
 
 - Connect to bridge
@@ -31,9 +29,19 @@ Were the stable ready to use code exits.(if building frm source use this branch)
 
 Were the not yet completed features live might not compile. fev is merged with main after a feature is mature enough.
 
-## How to Build (on linux)
+## How to Build from source (on linux)
 
-Will have instructions soon.
+- Install cake, gcc and qt-tools
+
+- Install hueplusplus library at [github](https://github.com/enwi/hueplusplus)
+
+- cd into directory with cmakelists file
+
+- Run cmake
+
+- Run make
+
+You should now have a executable.
 
 ## Contribute
 
