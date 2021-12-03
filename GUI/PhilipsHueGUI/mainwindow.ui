@@ -108,6 +108,8 @@
     <addaction name="actionCredits"/>
     <addaction name="actionHelp"/>
     <addaction name="actionBridge_Info"/>
+    <addaction name="separator"/>
+    <addaction name="actionBug_Report"/>
    </widget>
    <widget class="QMenu" name="menuView">
     <property name="title">
@@ -163,6 +165,11 @@
   <action name="actionBridge_Info">
    <property name="text">
     <string>Bridge Info</string>
+   </property>
+  </action>
+  <action name="actionBug_Report">
+   <property name="text">
+    <string>Bug Report</string>
    </property>
   </action>
  </widget>

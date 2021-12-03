@@ -771,7 +771,17 @@ void MainWindow::on_actionBridge_Info_triggered()
 {
     QMessageBox msgBox2;
 
-    msgBox2.setText("Bridge info:   " + username + "Bridge ip:   " + ipAddress + "Port:  " + QString::fromStdString(std::to_string(port)));
+    msgBox2.setText("Bridge info:   " + username + "   Bridge ip:   " + ipAddress + "   Port:  " + QString::fromStdString(std::to_string(port)));
     msgBox2.exec();
+}
+
+
+void MainWindow::on_actionBug_Report_triggered()
+{
+    QMessageBox msgBox;
+
+
+    msgBox.setText("Report bug,issue or feature request here: <a href='https://github.com/BOB450/OpenHue/issues/new/choose'>Github</a>");
+    msgBox.exec();
 }
 

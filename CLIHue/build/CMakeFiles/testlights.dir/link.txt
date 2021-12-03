@@ -1,1 +1,0 @@
-/usr/bin/c++ CMakeFiles/testlights.dir/testlights.cpp.o -o testlights  -lhueplusplusstatic 

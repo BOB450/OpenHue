@@ -1,6 +1,0 @@
-/home/rowan/Documents/GitHub/Philpis-Hue-Desktop-Gui/CLIHue/build/CMakeFiles/rebuild_cache.dir
-/home/rowan/Documents/GitHub/Philpis-Hue-Desktop-Gui/CLIHue/build/CMakeFiles/edit_cache.dir
-/home/rowan/Documents/GitHub/Philpis-Hue-Desktop-Gui/CLIHue/build/CMakeFiles/getroom.dir
-/home/rowan/Documents/GitHub/Philpis-Hue-Desktop-Gui/CLIHue/build/CMakeFiles/usercontroll.dir
-/home/rowan/Documents/GitHub/Philpis-Hue-Desktop-Gui/CLIHue/build/CMakeFiles/ControllLights.dir
-/home/rowan/Documents/GitHub/Philpis-Hue-Desktop-Gui/CLIHue/build/CMakeFiles/testlights.dir

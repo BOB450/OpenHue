@@ -85,6 +85,8 @@ private slots:
 
     void on_actionBridge_Info_triggered();
 
+    void on_actionBug_Report_triggered();
+
 private:
     Ui::MainWindow *ui;
 };
