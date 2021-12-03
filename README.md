@@ -31,6 +31,8 @@ Were the not yet completed features live might not compile. fev is merged with m
 
 ## How to Build from source (on linux)
 
+- Clone repo branch main.
+
 - Install cake, gcc and qt-tools
 
 - Install hueplusplus library at [github](https://github.com/enwi/hueplusplus)
