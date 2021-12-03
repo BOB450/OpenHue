@@ -34,7 +34,7 @@
        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Turn on or off lights&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
       <property name="text">
-       <string>Togle Light(s)</string>
+       <string>Toggle Light(s)</string>
       </property>
      </widget>
     </item>
@@ -107,6 +107,7 @@
     <addaction name="actionSource_Code"/>
     <addaction name="actionCredits"/>
     <addaction name="actionHelp"/>
+    <addaction name="actionBridge_Info"/>
    </widget>
    <widget class="QMenu" name="menuView">
     <property name="title">
@@ -157,6 +158,11 @@
   <action name="actionHelp">
    <property name="text">
     <string>Help</string>
+   </property>
+  </action>
+  <action name="actionBridge_Info">
+   <property name="text">
+    <string>Bridge Info</string>
    </property>
   </action>
  </widget>

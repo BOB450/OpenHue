@@ -766,3 +766,12 @@ void MainWindow::on_actionRefresh_Rooms_Groups_triggered()//refresh group in men
     on_actionRoom_Group_triggered();
 }
 
+
+void MainWindow::on_actionBridge_Info_triggered()
+{
+    QMessageBox msgBox2;
+
+    msgBox2.setText("Bridge info:   " + username + "Bridge ip:   " + ipAddress + "Port:  " + QString::fromStdString(std::to_string(port)));
+    msgBox2.exec();
+}
+
