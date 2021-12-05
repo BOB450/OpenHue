@@ -7,7 +7,7 @@ licensed under the gpl 3.0 license. Currently in super early version but will be
 
 ![OpenHue1](imgs/OpenHue3.png)![OpenHue1](imgs/OpenHue4.png)![OpenHue1](imgs/color_selection.png)
 
-## Current Features
+## Current Featuresz
 
 - Connect to bridge
 
@@ -30,6 +30,8 @@ Were the stable ready to use code exits.(if building frm source use this branch)
 Were the not yet completed features live might not compile. fev is merged with main after a feature is mature enough.
 
 ## How to Build from source (on linux)
+
+- Clone repo branch main.
 
 - Install cake, gcc and qt-tools
 
