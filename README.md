@@ -19,6 +19,8 @@ licensed under the gpl 3.0 license. Currently in super early version but will be
 
 - Change lights color temperature.
 
+- View bridge info  (ip username key and the way into the   ) 
+
 ## Branches
 
 ### Main
