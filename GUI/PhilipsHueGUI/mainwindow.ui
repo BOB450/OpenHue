@@ -13,6 +13,10 @@
   <property name="windowTitle">
    <string>OpenHue</string>
   </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>OpenHueLogo.png</normaloff>OpenHueLogo.png</iconset>
+  </property>
   <property name="autoFillBackground">
    <bool>false</bool>
   </property>

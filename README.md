@@ -7,7 +7,7 @@ licensed under the gpl 3.0 license. Currently in super early version but will be
 
 ![OpenHue1](imgs/OpenHue3.png)![OpenHue1](imgs/OpenHue4.png)![OpenHue1](imgs/color_selection.png)
 
-## Current Features
+## Current Featuresz
 
 - Connect to bridge
 
