@@ -788,8 +788,33 @@ void MainWindow::on_actionBug_Report_triggered()
 
 void MainWindow::on_actionDelete_triggered()
 {
+    QSettings connectionVal("OpenHue","BOB450"); //gets or makes a settings file
     QMessageBox msgBox;
     msgBox.setText("Bridge connection Deleted. Making new connection");
     msgBox.exec();
+
+    QMessageBox msgBox3;
+    msgBox3.setText("Go push the button on your bridge you have 30 seconds hurry!.");
+    msgBox3.exec();
+
+    hue::Bridge B = connectToBridge();//make new connection.
+
+    //sets all nessasary to disk
+    QVariant QBridgeIP = QString::fromStdString(B.getBridgeIP());
+    connectionVal.setValue("bridgeIP", QBridgeIP);
+    int port = B.getBridgePort();
+    connectionVal.setValue("bridgePort", port);
+    QVariant QBridgeUsername = QString::fromStdString(B.getUsername());
+    connectionVal.setValue("bridgeUsername", QBridgeUsername);
+
+    //get values from connecttionValue and set to varibles to pass into line 59
+    port = connectionVal.value("bridgePort").toInt();
+    username = connectionVal.value("bridgeUsername").toString();
+    ipAddress = connectionVal.value("bridgeIP").toString();
+
+    QMessageBox msgBox2;
+
+    msgBox2.setText("Bridge info:   " + username + "   Bridge ip:   " + ipAddress + "   Port:  " + QString::fromStdString(std::to_string(port)));
+    msgBox2.exec();
 }
 
