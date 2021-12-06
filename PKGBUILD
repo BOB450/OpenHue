@@ -1,4 +1,4 @@
-# Maintainer: Your Name <bwvoskuil@gmail.com to contact BOB4500@protonmail.com>
+# Maintainer: BOB450<bwvoskuil@gmail.com to contact BOB4500@protonmail.com>
 pkgname=OpenHue
 pkgver=0.4
 pkgrel=1
