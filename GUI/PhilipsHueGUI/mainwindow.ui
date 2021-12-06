@@ -103,6 +103,7 @@
     <addaction name="actionRefresh_lights"/>
     <addaction name="actionRefresh_Rooms_Groups"/>
     <addaction name="actionRefresh_Bridge_Connection"/>
+    <addaction name="actionDelete"/>
    </widget>
    <widget class="QMenu" name="menuAbout">
     <property name="title">
@@ -174,6 +175,11 @@
   <action name="actionBug_Report">
    <property name="text">
     <string>Bug Report</string>
+   </property>
+  </action>
+  <action name="actionDelete">
+   <property name="text">
+    <string>Delete Bridge Conection</string>
    </property>
   </action>
  </widget>

@@ -87,6 +87,8 @@ private slots:
 
     void on_actionBug_Report_triggered();
 
+    void on_actionDelete_triggered();
+
 private:
     Ui::MainWindow *ui;
 };
