@@ -785,3 +785,11 @@ void MainWindow::on_actionBug_Report_triggered()
     msgBox.exec();
 }
 
+
+void MainWindow::on_actionDelete_triggered()
+{
+    QMessageBox msgBox;
+    msgBox.setText("Bridge connection Deleted. Making new connection");
+    msgBox.exec();
+}
+
