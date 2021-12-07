@@ -212,6 +212,7 @@ std::vector<hue::Light> getLight(hue::Bridge& hue)
 void MainWindow::on_pushButton_4_clicked()
 {
     hueplusplus::Bridge bridge(ipAddress.toStdString(), port, username.toStdString(), handler);
+    if(!ui->listWidget->selectedItems().empty()){//check if a light is selected if not then dont do anything fixes crash.
     if(RoomView == false){
    QString text = ui->listWidget->currentItem()->text();
     std::vector<hue::Light> allLights = getLight(bridge);
@@ -255,12 +256,21 @@ void MainWindow::on_pushButton_4_clicked()
              }
          }
     }
+    }
+    else
+    {
+        QMessageBox msgBox;
+
+        msgBox.setText("Select a light/Room");
+        msgBox.exec();
+    }
 }
 
 
 void MainWindow::on_pushButton_5_clicked() //change color of selected light
 {
     hueplusplus::Bridge bridge(ipAddress.toStdString(), port, username.toStdString(), handler);
+    if(!ui->listWidget->selectedItems().empty()){//check if a light is selected if not then dont do anything fixes crash.
 
     if(RoomView == false){
 
@@ -362,6 +372,14 @@ void MainWindow::on_pushButton_5_clicked() //change color of selected light
 
 
         }
+    }
+    }
+    else
+    {
+        QMessageBox msgBox;
+
+        msgBox.setText("Select a light/Room");
+        msgBox.exec();
     }
 }
 
