@@ -35,7 +35,7 @@ Were the not yet completed features live might not compile. fev is merged with m
 
 - Clone repo branch main.
 
-- Install cake, gcc and qt-tools
+- Install cmake, gcc and qt-tools
 
 - Install hueplusplus library at [github](https://github.com/enwi/hueplusplus)
 
