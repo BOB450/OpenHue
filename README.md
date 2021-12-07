@@ -29,7 +29,7 @@ Were the stable ready to use code exits.(if building frm source use this branch)
 
 ### Dev
 
-Were the not yet completed features live might not compile. fev is merged with main after a feature is mature enough.
+Where the not yet completed features live might not compile. dev is merged with main after a feature is mature enough.
 
 ## How to Build from source (on linux)
 
