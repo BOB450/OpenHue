@@ -274,6 +274,7 @@ void MainWindow::on_pushButton_4_clicked()//togle light button
 
 void MainWindow::ChangeLightColor()
 {
+
     hueplusplus::Bridge bridge(ipAddress.toStdString(), port, username.toStdString(), handler);
     if(!ui->listWidget->selectedItems().empty()){//check if a light is selected if not then dont do anything fixes crash.
 
@@ -435,7 +436,7 @@ void MainWindow::on_horizontalSlider_valueChanged(int value) //gets called evryt
 }
 
 
-void MainWindow::on_horizontalSlider_sliderReleased()
+void MainWindow::changeBrightness()
 {
     hueplusplus::Bridge bridge(ipAddress.toStdString(), port, username.toStdString(), handler);
     if(!ui->listWidget->selectedItems().empty()){//check if a light is selected if not then dont do anything fixes crash.
@@ -495,6 +496,11 @@ void MainWindow::on_horizontalSlider_sliderReleased()
         msgBox.setText("Select a light/Room");
         msgBox.exec();
     }
+}
+
+void MainWindow::on_horizontalSlider_sliderReleased()//change brightness button
+{
+    QFuture<void> i3 = QtConcurrent::run(&MainWindow::changeBrightness,this);
 }
 
 

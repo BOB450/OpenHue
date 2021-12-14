@@ -41,6 +41,7 @@ public:
     ~MainWindow();
     void togleLights();
     void ChangeLightColor();
+    void changeBrightness();
 
 private slots:
 
