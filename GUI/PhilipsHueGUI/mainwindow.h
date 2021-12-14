@@ -43,6 +43,7 @@ public:
     void ChangeLightColor();
     void changeBrightness();
     void sliderWarmth();
+    void itemClicked();
 
 private slots:
 

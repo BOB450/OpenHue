@@ -508,8 +508,7 @@ void MainWindow::on_listWidget_itemPressed(QListWidgetItem *item)
 
 }
 
-//When a light is clicked set the britness of the light eqal to the slider
-void MainWindow::on_listWidget_itemClicked(QListWidgetItem *item)
+void MainWindow::itemClicked()
 {
     hueplusplus::Bridge bridge(ipAddress.toStdString(), port, username.toStdString(), handler);
 
@@ -545,6 +544,12 @@ void MainWindow::on_listWidget_itemClicked(QListWidgetItem *item)
             ui->horizontalSlider_2->setValue(Ctemp);
          }
      }
+}
+
+//When a light is clicked set the britness of the light eqal to the slider
+void MainWindow::on_listWidget_itemClicked(QListWidgetItem *item)
+{
+    QFuture<void> i3 = QtConcurrent::run(&MainWindow::itemClicked,this);
 }
 
 
