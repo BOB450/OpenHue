@@ -66,6 +66,32 @@ hue::Bridge connectToBridge();
 auto handler = std::make_shared<hueplusplus::LinHttpHandler>();//linhttphandler is only for linux
 hueplusplus::Bridge bridge(ipAddress.toStdString(), port, username.toStdString(), handler);
 
+//check bridge connection
+bool MainWindow::isBridgeVisible()
+{
+     QSettings connectionVal("OpenHue","BOB450"); //gets or makes a settings file
+     ipAddress = connectionVal.value("bridgeIP").toString();
+
+    QStringList parameters;
+ #if defined(WIN32)
+    parameters << "-n" << "1";
+ #else
+    parameters << "-c 1";
+ #endif
+
+    parameters << ipAddress;
+
+    int exitCode = QProcess::execute("ping", parameters);
+    if (exitCode==0) {
+        // it's alive
+        return true;
+    } else {
+        // it's dead
+        return false;
+    }
+}
+
+
 void checkConnection()//checks on startup if there is a pre esablished connection and if not then make one.
 {
     QSettings connectionVal("OpenHue","BOB450"); //gets or makes a settings file
@@ -802,6 +828,14 @@ void MainWindow::on_actionBug_Report_triggered()
 
 void MainWindow::on_actionDelete_triggered()
 {
+    if(MainWindow::isBridgeVisible() == false)
+    {
+        QMessageBox msgBox;
+        msgBox.setText("Your not connected to the internet!");
+        msgBox.exec();
+    }
+    else
+    {
     QSettings connectionVal("OpenHue","BOB450"); //gets or makes a settings file
     QMessageBox msgBox;
     msgBox.setText("Bridge connection Deleted. Making new connection");
@@ -830,5 +864,6 @@ void MainWindow::on_actionDelete_triggered()
 
     msgBox2.setText("Bridge info:   " + username + "   Bridge ip:   " + ipAddress + "   Port:  " + QString::fromStdString(std::to_string(port)));
     msgBox2.exec();
+    }
 }
 

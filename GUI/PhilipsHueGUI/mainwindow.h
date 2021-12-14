@@ -44,6 +44,7 @@ public:
     void changeBrightness();
     void sliderWarmth();
     void itemClicked();
+    bool isBridgeVisible();
 
 private slots:
 
