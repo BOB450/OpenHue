@@ -40,6 +40,7 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
     void togleLights();
+    void ChangeLightColor();
 
 private slots:
 
