@@ -203,13 +203,7 @@ std::vector<hue::Light> getLight(hue::Bridge& hue)
 
 }
 
-
-// Adds lights to the list wigit by looping though all the lights and adding each by there name.
-
-
-// Togles selected light by getting selected list item then looping through all lights and checking
-// if the names match if they do then check if light if so then turn on if not then turn off.
-void MainWindow::on_pushButton_4_clicked()
+void MainWindow::togleLights()
 {
     hueplusplus::Bridge bridge(ipAddress.toStdString(), port, username.toStdString(), handler);
     if(!ui->listWidget->selectedItems().empty()){//check if a light is selected if not then dont do anything fixes crash.
@@ -264,6 +258,16 @@ void MainWindow::on_pushButton_4_clicked()
         msgBox.setText("Select a light/Room");
         msgBox.exec();
     }
+}
+
+// Adds lights to the list wigit by looping though all the lights and adding each by there name.
+
+
+// Togles selected light by getting selected list item then looping through all lights and checking
+// if the names match if they do then check if light if so then turn on if not then turn off.
+void MainWindow::on_pushButton_4_clicked()
+{
+    QFuture<void> i = QtConcurrent::run(&MainWindow::togleLights,this);
 }
 
 
