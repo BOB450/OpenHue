@@ -94,6 +94,15 @@ bool MainWindow::isBridgeVisible()
 
 void MainWindow::checkConnection()//checks on startup if there is a pre esablished connection and if not then make one.
 {
+    if(MainWindow::isBridgeVisible() == false)
+    {
+        QMessageBox msgBox;
+        msgBox.setText("Your not connected to the internet!");
+        msgBox.exec();
+
+    }
+    else
+    {
     QSettings connectionVal("OpenHue","BOB450"); //gets or makes a settings file
 
     if(connectionVal.value("bridgeIP").isNull())//if a bridge has not been saved to settings
@@ -136,6 +145,7 @@ void MainWindow::checkConnection()//checks on startup if there is a pre esablish
     }
 
     //settings.setValue("editor/wrapMargin", 68);
+    }
 
 }
 
