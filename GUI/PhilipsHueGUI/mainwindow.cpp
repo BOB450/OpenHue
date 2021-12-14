@@ -295,7 +295,15 @@ void MainWindow::togleLights()
 
 void MainWindow::on_pushButton_4_clicked()//togle light button
 {
+    if(MainWindow::isBridgeVisible() == false)
+    {
+        QMessageBox msgBox;
+        msgBox.setText("Your not connected to the internet!");
+        msgBox.exec();
+    }
+    else{
     QFuture<void> i = QtConcurrent::run(&MainWindow::togleLights,this);
+    }
 }
 
 void MainWindow::ChangeLightColor()
@@ -417,8 +425,16 @@ void MainWindow::ChangeLightColor()
 
 void MainWindow::on_pushButton_5_clicked() //change color of selected light
 {
+    if(MainWindow::isBridgeVisible() == false)
+    {
+        QMessageBox msgBox;
+        msgBox.setText("Your not connected to the internet!");
+        msgBox.exec();
+    }
+    else{
     QFuture<void> i = QtConcurrent::run(&MainWindow::ChangeLightColor,this);
     i.waitForFinished();
+    }
 
 }
 
@@ -525,7 +541,15 @@ void MainWindow::changeBrightness()
 
 void MainWindow::on_horizontalSlider_sliderReleased()//change brightness button
 {
+    if(MainWindow::isBridgeVisible() == false)
+    {
+        QMessageBox msgBox;
+        msgBox.setText("Your not connected to the internet!");
+        msgBox.exec();
+    }
+    else{
     QFuture<void> i3 = QtConcurrent::run(&MainWindow::changeBrightness,this);
+    }
 }
 
 
@@ -659,8 +683,15 @@ void MainWindow::sliderWarmth()
 
 //slider for warmth of light
 void MainWindow::on_horizontalSlider_2_sliderReleased()
-{
+{    if(MainWindow::isBridgeVisible() == false)
+    {
+        QMessageBox msgBox;
+        msgBox.setText("Your not connected to the internet!");
+        msgBox.exec();
+    }
+    else{
     QFuture<void> i = QtConcurrent::run(&MainWindow::sliderWarmth,this);
+    }
 }
 
 void MainWindow::ItemListArrowKeys()
