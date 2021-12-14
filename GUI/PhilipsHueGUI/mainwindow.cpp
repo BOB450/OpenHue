@@ -146,9 +146,21 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
 
+    if(MainWindow::isBridgeVisible() == false)
+    {
+        QMessageBox msgBox;
+        msgBox.setText("Your not connected to the internet! Please connect and restart.");
+        msgBox.exec();
+        QApplication::quit();
+    }
+    else
+    {
+
+
     ui->setupUi(this);
     checkConnection(); //runs after the application has started up.
     on_actionRefresh_lights_triggered();
+    }
 
 
 }
