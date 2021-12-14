@@ -561,39 +561,7 @@ void MainWindow::on_listWidget_itemSelectionChanged()
 //When a light is double cliked or enter is pressed set the britness of the light eqal to the slider
 void MainWindow::on_listWidget_itemActivated(QListWidgetItem *item)
 {
-    hueplusplus::Bridge bridge(ipAddress.toStdString(), port, username.toStdString(), handler);
-
-    QString text = ui->listWidget->currentItem()->text();
-     std::vector<hue::Light> allLights = getLight(bridge);
-     int Lsize =  allLights.size();
-     for(int i = 0; i < Lsize; i++)
-     {
-         QString qlight = QString::fromStdString(allLights[i].getName());
-         if(qlight == text)
-         {
-             if(!allLights[i].hasTemperatureControl())
-             {
-                 ui->horizontalSlider_2->hide();
-             }
-             else
-             {
-                 ui->horizontalSlider_2->setHidden(false);
-             }
-             if(!allLights[i].hasBrightnessControl())
-             {
-                 ui->horizontalSlider->hide();
-             }
-             else
-             {
-                 ui->horizontalSlider->setHidden(false);
-             }
-
-            int bri = allLights[i].getBrightness(); // get brightness from light
-            ui->horizontalSlider->setValue(bri); // set position of slider to that of the selected light
-            int Ctemp = allLights[i].getColorTemperature(); // get color temp from light
-            ui->horizontalSlider_2->setValue(Ctemp);
-         }
-     }
+    QFuture<void> i3 = QtConcurrent::run(&MainWindow::itemClicked,this);
 }
 
 void MainWindow::sliderWarmth()
