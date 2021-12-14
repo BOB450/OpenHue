@@ -663,8 +663,7 @@ void MainWindow::on_horizontalSlider_2_sliderReleased()
     QFuture<void> i = QtConcurrent::run(&MainWindow::sliderWarmth,this);
 }
 
-// When you change a item using arrow keys or sutch it will now update the sliders.
-void MainWindow::on_listWidget_currentItemChanged(QListWidgetItem *current, QListWidgetItem *previous)
+void MainWindow::ItemListArrowKeys()
 {
     if(RoomView){ui->horizontalSlider->setHidden(false); ui->horizontalSlider_2->setHidden(false);}
     if(cleared == false)//if lights have been cleared do not run becuase it will cuase crash
@@ -708,6 +707,12 @@ void MainWindow::on_listWidget_currentItemChanged(QListWidgetItem *current, QLis
         hascleared = true;
         cleared = false;
     }
+}
+
+// When you change a item using arrow keys or sutch it will now update the sliders.
+void MainWindow::on_listWidget_currentItemChanged(QListWidgetItem *current, QListWidgetItem *previous)
+{
+    QFuture<void> i = QtConcurrent::run(&MainWindow::ItemListArrowKeys,this);
 }
 
 

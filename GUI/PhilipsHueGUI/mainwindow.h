@@ -45,6 +45,7 @@ public:
     void sliderWarmth();
     void itemClicked();
     bool isBridgeVisible();
+    void ItemListArrowKeys();
 
 private slots:
 
