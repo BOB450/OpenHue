@@ -66,8 +66,43 @@ hue::Bridge connectToBridge();
 auto handler = std::make_shared<hueplusplus::LinHttpHandler>();//linhttphandler is only for linux
 hueplusplus::Bridge bridge(ipAddress.toStdString(), port, username.toStdString(), handler);
 
-void checkConnection()//checks on startup if there is a pre esablished connection and if not then make one.
+//check bridge connection
+bool MainWindow::isBridgeVisible()
 {
+     QSettings connectionVal("OpenHue","BOB450"); //gets or makes a settings file
+     ipAddress = connectionVal.value("bridgeIP").toString();
+
+    QStringList parameters;
+ #if defined(WIN32)
+    parameters << "-n" << "1";
+ #else
+    parameters << "-c 1";
+ #endif
+
+    parameters << ipAddress;
+
+    int exitCode = QProcess::execute("ping", parameters);
+    if (exitCode==0) {
+        // it's alive
+        return true;
+    } else {
+        // it's dead
+        return false;
+    }
+}
+
+
+void MainWindow::checkConnection()//checks on startup if there is a pre esablished connection and if not then make one.
+{
+    if(MainWindow::isBridgeVisible() == false)
+    {
+        QMessageBox msgBox;
+        msgBox.setText("Your not connected to the internet!");
+        msgBox.exec();
+
+    }
+    else
+    {
     QSettings connectionVal("OpenHue","BOB450"); //gets or makes a settings file
 
     if(connectionVal.value("bridgeIP").isNull())//if a bridge has not been saved to settings
@@ -110,6 +145,7 @@ void checkConnection()//checks on startup if there is a pre esablished connectio
     }
 
     //settings.setValue("editor/wrapMargin", 68);
+    }
 
 }
 
@@ -120,9 +156,21 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
 
+    if(MainWindow::isBridgeVisible() == false)
+    {
+        QMessageBox msgBox;
+        msgBox.setText("Your not connected to the internet! Please connect and restart.");
+        msgBox.exec();
+        QApplication::quit();
+    }
+    else
+    {
+
+
     ui->setupUi(this);
     checkConnection(); //runs after the application has started up.
     on_actionRefresh_lights_triggered();
+    }
 
 
 }
@@ -269,7 +317,15 @@ void MainWindow::togleLights()
 
 void MainWindow::on_pushButton_4_clicked()//togle light button
 {
+    if(MainWindow::isBridgeVisible() == false)
+    {
+        QMessageBox msgBox;
+        msgBox.setText("Your not connected to the internet!");
+        msgBox.exec();
+    }
+    else{
     QFuture<void> i = QtConcurrent::run(&MainWindow::togleLights,this);
+    }
 }
 
 void MainWindow::ChangeLightColor()
@@ -391,8 +447,16 @@ void MainWindow::ChangeLightColor()
 
 void MainWindow::on_pushButton_5_clicked() //change color of selected light
 {
+    if(MainWindow::isBridgeVisible() == false)
+    {
+        QMessageBox msgBox;
+        msgBox.setText("Your not connected to the internet!");
+        msgBox.exec();
+    }
+    else{
     QFuture<void> i = QtConcurrent::run(&MainWindow::ChangeLightColor,this);
     i.waitForFinished();
+    }
 
 }
 
@@ -499,7 +563,15 @@ void MainWindow::changeBrightness()
 
 void MainWindow::on_horizontalSlider_sliderReleased()//change brightness button
 {
+    if(MainWindow::isBridgeVisible() == false)
+    {
+        QMessageBox msgBox;
+        msgBox.setText("Your not connected to the internet!");
+        msgBox.exec();
+    }
+    else{
     QFuture<void> i3 = QtConcurrent::run(&MainWindow::changeBrightness,this);
+    }
 }
 
 
@@ -508,8 +580,7 @@ void MainWindow::on_listWidget_itemPressed(QListWidgetItem *item)
 
 }
 
-//When a light is clicked set the britness of the light eqal to the slider
-void MainWindow::on_listWidget_itemClicked(QListWidgetItem *item)
+void MainWindow::itemClicked()
 {
     hueplusplus::Bridge bridge(ipAddress.toStdString(), port, username.toStdString(), handler);
 
@@ -545,6 +616,12 @@ void MainWindow::on_listWidget_itemClicked(QListWidgetItem *item)
             ui->horizontalSlider_2->setValue(Ctemp);
          }
      }
+}
+
+//When a light is clicked set the britness of the light eqal to the slider
+void MainWindow::on_listWidget_itemClicked(QListWidgetItem *item)
+{
+    QFuture<void> i3 = QtConcurrent::run(&MainWindow::itemClicked,this);
 }
 
 
@@ -556,39 +633,7 @@ void MainWindow::on_listWidget_itemSelectionChanged()
 //When a light is double cliked or enter is pressed set the britness of the light eqal to the slider
 void MainWindow::on_listWidget_itemActivated(QListWidgetItem *item)
 {
-    hueplusplus::Bridge bridge(ipAddress.toStdString(), port, username.toStdString(), handler);
-
-    QString text = ui->listWidget->currentItem()->text();
-     std::vector<hue::Light> allLights = getLight(bridge);
-     int Lsize =  allLights.size();
-     for(int i = 0; i < Lsize; i++)
-     {
-         QString qlight = QString::fromStdString(allLights[i].getName());
-         if(qlight == text)
-         {
-             if(!allLights[i].hasTemperatureControl())
-             {
-                 ui->horizontalSlider_2->hide();
-             }
-             else
-             {
-                 ui->horizontalSlider_2->setHidden(false);
-             }
-             if(!allLights[i].hasBrightnessControl())
-             {
-                 ui->horizontalSlider->hide();
-             }
-             else
-             {
-                 ui->horizontalSlider->setHidden(false);
-             }
-
-            int bri = allLights[i].getBrightness(); // get brightness from light
-            ui->horizontalSlider->setValue(bri); // set position of slider to that of the selected light
-            int Ctemp = allLights[i].getColorTemperature(); // get color temp from light
-            ui->horizontalSlider_2->setValue(Ctemp);
-         }
-     }
+    QFuture<void> i3 = QtConcurrent::run(&MainWindow::itemClicked,this);
 }
 
 void MainWindow::sliderWarmth()
@@ -660,12 +705,18 @@ void MainWindow::sliderWarmth()
 
 //slider for warmth of light
 void MainWindow::on_horizontalSlider_2_sliderReleased()
-{
+{    if(MainWindow::isBridgeVisible() == false)
+    {
+        QMessageBox msgBox;
+        msgBox.setText("Your not connected to the internet!");
+        msgBox.exec();
+    }
+    else{
     QFuture<void> i = QtConcurrent::run(&MainWindow::sliderWarmth,this);
+    }
 }
 
-// When you change a item using arrow keys or sutch it will now update the sliders.
-void MainWindow::on_listWidget_currentItemChanged(QListWidgetItem *current, QListWidgetItem *previous)
+void MainWindow::ItemListArrowKeys()
 {
     if(RoomView){ui->horizontalSlider->setHidden(false); ui->horizontalSlider_2->setHidden(false);}
     if(cleared == false)//if lights have been cleared do not run becuase it will cuase crash
@@ -711,10 +762,23 @@ void MainWindow::on_listWidget_currentItemChanged(QListWidgetItem *current, QLis
     }
 }
 
+// When you change a item using arrow keys or sutch it will now update the sliders.
+void MainWindow::on_listWidget_currentItemChanged(QListWidgetItem *current, QListWidgetItem *previous)
+{
+    QFuture<void> i = QtConcurrent::run(&MainWindow::ItemListArrowKeys,this);
+}
+
 
 void MainWindow::on_actionRefresh_lights_triggered()// Adds lights to the list wigit by looping though all the lights and adding each by there name.
 
 {
+    if(MainWindow::isBridgeVisible() == false)
+    {
+        QMessageBox msgBox;
+        msgBox.setText("Your not connected to the internet!");
+        msgBox.exec();
+    }
+    else{
     cleared = true;
     RoomView = false;
 
@@ -734,7 +798,7 @@ void MainWindow::on_actionRefresh_lights_triggered()// Adds lights to the list w
 
         ui->listWidget->addItem(qlight);
     }
-
+}
 
 }
 
@@ -779,6 +843,13 @@ void MainWindow::on_actionLights_triggered()
 
 void MainWindow::on_actionRoom_Group_triggered()
 {
+    if(MainWindow::isBridgeVisible() == false)
+    {
+        QMessageBox msgBox;
+        msgBox.setText("Your not connected to the internet!");
+        msgBox.exec();
+    }
+    else{
     RoomView = true;
     cleared = true;//to stop proam from crashing
     hueplusplus::Bridge bridge(ipAddress.toStdString(), port, username.toStdString(), handler);
@@ -799,6 +870,7 @@ void MainWindow::on_actionRoom_Group_triggered()
         ui->listWidget->addItem(qroom);
     }
     //std::string i = bridge.groups().getAll();
+    }
 }
 
 
@@ -829,6 +901,14 @@ void MainWindow::on_actionBug_Report_triggered()
 
 void MainWindow::on_actionDelete_triggered()
 {
+    if(MainWindow::isBridgeVisible() == false)
+    {
+        QMessageBox msgBox;
+        msgBox.setText("Your not connected to the internet!");
+        msgBox.exec();
+    }
+    else
+    {
     QSettings connectionVal("OpenHue","BOB450"); //gets or makes a settings file
     QMessageBox msgBox;
     msgBox.setText("Bridge connection Deleted. Making new connection");
@@ -857,5 +937,6 @@ void MainWindow::on_actionDelete_triggered()
 
     msgBox2.setText("Bridge info:   " + username + "   Bridge ip:   " + ipAddress + "   Port:  " + QString::fromStdString(std::to_string(port)));
     msgBox2.exec();
+    }
 }
 

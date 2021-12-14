@@ -43,6 +43,10 @@ public:
     void ChangeLightColor();
     void changeBrightness();
     void sliderWarmth();
+    void itemClicked();
+    bool isBridgeVisible();
+    void ItemListArrowKeys();
+    void checkConnection();
 
 private slots:
 
