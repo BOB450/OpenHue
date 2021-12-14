@@ -92,7 +92,7 @@ bool MainWindow::isBridgeVisible()
 }
 
 
-void checkConnection()//checks on startup if there is a pre esablished connection and if not then make one.
+void MainWindow::checkConnection()//checks on startup if there is a pre esablished connection and if not then make one.
 {
     QSettings connectionVal("OpenHue","BOB450"); //gets or makes a settings file
 

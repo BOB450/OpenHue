@@ -46,6 +46,7 @@ public:
     void itemClicked();
     bool isBridgeVisible();
     void ItemListArrowKeys();
+    void checkConnection();
 
 private slots:
 
