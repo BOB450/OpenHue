@@ -19,9 +19,6 @@ set(PROJECT_SOURCES
         mainwindow.cpp
         mainwindow.h
         mainwindow.ui
-        bridgeselect.h
-        bridgeselect.cpp
-        bridgeselect.ui
 )
 
 
