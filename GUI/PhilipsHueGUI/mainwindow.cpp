@@ -274,7 +274,6 @@ void MainWindow::on_pushButton_4_clicked()//togle light button
 
 void MainWindow::ChangeLightColor()
 {
-
     hueplusplus::Bridge bridge(ipAddress.toStdString(), port, username.toStdString(), handler);
     if(!ui->listWidget->selectedItems().empty()){//check if a light is selected if not then dont do anything fixes crash.
 
@@ -592,8 +591,7 @@ void MainWindow::on_listWidget_itemActivated(QListWidgetItem *item)
      }
 }
 
-//slider for warmth of light
-void MainWindow::on_horizontalSlider_2_sliderReleased()
+void MainWindow::sliderWarmth()
 {
     hueplusplus::Bridge bridge(ipAddress.toStdString(), port, username.toStdString(), handler);
     if(!ui->listWidget->selectedItems().empty()){
@@ -658,6 +656,12 @@ void MainWindow::on_horizontalSlider_2_sliderReleased()
         msgBox.setText("Select a light/Room");
         msgBox.exec();
     }
+}
+
+//slider for warmth of light
+void MainWindow::on_horizontalSlider_2_sliderReleased()
+{
+    QFuture<void> i = QtConcurrent::run(&MainWindow::sliderWarmth,this);
 }
 
 // When you change a item using arrow keys or sutch it will now update the sliders.

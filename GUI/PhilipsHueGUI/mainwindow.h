@@ -42,6 +42,7 @@ public:
     void togleLights();
     void ChangeLightColor();
     void changeBrightness();
+    void sliderWarmth();
 
 private slots:
 
