@@ -714,6 +714,13 @@ void MainWindow::on_listWidget_currentItemChanged(QListWidgetItem *current, QLis
 void MainWindow::on_actionRefresh_lights_triggered()// Adds lights to the list wigit by looping though all the lights and adding each by there name.
 
 {
+    if(MainWindow::isBridgeVisible() == false)
+    {
+        QMessageBox msgBox;
+        msgBox.setText("Your not connected to the internet!");
+        msgBox.exec();
+    }
+    else{
     cleared = true;
     RoomView = false;
 
@@ -733,7 +740,7 @@ void MainWindow::on_actionRefresh_lights_triggered()// Adds lights to the list w
 
         ui->listWidget->addItem(qlight);
     }
-
+}
 
 }
 
@@ -778,6 +785,13 @@ void MainWindow::on_actionLights_triggered()
 
 void MainWindow::on_actionRoom_Group_triggered()
 {
+    if(MainWindow::isBridgeVisible() == false)
+    {
+        QMessageBox msgBox;
+        msgBox.setText("Your not connected to the internet!");
+        msgBox.exec();
+    }
+    else{
     RoomView = true;
     cleared = true;//to stop proam from crashing
     hueplusplus::Bridge bridge(ipAddress.toStdString(), port, username.toStdString(), handler);
@@ -798,6 +812,7 @@ void MainWindow::on_actionRoom_Group_triggered()
         ui->listWidget->addItem(qroom);
     }
     //std::string i = bridge.groups().getAll();
+    }
 }
 
 
