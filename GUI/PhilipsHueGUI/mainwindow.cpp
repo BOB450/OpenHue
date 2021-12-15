@@ -878,8 +878,17 @@ void MainWindow::on_actionRoom_Group_triggered()
     for(int i = 0; i < Lsize; i++)
     {
         QString qroom = QString::fromStdString(groups[i].getName());
+        auto item = new QListWidgetItem();
 
-        ui->listWidget->addItem(qroom);
+        auto widget = new CustomItem(this);
+        widget->setText(qroom);
+
+        item->setSizeHint(widget->sizeHint());
+
+        ui->listWidget->addItem(item);
+        ui->listWidget->setItemWidget(item, widget);
+
+       // ui->listWidget->addItem(qroom);
     }
     //std::string i = bridge.groups().getAll();
     }
