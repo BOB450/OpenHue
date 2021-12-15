@@ -172,19 +172,6 @@ MainWindow::MainWindow(QWidget *parent)
     checkConnection(); //runs after the application has started up.
     on_actionRefresh_lights_triggered();
 
-    // Creates a list of custom widgets
-    for (int i = 0; i < 5; ++i) {
-        auto item = new QListWidgetItem();
-
-        auto widget = new CustomItem(this);
-        widget->setText(QString("text %1").arg(i));
-
-        item->setSizeHint(widget->sizeHint());
-
-        ui->listWidget->addItem(item);
-        ui->listWidget->setItemWidget(item, widget);
-    }
-
     }
 
 
@@ -811,7 +798,17 @@ void MainWindow::on_actionRefresh_lights_triggered()// Adds lights to the list w
     {
         QString qlight = QString::fromStdString(allLights[i].getName());
 
-        ui->listWidget->addItem(qlight);
+        auto item = new QListWidgetItem();
+
+        auto widget = new CustomItem(this);
+        widget->setText(qlight);
+
+        item->setSizeHint(widget->sizeHint());
+
+        ui->listWidget->addItem(item);
+        ui->listWidget->setItemWidget(item, widget);
+
+       // ui->listWidget->addItem(qlight);
     }
 }
 
