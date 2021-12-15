@@ -17,7 +17,7 @@
    <item>
     <widget class="QLabel" name="label">
      <property name="text">
-      <string>TextLabel</string>
+      <string>Item Name</string>
      </property>
     </widget>
    </item>
@@ -33,6 +33,28 @@
       </size>
      </property>
     </spacer>
+   </item>
+   <item>
+    <widget class="QFrame" name="frame">
+     <property name="minimumSize">
+      <size>
+       <width>40</width>
+       <height>0</height>
+      </size>
+     </property>
+     <property name="autoFillBackground">
+      <bool>true</bool>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::NoFrame</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Plain</enum>
+     </property>
+     <property name="lineWidth">
+      <number>0</number>
+     </property>
+    </widget>
    </item>
   </layout>
  </widget>
