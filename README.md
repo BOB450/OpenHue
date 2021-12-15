@@ -17,9 +17,9 @@ licensed under the gpl 3.0 license. Currently in super early version but will be
 
 - Change lights brightness
 
-- Change lights color temperature.
+- Change lights color temperature
 
-- Compact ui.
+- Compact ui
 
 - View bridge info  (ip username key and bridge port)
 

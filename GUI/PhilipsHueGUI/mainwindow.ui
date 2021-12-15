@@ -14,8 +14,8 @@
    <string>OpenHue</string>
   </property>
   <property name="windowIcon">
-   <iconset>
-    <normaloff>OpenHueLogo.png</normaloff>OpenHueLogo.png</iconset>
+   <iconset resource="logo.qrc">
+    <normaloff>:/icon.ico</normaloff>:/icon.ico</iconset>
   </property>
   <property name="autoFillBackground">
    <bool>false</bool>
@@ -93,7 +93,7 @@
      <x>0</x>
      <y>0</y>
      <width>419</width>
-     <height>23</height>
+     <height>26</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuActions">
@@ -183,6 +183,8 @@
    </property>
   </action>
  </widget>
- <resources/>
+ <resources>
+  <include location="logo.qrc"/>
+ </resources>
  <connections/>
 </ui>
