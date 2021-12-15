@@ -17,6 +17,7 @@
 
 
 #include "mainwindow.h"
+#include "customitem.h"
 
 #include <QApplication>
 

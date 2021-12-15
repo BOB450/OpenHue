@@ -15,6 +15,9 @@ public:
     explicit CustomItem(QWidget *parent = nullptr);
     ~CustomItem();
 
+    void setText(const QString &text);//set label on costom item
+    QString getText();//get text on label
+
 private:
     Ui::CustomItem *ui;
 };
