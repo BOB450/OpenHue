@@ -171,6 +171,20 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     checkConnection(); //runs after the application has started up.
     on_actionRefresh_lights_triggered();
+
+    // Creates a list of custom widgets
+    for (int i = 0; i < 5; ++i) {
+        auto item = new QListWidgetItem();
+
+        auto widget = new CustomItem(this);
+        widget->setText(QString("text %1").arg(i));
+
+        item->setSizeHint(widget->sizeHint());
+
+        ui->listWidget->addItem(item);
+        ui->listWidget->setItemWidget(item, widget);
+    }
+
     }
 
 
