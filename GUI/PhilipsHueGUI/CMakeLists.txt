@@ -22,6 +22,7 @@ set(PROJECT_SOURCES
         icon.ico
         logo.qrc
 )
+set(APP_ICON_RESOURCE_WINDOWS "${CMAKE_CURRENT_SOURCE_DIR}/logo.qrc")
 
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
@@ -43,6 +44,7 @@ else()
     else()
         add_executable(PhilipsHueGUI
             ${PROJECT_SOURCES}
+            ${APP_ICON_RESOURCE_WINDOWS}
         )
     endif()
 endif()
