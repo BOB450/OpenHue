@@ -290,7 +290,11 @@ void MainWindow::togleLights()
     }
     else
     {
-        QString text1 = ui->listWidget->currentItem()->text();
+        //QString text1 = ui->listWidget->currentItem()->text();
+        auto item = ui->listWidget->currentItem();//get current item selected
+        auto itemWidget = dynamic_cast<CustomItem*>(ui->listWidget->itemWidget(item));//get custom item from selected item
+     QString text1 = itemWidget->getText();//retrive item text
+
         std::vector<hue::Group> groups = bridge.groups().getAll();
         int Lsize =  groups.size();
          for(int i = 0; i < Lsize; i++)
