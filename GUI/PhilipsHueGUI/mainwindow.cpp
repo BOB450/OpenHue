@@ -18,6 +18,7 @@
 
 #include "mainwindow.h"
 #include "./ui_mainwindow.h"
+#include "customitem.h"
 #include <string>
 #include <QPushButton>
 #include <QMessageBox>

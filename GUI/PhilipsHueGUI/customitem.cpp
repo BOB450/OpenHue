@@ -31,10 +31,10 @@ CustomItem::~CustomItem()
 
 void CustomItem::setText(const QString &text)
 {
-
+    ui->label->setText(text);//set text of label
 }
 
 QString CustomItem::getText()
 {
-
+    return ui->label->text();//get text from label and return it.
 }
