@@ -28,3 +28,13 @@ CustomItem::~CustomItem()
 {
     delete ui;
 }
+
+void CustomItem::setText(const QString &text)
+{
+
+}
+
+QString CustomItem::getText()
+{
+
+}
