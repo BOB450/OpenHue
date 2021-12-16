@@ -93,21 +93,32 @@ bool MainWindow::isBridgeVisible()
     }
 }
 
-void MainWindow::setLightIndacator(CustomItem* i, int r,int g, int b)//sets light indacator based on passed in rgb value
+void MainWindow::setLightIndacator(CustomItem* i, QString qs)//sets light indacator based on passed in rgb value
 {
-    QString sr = QString::number(r);
-    QString sg = QString::number(g);
-    QString sb = QString::number(b);
-    QString backgroundc = sr + "," + sg + "," + sb;
-    i->setStyleSheet("QFrame#frame { background-color: rgb("+backgroundc+"); border: 2px solid black; border-radius: 10px; padding: 2px; }");
+   // QString sr = QString::number(r);
+    //QString sg = QString::number(g);
+    //QString sb = QString::number(b);
+    //QString backgroundc = sr + "," + sg + "," + sb;
+    i->setStyleSheet("QFrame#frame { background-color: rgb("+qs+"); border: 2px solid black; border-radius: 10px; padding: 2px; }");
 
 }
 
-void MainWindow::GetLightColor(hue::Light i)//will return color
+QString MainWindow::GetLightColor(hue::Light i)//will return color
 {
     if(i.hasColorControl()){
 
-    hue::XY icolor = i.getColorXY().xy;
+    hue::XYBrightness icolor = i.getColorXY();
+    hue::RGB rgb;
+    rgb = rgb.fromXY(icolor);
+    int r,g,b;
+    r = rgb.r;
+    g = rgb.g;
+    b = rgb.b;
+    //QMessageBox msgBox;
+
+    return QString::number(r) +","+ QString::number(g)+","+ QString::number(b);
+    //msgBox.exec();
+
     }
     else
     {
@@ -862,7 +873,7 @@ void MainWindow::on_actionRefresh_lights_triggered()// Adds lights to the list w
     {
         QString qlight = QString::fromStdString(allLights[i].getName());
 
-        GetLightColor(allLights[i]);
+
 
         auto item = new QListWidgetItem();
 
@@ -870,7 +881,7 @@ void MainWindow::on_actionRefresh_lights_triggered()// Adds lights to the list w
         widget->setText(qlight);
        // widget->setStyleSheet("background-color: rgb(13,40,70);");
         //widget->setStyleSheet("QFrame#frame { background-color: rgb(120,12,12); border: 2px solid black; border-radius: 10px; padding: 2px; }");
-        MainWindow::setLightIndacator(widget,140,89,56);
+        MainWindow::setLightIndacator(widget,GetLightColor(allLights[i]));
 
 
         item->setSizeHint(widget->sizeHint());

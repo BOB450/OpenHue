@@ -49,8 +49,8 @@ public:
     bool isBridgeVisible();
     void ItemListArrowKeys();
     void checkConnection();
-    void setLightIndacator(CustomItem*,int,int,int);
-    void GetLightColor(hueplusplus::Light);
+    void setLightIndacator(CustomItem*,QString);
+    QString GetLightColor(hueplusplus::Light);
 
 private slots:
 
