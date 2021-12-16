@@ -12,6 +12,7 @@
 #include <QSettings>
 #include <QtConcurrent/QtConcurrent>
 #include <QFuture>
+#include <QFrame>
 
 #include <hueplusplus/Bridge.h>
 #include <hueplusplus/BaseDevice.h>
