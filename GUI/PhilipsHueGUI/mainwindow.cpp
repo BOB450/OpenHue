@@ -94,7 +94,12 @@ bool MainWindow::isBridgeVisible()
 
 void MainWindow::setLightIndacator(CustomItem* i, int r,int g, int b)//sets light indacator
 {
-i->setStyleSheet("QFrame#frame { background-color: rgb(120,12,12); border: 2px solid black; border-radius: 10px; padding: 2px; }");
+    QString sr = QString::number(r);
+    QString sg = QString::number(g);
+    QString sb = QString::number(b);
+    QString backgroundc = sr + "," + sg + "," + sb;
+    i->setStyleSheet("QFrame#frame { background-color: rgb("+backgroundc+"); border: 2px solid black; border-radius: 10px; padding: 2px; }");
+
 }
 
 void MainWindow::checkConnection()//checks on startup if there is a pre esablished connection and if not then make one.
@@ -848,7 +853,7 @@ void MainWindow::on_actionRefresh_lights_triggered()// Adds lights to the list w
         widget->setText(qlight);
        // widget->setStyleSheet("background-color: rgb(13,40,70);");
         //widget->setStyleSheet("QFrame#frame { background-color: rgb(120,12,12); border: 2px solid black; border-radius: 10px; padding: 2px; }");
-        MainWindow::setLightIndacator(widget);
+        MainWindow::setLightIndacator(widget,140,89,56);
 
 
         item->setSizeHint(widget->sizeHint());
