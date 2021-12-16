@@ -92,6 +92,10 @@ bool MainWindow::isBridgeVisible()
     }
 }
 
+void MainWindow::setLightIndacator(CustomItem* i, int r,int g, int b)//sets light indacator
+{
+i->setStyleSheet("QFrame#frame { background-color: rgb(120,12,12); border: 2px solid black; border-radius: 10px; padding: 2px; }");
+}
 
 void MainWindow::checkConnection()//checks on startup if there is a pre esablished connection and if not then make one.
 {
@@ -167,8 +171,8 @@ MainWindow::MainWindow(QWidget *parent)
     else
     {
 
-
     ui->setupUi(this);
+    //ui->listWidget->setStyleSheet("QListWidget{border: 2px solid black; border-radius: 5px; }");
     checkConnection(); //runs after the application has started up.
     on_actionRefresh_lights_triggered();
 
@@ -843,8 +847,8 @@ void MainWindow::on_actionRefresh_lights_triggered()// Adds lights to the list w
         auto widget = new CustomItem(this);
         widget->setText(qlight);
        // widget->setStyleSheet("background-color: rgb(13,40,70);");
-        widget->setStyleSheet("QFrame#frame { background-color: rgb(120,12,12); border: 2px solid black; border-radius: 10px; padding: 2px; }");
-
+        //widget->setStyleSheet("QFrame#frame { background-color: rgb(120,12,12); border: 2px solid black; border-radius: 10px; padding: 2px; }");
+        MainWindow::setLightIndacator(widget);
 
 
         item->setSizeHint(widget->sizeHint());

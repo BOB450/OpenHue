@@ -20,6 +20,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <customitem.h>
 #include <QListWidget>
 #include <QListWidgetItem>
 #include <hueplusplus/BaseDevice.h>
@@ -47,6 +48,7 @@ public:
     bool isBridgeVisible();
     void ItemListArrowKeys();
     void checkConnection();
+    void setLightIndacator(CustomItem*,int,int,int);
 
 private slots:
 
