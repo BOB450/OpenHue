@@ -843,7 +843,7 @@ void MainWindow::on_actionRefresh_lights_triggered()// Adds lights to the list w
         auto widget = new CustomItem(this);
         widget->setText(qlight);
        // widget->setStyleSheet("background-color: rgb(13,40,70);");
-        widget->setStyleSheet("QFrame {background-color: rgb(12,43,76) }");
+        widget->setStyleSheet("QFrame#frame { background-color: rgb(120,12,12); border: 2px solid black; border-radius: 10px; padding: 2px; }");
 
 
 
