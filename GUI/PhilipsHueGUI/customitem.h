@@ -17,6 +17,7 @@ public:
 
     void setText(const QString &text);//set label on costom item
     QString getText();//get text on label
+    void setFrameColor(int r, int g, int b);
 
 private:
     Ui::CustomItem *ui;

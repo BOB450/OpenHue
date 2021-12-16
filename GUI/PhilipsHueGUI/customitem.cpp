@@ -23,6 +23,7 @@ CustomItem::CustomItem(QWidget *parent) :
     ui(new Ui::CustomItem)
 {
     ui->setupUi(this);
+
 }
 
 CustomItem::~CustomItem()
@@ -38,4 +39,13 @@ void CustomItem::setText(const QString &text)
 QString CustomItem::getText()
 {
     return ui->label->text();//get text from label and return it.
+}
+
+void CustomItem::setFrameColor(int r, int g, int b)//takes 3 ints that represent rgb then set frame to that value
+{
+    QString sr = QString::number(r);
+    QString sg = QString::number(g);
+    QString sb = QString::number(b);
+    QString backgroundc = sr + "," + "," + sg + "," + sb;
+    ui->frame->setStyleSheet("background-color: rgb("+backgroundc+");");
 }
