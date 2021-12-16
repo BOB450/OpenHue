@@ -92,7 +92,7 @@ bool MainWindow::isBridgeVisible()
     }
 }
 
-void MainWindow::setLightIndacator(CustomItem* i, int r,int g, int b)//sets light indacator
+void MainWindow::setLightIndacator(CustomItem* i, int r,int g, int b)//sets light indacator based on passed in rgb value
 {
     QString sr = QString::number(r);
     QString sg = QString::number(g);
