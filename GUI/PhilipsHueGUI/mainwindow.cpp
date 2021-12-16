@@ -35,6 +35,7 @@
 #include <hueplusplus/Bridge.h>
 #include <hueplusplus/BaseDevice.h>
 #include <hueplusplus/Light.h>
+#include <hueplusplus/ColorHueStrategy.h>
 
 #ifdef _MSC_VER
 #include <hueplusplus/WinHttpHandler.h>
@@ -99,6 +100,20 @@ void MainWindow::setLightIndacator(CustomItem* i, int r,int g, int b)//sets ligh
     QString sb = QString::number(b);
     QString backgroundc = sr + "," + sg + "," + sb;
     i->setStyleSheet("QFrame#frame { background-color: rgb("+backgroundc+"); border: 2px solid black; border-radius: 10px; padding: 2px; }");
+
+}
+
+void MainWindow::GetLightColor(hue::Light i)
+{
+    if(i.hasColorControl()){
+
+    hue::XY icolor = i.getColorXY().xy;
+    }
+    else
+    {
+
+    }
+
 
 }
 
@@ -846,6 +861,8 @@ void MainWindow::on_actionRefresh_lights_triggered()// Adds lights to the list w
     for(int i = 0; i < Lsize; i++)
     {
         QString qlight = QString::fromStdString(allLights[i].getName());
+
+        GetLightColor(allLights[i]);
 
         auto item = new QListWidgetItem();
 

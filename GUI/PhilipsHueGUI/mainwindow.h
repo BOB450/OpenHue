@@ -26,6 +26,7 @@
 #include <hueplusplus/BaseDevice.h>
 #include <hueplusplus/BaseHttpHandler.h>
 #include <hueplusplus/Bridge.h>
+#include <hueplusplus/Light.h>
 #include <QtConcurrent/QtConcurrent>
 #include <QFuture>
 
@@ -49,6 +50,7 @@ public:
     void ItemListArrowKeys();
     void checkConnection();
     void setLightIndacator(CustomItem*,int,int,int);
+    void GetLightColor(hueplusplus::Light);
 
 private slots:
 
