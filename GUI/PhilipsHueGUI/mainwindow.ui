@@ -58,7 +58,7 @@
     <item row="1" column="0">
      <widget class="QListWidget" name="listWidget">
       <property name="spacing">
-       <number>3</number>
+       <number>0</number>
       </property>
      </widget>
     </item>
