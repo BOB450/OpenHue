@@ -103,7 +103,7 @@ void MainWindow::setLightIndacator(CustomItem* i, int r,int g, int b)//sets ligh
 
 }
 
-void MainWindow::GetLightColor(hue::Light i)
+void MainWindow::GetLightColor(hue::Light i)//will return color
 {
     if(i.hasColorControl()){
 
