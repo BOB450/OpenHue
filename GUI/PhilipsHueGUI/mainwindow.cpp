@@ -99,7 +99,10 @@ void MainWindow::setLightIndacator(CustomItem* i, QString qs)//sets light indaca
     //QString sg = QString::number(g);
     //QString sb = QString::number(b);
     //QString backgroundc = sr + "," + sg + "," + sb;
-    i->setStyleSheet("QFrame#frame { background-color: rgb("+qs+"); border: 2px solid black; border-radius: 10px; padding: 2px; }");
+   // QString first = "QFrame#frame { background-color: rgb(";
+    //QString last = "); border: 2px solid black; border-radius: 10px; padding: 2px; }";
+    //QString style1 = first + qs + last;
+    i->setStyleSheet("QFrame#frame { background-color: rgb(12,12,222); border: 2px solid black; border-radius: 10px; padding: 2px; }");
 
 }
 
@@ -116,7 +119,7 @@ QString MainWindow::GetLightColor(hue::Light i)//will return color
     b = rgb.b;
     //QMessageBox msgBox;
 
-    return QString::number(r) +","+ QString::number(g)+","+ QString::number(b);
+    return QString::number(r) + "," + QString::number(g) + "," + QString::number(b);
     //msgBox.exec();
 
     }
@@ -881,8 +884,10 @@ void MainWindow::on_actionRefresh_lights_triggered()// Adds lights to the list w
         widget->setText(qlight);
        // widget->setStyleSheet("background-color: rgb(13,40,70);");
         //widget->setStyleSheet("QFrame#frame { background-color: rgb(120,12,12); border: 2px solid black; border-radius: 10px; padding: 2px; }");
-        MainWindow::setLightIndacator(widget,GetLightColor(allLights[i]));
+       // MainWindow::setLightIndacator(widget,MainWindow::GetLightColor(allLights[i]));
 
+
+        widget->setStyleSheet("QFrame#frame { background-color: rgb(12,12,222); border: 2px solid black; border-radius: 10px; padding: 2px; }");
 
         item->setSizeHint(widget->sizeHint());
 
