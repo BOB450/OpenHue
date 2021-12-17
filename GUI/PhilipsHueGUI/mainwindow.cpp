@@ -886,8 +886,28 @@ void MainWindow::on_actionRefresh_lights_triggered()// Adds lights to the list w
         //widget->setStyleSheet("QFrame#frame { background-color: rgb(120,12,12); border: 2px solid black; border-radius: 10px; padding: 2px; }");
        // MainWindow::setLightIndacator(widget,MainWindow::GetLightColor(allLights[i]));
 
+        if(allLights[i].hasColorControl()){
 
-        widget->setStyleSheet("QFrame#frame { background-color: rgb(12,12,222); border: 2px solid black; border-radius: 10px; padding: 2px; }");
+        hue::XYBrightness icolor = allLights[i].getColorXY();
+        hue::RGB rgb;
+        rgb = rgb.fromXY(icolor);
+        int r,g,b;
+        r = rgb.r;
+        g = rgb.g;
+        b = rgb.b;
+        //QMessageBox msgBox;
+
+        QString qwe =  QString::number(r) + "," + QString::number(g) + "," + QString::number(b);
+         widget->setStyleSheet("QFrame#frame { background-color: rgb("+ qwe + "); border: 2px solid black; border-radius: 10px; padding: 2px; }");
+        //msgBox.exec();
+
+        }
+        else
+        {
+
+        }
+
+
 
         item->setSizeHint(widget->sizeHint());
 
