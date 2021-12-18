@@ -886,7 +886,8 @@ void MainWindow::on_actionRefresh_lights_triggered()// Adds lights to the list w
         //widget->setStyleSheet("QFrame#frame { background-color: rgb(120,12,12); border: 2px solid black; border-radius: 10px; padding: 2px; }");
        // MainWindow::setLightIndacator(widget,MainWindow::GetLightColor(allLights[i]));
 
-        if(allLights[i].hasColorControl()){
+        //update light indacator
+        if(allLights[i].hasTemperatureControl()){
 
         hue::XYBrightness icolor = allLights[i].getColorXY();
         hue::RGB rgb;
@@ -904,7 +905,7 @@ void MainWindow::on_actionRefresh_lights_triggered()// Adds lights to the list w
         }
         else
         {
-
+            widget->setStyleSheet("QFrame#frame{border: 2px solid black; border-radius: 10px; padding: 2px;}");
         }
 
 
