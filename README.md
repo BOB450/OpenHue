@@ -35,17 +35,21 @@ Where the not yet completed features live might not compile. dev is merged with 
 
 ## How to Build from source (on linux)
 
-- Clone repo branch main.
+- Clone repo, branch main.
 
-- Install cmake, gcc and qt-tools
+- Install cmake, gcc and qt-tools qt6 is a must.
 
 - Install hueplusplus library at [github](https://github.com/enwi/hueplusplus)
 
-- cd into directory with cmakelists file
+- cd into hueplusplus
 
 - Run cmake
 
-- Run make
+- Run make -j4
+
+- Run make install
+
+- Open qt creator and configure then build(qt6 must be the selected qt version in tools->options).
 
 You should now have a executable.
 
