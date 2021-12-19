@@ -435,6 +435,8 @@ void MainWindow::ChangeLightColor()
 
          }
      }
+
+     MainWindow::on_actionRefresh_lights_triggered();
     }
     else
     {
