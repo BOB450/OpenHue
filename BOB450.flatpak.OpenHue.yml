@@ -1,0 +1,20 @@
+app-id: org.flatpak.OpenHue
+runtime: org.kde.Platform
+runtime-version: '6.2.2'
+sdk: org.kde.Sdk
+command: flatpak-demo
+finish-args:
+  - --share=ipc
+  - --socket=x11
+  - --socket=wayland
+  - --filesystem=host
+  - --device=dri
+modules:
+  - name: flatpak-demo
+    buildsystem: cmake-ninja
+    config-opts:
+      - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+    sources:
+      - type: archive
+        url: https://github.com/flatpak/qt-flatpak-demo/archive/v1.1.2.tar.gz
+        sha256: 1a1cc5d0f06ad949d6854c772ec9624b8856a0a4f880355f51058bc0dd52ba7a
