@@ -2,8 +2,8 @@
 
 ![GitHub](https://img.shields.io/github/license/BOB450/OpenHue?logoColor=blue)  ![GitHub issues](https://img.shields.io/github/issues/BOB450/OpenHue)  ![GitHub last commit](https://img.shields.io/github/last-commit/BOB450/OpenHue)
 
-A cross platform application to control your Philips hue compatible lights.
-licensed under the gpl 3.0 license. Currently in super early version but will be providing binary's for linux and windows soon with mac os binarys at 1.0 release.
+A cross platform application to control Philips hue compatible lights.
+Licensed under the gpl 3.0 license. Currently in super early version but will be providing binary's for linux and windows soon with mac os binaries at 1.0 release.
 
 ![OpenHue1](imgs/OpenHue3.png)![OpenHue1](imgs/OpenHue4.png)![OpenHue1](imgs/color_selection.png)
 
