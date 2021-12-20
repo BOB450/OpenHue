@@ -30,3 +30,13 @@ GroupItem::~GroupItem()
 {
     delete ui;
 }
+
+void GroupItem::setText(const QString &text)
+{
+
+}
+
+QString GroupItem::getText()
+{
+
+}

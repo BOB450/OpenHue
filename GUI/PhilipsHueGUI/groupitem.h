@@ -15,6 +15,9 @@ public:
     explicit GroupItem(QWidget *parent = nullptr);
     ~GroupItem();
 
+    void setText(const QString &text);//set label on costom item
+    QString getText();//get text on label
+
 private:
     Ui::GroupItem *ui;
 };
