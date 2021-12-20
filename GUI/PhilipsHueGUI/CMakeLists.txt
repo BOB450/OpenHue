@@ -24,6 +24,9 @@ set(PROJECT_SOURCES
         customitem.h
         customitem.cpp
         customitem.ui
+        groupitem.h
+        groupitem.cpp
+        groupitem.ui
 )
 set(APP_ICON_RESOURCE_WINDOWS "${CMAKE_CURRENT_SOURCE_DIR}/logo.qrc")
 

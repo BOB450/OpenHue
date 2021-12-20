@@ -18,6 +18,7 @@
 
 #include "mainwindow.h"
 #include "customitem.h"
+#include "groupitem.h"
 
 #include <QApplication>
 

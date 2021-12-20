@@ -21,6 +21,7 @@
 
 #include <QMainWindow>
 #include <customitem.h>
+#include<groupitem.h>
 #include <QListWidget>
 #include <QListWidgetItem>
 #include <hueplusplus/BaseDevice.h>
