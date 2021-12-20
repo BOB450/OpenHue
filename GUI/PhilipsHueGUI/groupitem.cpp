@@ -33,10 +33,11 @@ GroupItem::~GroupItem()
 
 void GroupItem::setText(const QString &text)
 {
+    ui->label->setText(text);//set text of label
 
 }
 
 QString GroupItem::getText()
 {
-
+    return ui->label->text();//get text from label and return it.
 }

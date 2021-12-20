@@ -990,7 +990,7 @@ void MainWindow::on_actionRoom_Group_triggered()
         QString qroom = QString::fromStdString(groups[i].getName());
         auto item = new QListWidgetItem();
 
-        auto widget = new CustomItem(this);
+        auto widget = new GroupItem(this);
         widget->setText(qroom);
 
         item->setSizeHint(widget->sizeHint());
