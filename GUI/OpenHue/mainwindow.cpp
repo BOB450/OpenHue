@@ -1052,6 +1052,8 @@ void MainWindow::on_actionRoom_Group_triggered()
 
         item->setSizeHint(widget->sizeHint());
 
+        widget->setStyleSheet("QFrame#frame {border: 2px solid black; border-radius: 10px; padding: 2px; }");
+
         ui->listWidget->addItem(item);
         ui->listWidget->setItemWidget(item, widget);
 
