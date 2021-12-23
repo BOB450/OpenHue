@@ -965,7 +965,7 @@ void MainWindow::on_actionRefresh_lights_triggered()// Adds lights to the list w
         }
         else
         {
-            widget->setStyleSheet("QFrame#frame{border: 2px solid black; border-radius: 10px; padding: 2px;}");
+           // widget->setStyleSheet("QFrame#frame{border: 2px solid black; border-radius: 10px; padding: 2px;}");
         }
 
 
