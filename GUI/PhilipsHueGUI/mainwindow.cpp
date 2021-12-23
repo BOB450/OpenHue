@@ -452,7 +452,7 @@ void MainWindow::ChangeLightColor()
        //QString textg = ui->listWidget->currentItem()->text();
 
         auto item = ui->listWidget->currentItem();//get current item selected
-        auto itemWidget = dynamic_cast<CustomItem*>(ui->listWidget->itemWidget(item));//get custom item from selected item
+        auto itemWidget = dynamic_cast<GroupItem*>(ui->listWidget->itemWidget(item));//get custom item from selected item
      QString textg = itemWidget->getText();//retrive item text
 
         for(int i = 0; i < Lsize; i++)
