@@ -650,7 +650,7 @@ void MainWindow::on_listWidget_itemPressed(QListWidgetItem *item)
 void MainWindow::itemClicked()
 {
     hueplusplus::Bridge bridge(ipAddress.toStdString(), port, username.toStdString(), handler);
-
+    if(!RoomView){
 
     //QString text = ui->listWidget->currentItem()->text();
     auto item = ui->listWidget->currentItem();//get current item selected
@@ -687,6 +687,45 @@ void MainWindow::itemClicked()
             ui->horizontalSlider_2->setValue(Ctemp);
          }
      }
+    }
+    else{
+        //QString text = ui->listWidget->currentItem()->text();
+        auto item = ui->listWidget->currentItem();//get current item selected
+        auto itemWidget = dynamic_cast<GroupItem*>(ui->listWidget->itemWidget(item));//get custom item from selected item
+     QString text = itemWidget->getText();//retrive item text
+
+         std::vector<hue::Light> allLights = getLight(bridge);
+         int Lsize =  allLights.size();
+         for(int i = 0; i < Lsize; i++)
+         {
+             QString qlight = QString::fromStdString(allLights[i].getName());
+             if(qlight == text)
+             {
+                 if(!allLights[i].hasTemperatureControl())
+                 {
+                     ui->horizontalSlider_2->hide();
+                 }
+                 else
+                 {
+                     ui->horizontalSlider_2->setHidden(false);
+                 }
+                 if(!allLights[i].hasBrightnessControl())
+                 {
+                     ui->horizontalSlider->hide();
+                 }
+                 else
+                 {
+                     ui->horizontalSlider->setHidden(false);
+                 }
+
+                int bri = allLights[i].getBrightness(); // get brightness from light
+                ui->horizontalSlider->setValue(bri); // set position of slider to that of the selected light
+                int Ctemp = allLights[i].getColorTemperature(); // get color temp from light
+                ui->horizontalSlider_2->setValue(Ctemp);
+             }
+         }
+
+    }
 }
 
 //When a light is clicked set the britness of the light eqal to the slider
@@ -797,7 +836,9 @@ void MainWindow::on_horizontalSlider_2_sliderReleased()
 
 void MainWindow::ItemListArrowKeys()
 {
-    if(RoomView){ui->horizontalSlider->setHidden(false); ui->horizontalSlider_2->setHidden(false);}
+    if(RoomView){ui->horizontalSlider->setHidden(false); ui->horizontalSlider_2->setHidden(false);
+
+    }
     if(cleared == false)//if lights have been cleared do not run becuase it will cuase crash
     {
     hueplusplus::Bridge bridge(ipAddress.toStdString(), port, username.toStdString(), handler);
