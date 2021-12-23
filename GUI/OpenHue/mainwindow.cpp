@@ -201,6 +201,7 @@ MainWindow::MainWindow(QWidget *parent)
         QMessageBox msgBox;
         msgBox.setText("Your not connected to the internet! Please connect and restart.");
         msgBox.exec();
+        MainWindow::on_actionDelete_triggered();
         QApplication::quit();
     }
     else
