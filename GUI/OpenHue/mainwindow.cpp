@@ -76,6 +76,7 @@ bool MainWindow::isBridgeVisible()
      ipAddress = connectionVal.value("bridgeIP").toString();
 
     QStringList parameters;
+    QStringList parameters2;
  #if defined(WIN32)
     parameters << "-n" << "1";
  #else
@@ -89,8 +90,15 @@ bool MainWindow::isBridgeVisible()
         // it's alive
         return true;
     } else {
+        parameters2 << "google.com";
+        int exitCode2 = QProcess::execute("ping", parameters2);
+        if(exitCode==0)
+        {
+            return true;
+        }
+        else{
         // it's dead
-        return false;
+        return false;}
     }
 }
 
