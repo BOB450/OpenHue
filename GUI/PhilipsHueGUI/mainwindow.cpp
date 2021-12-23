@@ -836,17 +836,24 @@ void MainWindow::on_horizontalSlider_2_sliderReleased()
 
 void MainWindow::ItemListArrowKeys()
 {
-    if(RoomView){ui->horizontalSlider->setHidden(false); ui->horizontalSlider_2->setHidden(false);
-
-    }
     if(cleared == false)//if lights have been cleared do not run becuase it will cuase crash
     {
     hueplusplus::Bridge bridge(ipAddress.toStdString(), port, username.toStdString(), handler);
 
-   // QString text = ui->listWidget->currentItem()->text();
-    auto item = ui->listWidget->currentItem();//get current item selected
-    auto itemWidget = dynamic_cast<CustomItem*>(ui->listWidget->itemWidget(item));//get custom item from selected item
- QString text = itemWidget->getText();//retrive item text
+    QString text;
+    if(RoomView){ui->horizontalSlider->setHidden(false); ui->horizontalSlider_2->setHidden(false);
+        // QString text = ui->listWidget->currentItem()->text();
+         auto item = ui->listWidget->currentItem();//get current item selected
+         auto itemWidget = dynamic_cast<GroupItem*>(ui->listWidget->itemWidget(item));//get custom item from selected item
+      QString text = itemWidget->getText();//retrive item text
+    }
+    else
+    {
+        // QString text = ui->listWidget->currentItem()->text();
+         auto item = ui->listWidget->currentItem();//get current item selected
+         auto itemWidget = dynamic_cast<CustomItem*>(ui->listWidget->itemWidget(item));//get custom item from selected item
+      QString text = itemWidget->getText();//retrive item text
+    }
 
      std::vector<hue::Light> allLights = getLight(bridge);
      int Lsize =  allLights.size();
