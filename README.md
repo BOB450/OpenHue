@@ -2,8 +2,8 @@
 
 ![GitHub](https://img.shields.io/github/license/BOB450/OpenHue?logoColor=blue)  ![GitHub issues](https://img.shields.io/github/issues/BOB450/OpenHue)  ![GitHub last commit](https://img.shields.io/github/last-commit/BOB450/OpenHue)
 
-A cross platform application to control your Philips hue compatible lights.
-licensed under the gpl 3.0 license. Currently in super early version but will be providing binary's for linux and windows soon with mac os binarys at 1.0 release.
+A cross platform application to control Philips hue compatible lights.
+Licensed under the gpl 3.0 license. Currently in super early version but will be providing binary's for linux and windows soon with mac os binaries at 1.0 release.
 
 ![OpenHue1](imgs/OpenHue3.png)![OpenHue1](imgs/OpenHue4.png)![OpenHue1](imgs/color_selection.png)
 
@@ -35,17 +35,21 @@ Where the not yet completed features live might not compile. dev is merged with 
 
 ## How to Build from source (on linux)
 
-- Clone repo branch main.
+- Clone repo, branch main.
 
-- Install cmake, gcc and qt-tools
+- Install cmake, gcc and qt-tools qt6 is a must.
 
 - Install hueplusplus library at [github](https://github.com/enwi/hueplusplus)
 
-- cd into directory with cmakelists file
+- cd into hueplusplus
 
 - Run cmake
 
-- Run make
+- Run make -j4
+
+- Run make install
+
+- Open qt creator and configure then build(qt6 must be the selected qt version in tools->options).
 
 You should now have a executable.
 
