@@ -960,11 +960,11 @@ void MainWindow::on_actionRefresh_lights_triggered()// Adds lights to the list w
 
         QString qwe =  QString::number(r) + "," + QString::number(g) + "," + QString::number(b);
         if(allLights[i].isOn()){
-         widget->setStyleSheet("QFrame#frame { background-color: rgb("+ qwe + "); border: 2px solid black; border-radius: 10px; padding: 2px; } QFrame#frame_2 {border: 2px solid black; border-radius: 10px; padding: 2px; background-color: black;}");
+         widget->setStyleSheet("QFrame#frame { background-color: rgb("+ qwe + "); border: 2px solid black; border-radius: 10px; padding: 2px; } QFrame#frame_2 {border: 2px solid black; border-radius: 10px; padding: 2px; background-color: white;}");
         }
         else
         {
-            widget->setStyleSheet("QFrame#frame { background-color: rgb("+ qwe + "); border: 2px solid black; border-radius: 10px; padding: 2px; } QFrame#frame_2 {border: 2px solid black; border-radius: 10px; padding: 2px;  background-color: white;}");
+            widget->setStyleSheet("QFrame#frame { background-color: rgb("+ qwe + "); border: 2px solid black; border-radius: 10px; padding: 2px; } QFrame#frame_2 {border: 2px solid black; border-radius: 10px; padding: 2px;  background-color: black;}");
         }
         //msgBox.exec();
 
@@ -1063,7 +1063,7 @@ void MainWindow::on_actionRoom_Group_triggered()
 
         item->setSizeHint(widget->sizeHint());
 
-        widget->setStyleSheet("QFrame#frame {border: 2px solid black; border-radius: 10px; padding: 2px; }");
+      //  widget->setStyleSheet("QFrame#frame {border: 2px solid black; border-radius: 10px; padding: 2px; }");
 
         ui->listWidget->addItem(item);
         ui->listWidget->setItemWidget(item, widget);
