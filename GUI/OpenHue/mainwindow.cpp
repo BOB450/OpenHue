@@ -959,13 +959,24 @@ void MainWindow::on_actionRefresh_lights_triggered()// Adds lights to the list w
         //QMessageBox msgBox;
 
         QString qwe =  QString::number(r) + "," + QString::number(g) + "," + QString::number(b);
-         widget->setStyleSheet("QFrame#frame { background-color: rgb("+ qwe + "); border: 2px solid black; border-radius: 10px; padding: 2px; }");
+        if(allLights[i].isOn()){
+         widget->setStyleSheet("QFrame#frame { background-color: rgb("+ qwe + "); border: 2px solid black; border-radius: 10px; padding: 2px; } QFrame#frame_2 {border: 2px solid black; border-radius: 10px; padding: 2px; background-color: black;}");
+        }
+        else
+        {
+            widget->setStyleSheet("QFrame#frame { background-color: rgb("+ qwe + "); border: 2px solid black; border-radius: 10px; padding: 2px; } QFrame#frame_2 {border: 2px solid black; border-radius: 10px; padding: 2px;  background-color: white;}");
+        }
         //msgBox.exec();
 
         }
         else
         {
-           // widget->setStyleSheet("QFrame#frame{border: 2px solid black; border-radius: 10px; padding: 2px;}");
+            if(allLights[i].isOn()){
+            widget->setStyleSheet("QFrame#frame_2 {border: 2px solid black; border-radius: 10px; padding: 2px; background-color: white;}");
+            }
+            else{
+                widget->setStyleSheet("QFrame#frame_2 {border: 2px solid black; border-radius: 10px; padding: 2px; background-color: black;}");
+            }
         }
 
 
